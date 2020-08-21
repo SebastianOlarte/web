@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHTML</title>
+    <script src="funciones_Dhtml_1.js"></script>
+    <link rel="stylesheet" href="css_para_ejemplos_dhtml.css" type="text/css">
+</head>
+<body>
+<h1 class="titulo">Accediendo a una marca HTML a través del DOM (getElementById)</h1>
+<p class="problema">Problema:Disponer una marca h1 con un mensaje. Luego dos botones que permitan cambiar el color y el tamaño de la fuente</p>
+<h1 id="2">Este es un título dinámico</h1> 
+<input type="button" value="Cambiar Color" onClick="cambiarColor()" id="boton1">
+<input type="button" value="Cambiar Tamaño de Fuente" onClick="cambiarTamanoFuente()" id="boton2">
+
+<p class="problema">Problema:Permitir cambiar el tamaño de la fuente de un párrafo. Para esto crear tres botones (fuente pequeña (10), fuente mediana(13) y fuente grande(20))</p>
+<p id="comentarios1">Este texto pertenece al párrafo. Este texto pertenece al párrafo.Este texto pertenece al párrafo.Este 
+    texto pertenece al párrafo.Este texto pertenece al párrafo.Este texto pertenece al párrafo.Este texto pertenece al párrafo.Este 
+    texto pertenece al párrafo.Este texto pertenece al párrafo.Este texto pertenece al párrafo.Este texto pertenece al párrafo.Este 
+    texto pertenece al párrafo.Este texto pertenece al párrafo.Este texto pertenece al párrafo.Este texto pertenece al párrafo.</p> 
+<input type="button" value="Fuente pequeña" onClick="cambiarFuente(10)" id="boton1">
+<input type="button" value="Fuente mediana" onClick="cambiarFuente(16)" id="boton1">
+<input type="button" value="Fuente grande" onClick="cambiarFuente(25)" id="boton1">
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Accediendo a los nodos hijos de un elemento HTML(childNodes[] - children[])</h1>
+<p class="problema">Problema:Confeccionar una página que contenga un div con tres párrafos. Luego acceder a la propiedad childNodes y verificar cuantos hijos tiene y de que tipo de nodos se tratan.</p>
+<div id="bloque1">
+    <p>Este es el primer párrafo</p><p>Este es el segundo párrafo</p><p>Este es el tercer párrafo</p>
+</div>
+<input type="button" value="Cantidad de Hijos del DIV" onClick="cantidadHijos()" id="boton1">
+
+<p class="problema">Problema:Desarrollar una página que contenga dos div con dos párrafos cada uno. El primer div escribir todos su contenido en la misma línea, sin presionar la tecla "enter" o "entrada". El segundo div escribir los párrafos en líneas distintas.
+    Mostrar cuando se presione un botón la cantidad de nodos hijos de cada div.</p>
+<div id="bloque2"><p>Este es el primer párrafo</p><p>Este es el segundo párrafo</p></div>
+<div id="bloque3">
+    <p>Este es el primer párrafo</p>
+    <p>Este es el segundo párrafo</p>
+</div>
+<input type="button" value="Cantidad de nodos hijo" onClick="cantidadHijosDeDivs()" id="boton1">
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Accediendo a un nodo de texto de un elemento HTML (childNodes[] - nodeValue)</h1>
+<p class="problema">Problema:Cambiar el texto que contiene un elemento h1 accediendo al nodo de texto mediante la referencia de dicho elemento que lo obtenemos mediante el método getElementById.</p>
+<h1 id="tituloCambiante">Este es el título original</h1> 
+<input type="button" value="Cambiar Texto" onClick="cambiarTexto()" id="boton1">
+
+<p class="problema">Problema:Definir un elemento h1 con el texto "1". Luego, en forma dinámica rescatar el valor que tiene el nodo de texto, convertirlo a entero con la función parseInt de JavaScript, sumarle uno y finalmente asignárselo a la propiedad nodeValue del nodo de texto (es decir mostramos un contador).</p>
+<h1 id="contador1">1</h1> 
+<input type="button" value="Incrementar en uno" onClick="sumarUno()" id="boton1">
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Accediendo a un nodo padre (parentNode)</h1>
+<p class="problema">Problema:A partir de la referencia de un párrafo contenido en un div modificar el color de fondo del div.</p>
+<div>
+    <p id="Dinamico1">Este es el primer párrafo</p>
+    <p>Este es el segundo párrafo</p>
+    <p>Este es el tercer párrafo</p>
+</div>
+<input type="button" value="Cambiar color de fondo del div" onClick="cambiarColorDivDesdeHijo()" id="boton1">
+
+<p class="problema">Problema:Crear una página html que contenga tres párrafos y definir su propiedad id para el primero de ellos. Cambiar el tamaño de fuente por '40px' para todos los elementos de la página.</p>
+<p id="Dinamico1.1">Este es el primer párrafo</p>
+<p>Este es el segundo párrafo</p>
+<p>Este es el tercer párrafo</p>
+<input type="button" value="Cambiar tamaño de fuente" onClick="cambiarTamFuente()" id="boton1">
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Accediendo a un nodo hermano (nextSibling y previousSibling --- nextElementSibling y previousElementSibling)</h1>
+<p>la diferencia entre <i>nextSibling</i> y <i>nextElementSibling</i>  es que <i>nextSibling</i> devuelve el hermano siguiente sea un elemento html o no. por ejemplo, puede devolver los elementos texto que se crean cuando se presiona enter entre etiquetas html
+mientras que <i>nextElementSibling</i> retorna especificamente el siguiente elemento html hermano. La misma logica ocurre con <i>previousSibling</i>  y <i>previousElementSibling</i> , pero para devolver el hermano elemento anterior.</p>
+<p class="problema">Problema:Implementar una página que contenga tres párrafos y solo disponemos el id del primero de ellos. Luego mediante la propiedad nextSibling obtenemos los nodos hermanos.</p>
+<div>
+    <p id="Dinamico1.2">Este es el primer párrafo</p>
+    <p>Este es el segundo párrafo</p>
+    <p>Este es el tercer párrafo</p>
+</div>
+<input type="button" value="Imprimir los tres párrafos" onClick="proximoDinamico()" id="boton1">
+
+<p class="problema">Problema:Disponer una página que contenga una tabla HTML con dos filas y tres elementos cada una. Definir el id de la primera celda de la tabla (elemento "td"). Luego, mediante una estructura repetitiva, acceder y mostrar con un alert los nodos texto de cada celda de la primer fila.</p>
+<table>
+    <tr>
+        <td id="elemento1">100</td><td>200</td><td>300</td>
+    </tr>
+    <tr>
+        <td>400</td><td>500</td><td>600</td>
+    </tr>
+</table>
+<input type="button" value="Primer fila" onClick="mostrarFilaTabla()" id="boton1">
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Otras formas de acceder a los nodos hijos (firstChild - lastChild)</h1>
+<p class="problema">Problema:Disponer tres párrafos dentro de un div. Acceder al primer hijo del div y luego avanzando con la propiedad nextSibling. Llegar hasta el final de la lista de hermanos, mostrando el texto de cada párrafo.</p>
+<div id="Dinamicos2">
+    <p>Este es el primer párrafo</p>
+    <p>Este es el segundo párrafo</p>
+    <p>Este es el tercer párrafo</p>
+</div>
+<input type="button" value="accediendo a los tres párrafos" onClick="proximoDinamico2('Dinamicos2')" id="boton1">
+
+<p class="problema">Problema:Definir un div con tres párrafos. Obtener la referencia del último hijo del div. Regresar desde el final con la propiedad previousSibling. Mostrar el contenido de cada párrafo.</p>
+<div id="Dinamicos2.1">
+    <p>Este es el primer párrafo</p>
+    <p>Este es el segundo párrafo</p>
+    <p>Este es el tercer párrafo</p>
+</div>
+<input type="button" value="accediendo a los tres párrafos" onClick="proximoDinamico2('Dinamicos2.1')" id="boton1">
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Accediendo a un conjunto de marcas HTML similares (getElementsByTagName)</h1>
+<p class="problema">Problema:Confeccionemos una página que permita agregar un punto al final de cada párrafo.</p>
+<p>Este es el primer párrafo</p>
+<p>Este es el segundo párrafo</p>
+<p>Este es el tercer párrafo</p>
+<input type="button" value="Agregar un punto al final de cada párrafo" onClick="cambiarDinamicos()" id="boton1">
+
+<p class="problema">Problema:Confeccionar una página que fije el color verde a todos los párrafos.</p>
+<p>Párrafo número 1.</p>
+<p>Párrafo número 2.</p>
+<p>Párrafo número 3.</p>
+<p>Párrafo número 4.</p>
+<p>Párrafo número 5.</p>
+<p>Párrafo número 6.</p>
+<input type="button" value="Cambiar Color" onClick="cambiarDinamicos()" id="boton1">
+
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Accediendo a un conjunto de marcas HTML similares a partir de un Nodo Contenedor (getElementsByTagName)</h1>
+<p class="problema">Problema:Agregar un punto al final de cada párrafo contenido en el div con id llamado bloque2.</p>
+<div id="bloque2.1">
+    <h2>Inicio</h2>
+    <p>Este es el primer párrafo</p>
+    <p>Este es el segundo párrafo</p>
+    <p>Este es el tercer párrafo</p>
+    <p>Este es el cuarto párrafo</p>
+    <h2>Final</h2>
+</div>
+<input type="button" value="Agregar un punto al final de cada párrafo" onClick="cambiarDinamicosBloque2()" id="boton1">
+
+<p class="problema">Problema:Confeccionar una página que muestre dos div que contengan 3 párrafos cada uno. Cuando se presione un botón ocultar todos los párrafos del segundo div.</p>
+<div id="bloque11">
+    <h2>Primer Bloque de párrafos.</h2>
+    <p>Este es el primer párrafo</p>
+    <p>Este es el segundo párrafo</p>
+    <p>Este es el tercer párrafo</p>
+</div>
+<div id="bloque22">
+    <h2>Segundo Bloque de párrafos.</h2>
+    <p>Este es el primer párrafo</p>
+    <p>Este es el segundo párrafo</p>
+    <p>Este es el tercer párrafo</p>
+</div>
+<input type="button" value="Ocultar y Mostrar Dinamicos" onClick="ocultarDinamicos()" id="boton1">
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Agregar un nodo de texto (createTextNode - appendChild)</h1>
+<p class="problema">Problema:Confeccionar un programa para que al presionar un botón añada un nodo de texto a un párrafo mostrando cuántos nodos de texto se han añadido hasta el momento.</p>
+<p id="parrafoDinamico">Texto inicial:</p>
+<input type="button" value="Agregar nodo de texto" onClick="agregarTextoParrafo('parrafoDinamico')" id="boton1">
+
+<p class="problema">Problema:Confeccionar una página que contenga una lista de tipo (ul) y definir tres marcas de tipo (li) sin texto. Luego al presionar un botón agregar un nodo de texto a cada marca (li).</p>
+<ul>
+    <li id="opcion1"></li>
+    <li id="opcion2"></li>
+    <li id="opcion3"></li>
+</ul>
+<input type="button" value="ver soluciones" onClick="mostrarSoluciones()">
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Eliminar un nodo de texto (removeChild) y verificar si tiene nodos hijo (hasChildNodes)</h1>
+<p class="problema">Problema:Implementar un programa que permita añadir y eliminar nodos de texto de un párrafo.</p>
+<p id="parrafoDinamico2">Texto inicial:</p>
+<input type="button" value="Agregar nodo de texto" onClick="agregarTextoParrafo('parrafoDinamico2')" id="boton1">
+<input type="button" value="Eliminar nodo de texto" onClick="eliminarTextoDesdeFinal('parrafoDinamico2')" id="boton1">
+
+<p class="problema">Problema:Implementar un programa que permita añadir nodos de texto y eliminar nodos de texto de un párrafo (eliminar siempre el primer hijo de la lista)</p>
+<p id="parrafoDinamico3">Texto inicial:</p>
+<input type="button" value="Agregar nodo de texto" onClick="agregarTextoParrafo('parrafoDinamico3')" id="boton1">
+<input type="button" value="Eliminar nodo de texto" onClick="eliminarTextoDesdeInicio('parrafoDinamico3')" id="boton1">
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Crear y agregar un nodo de tipo elemento (createElement - appendChild)</h1>
+<p class="problema">Problema:Implementar un programa que permita añadir y eliminar nodos de texto de un párrafo.</p>
+<div id="parrafosDinamicos"></div>
+<input type="button" value="Agregar nodo tipo elemento" onClick="agregarParrafo('parrafosDinamicos')" id="boton1">
+
+<p class="problema">Problema:Confeccionar una página que contenga una lista de tipo (ul) y no defina marcas de tipo (li) inicialmente. Luego al presionar un botón agregar dos marcas de tipo (li) con sus respectivos textos.</p>
+<ul id="listaUl1"></ul>
+<input type="button" value="agregar dos (li)" onClick="mostrarSolucionesLi('listaUl1')" id="boton1">
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Agregar un nodo de tipo elemento en medio (createElement - insertBefore)</h1>
+<p class="problema">Problema:Definir una página que contenga un div con 4 párrafos. Al presionar un botón crear un nodo de tipo elemento (párrafo) y un nodo de tipo texto, luego insertar el nodo de tipo elemento entre el segundo y tercer párrafo.</p>
+<div id="parrafosDinamicos2">
+    <p id="p1">Este es el primer párrafo</p>
+    <p id="p2">Este es el segundo párrafo</p>
+    <p id="p3">Este es el tercer párrafo</p>
+    <p id="p4">Este es el cuarto párrafo</p>
+</div>
+<input type="button" value="insertar otro párrafo en medio" onClick="insertarEnMedio('parrafosDinamicos2','p4')" id="boton1">
+
+<p class="problema">Problema:Se debe crear una página que contenga un div con 3 párrafos. Al presionar un botón insertar un nuevo párrafo al principio del div que contiene los 3 párrafos.</p>
+<div id="parrafosDinamicos3">
+    <p>Este es el primer párrafo</p>
+    <p>Este es el segundo párrafo</p>
+    <p>Este es el tercer párrafo</p>
+</div>
+<input type="button" value="insertar parrafo al principio" onClick="insertarParrafoAlPrincipio('parrafosDinamicos3')" id="boton1">
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Eliminar un nodo de tipo elemento (removeChild)</h1>
+<p class="problema">Problema:Permitir crear nodos de tipo elemento. Luego disponer dos botones que permitirán borrar el primero o el último nodo de un nodo elemento.</p>
+<div id="parrafosDinamicos4"></div>
+<input type="button" value="Agregar nodo tipo elemento" onClick="agregarOtroParrafo('parrafosDinamicos4')" id="boton1">
+<input type="button" value="Eliminar primer nodo tipo elemento" onClick="eliminarPrimerElemento('parrafosDinamicos4')" id="boton1">
+<input type="button" value="Eliminar último nodo tipo elemento" onClick="eliminarUltimoElemento('parrafosDinamicos4')" id="boton1">
+
+<p class="problema">Problema:Disponer un div con tres párrafos. Ingresar en un control de tipo text un valor entero entre 1 y 3. Luego borrar el párrafo que coincida con el valor ingresado (el valor ingresado representa la posición del nodo elemento a borrar).</p>
+<div id="parrafosDinamicos5">
+    <p>Parrafo 1</p>
+    <p>Parrafo 2</p>
+    <p>Parrafo 3</p>
+</div>
+<input type="text" id="posicionParrafo" name="posicionParrafo">
+<input type="button" value="Eliminar el párrafo de la posición ingresada" onClick="eliminarElementoPorPosicion('parrafosDinamicos5','posicionParrafo')" id="boton1">
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Crear un atributo y agregárselo a un nodo de tipo elemento (setAttribute)</h1>
+<p class="problema">Problema:Crear un nodo de tipo elemento <.a.> y luego definirle la propiedad href Todo esto en forma dinámica al presionar un botón.</p>
+<div id="direccion1"></div><br>
+<input type="button" value="Crear nodo tipo elemento y definir el atributo href" onClick="crearElementoyAtributo('direccion1')" id="boton1">
+
+<p class="problema">Problema:Se tiene una tabla sin borde. Confeccionar una función que inicialice la propiedad border de la tabla con el valor 5.</p>
+<table id="tabla1">
+    <tr>
+        <td>11</td><td>12</td><td>13</td><td>14</td><td>15</td>
+    </tr>
+    <tr>
+        <td>21</td><td>22</td><td>23</td><td>24</td><td>25</td>
+    </tr>
+    </table>
+<input type="text" id="valorBorde" name="valorBorde">
+<input type="button" value="definir la propiedad border de la tabla" onClick="definirAtributoDeTabla('tabla1','valorBorde')" id="boton1">
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Borrar un atributo de un elemento (removeAttribute)</h1>
+<p class="problema">Problema:Implementar una página que muestre dos hipervínculos, luego mediante dos botones poder crear o eliminar el atributo href de las respectivas marcas.</p>
+<div>
+    <a id="Google1" href="http://www.google.com.ar">Google.</a><br>
+
+    <a id="Google2" href="http://www.yahoo.com.ar">Yahoo.</a><br>
+
+</div>
+<input type="button" value="Eliminar atributos" onClick="eliminarAtributoDeGoogles('Google1','Google2')" id="boton1">
+
+<input type="button" value="Inicializar atributos" onClick="inicializarAtributoDeGoogles('Google1','Google2')" id="boton1">
+
+
+<p class="problem">Problema:Se tiene una tabla y dos controles de tipo button. Permitir inicializar con un numero la propiedad border de la tabla al presionar uno de los botones y borrar la propiedad border al presionar el otro botón.</p>
+<table id="tabla2">
+    <tr>
+        <td>11</td><td>12</td><td>13</td><td>14</td><td>15</td>
+    </tr>
+    <tr>
+        <td>21</td><td>22</td><td>23</td><td>24</td><td>25</td>
+    </tr>
+    </table>
+<input type="text" id="valorBordeTabla2" name="valorBordeTabla2"><br><br>
+<input type="button" value="Definir borde" onClick= "definirAtributoDeTabla('tabla2','valorBordeTabla2')" id="boton1">
+<input type="button" value="Borrar borde" onClick= "borrarAtributoDeTabla('tabla2')" id="boton1">
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Recuperar un atributo de un elemento (getAttribute)</h1>
+<p class="problema">Problema:Recuperar el valor de la propiedad href de un ancla y luego mostrarla.</p>
+<a id="Google3" href="http://www.google.com.ar">Google.</a><br><br>
+
+<input type="button" value="Recuperar atributo href" onClick="recuperarAtributoDeGoogle('Google3')" id="boton1">
+
+
+
+<p class="problema">Problema:Disponer dos Googles a distintos sitios. Recuperar la propiedad href del primer Google y fijar el segundo Google con dicho valor.</p>
+
+<a id="Google4" href="http://www.google.com.ar">Google.</a><br>
+
+<a id="Google5" href="http://www.msn.com">MSN.</a><br><br>
+
+<input type="button" value="Copiar href del primer link al segundo" onClick="CopiarHrefDeGoogles('Google4','Google5')" id="boton1">
+
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Verificar si un elemento tiene un atributo (hasAttribute)</h1>
+<p class="problema">Problema:Disponer una tabla de dos filas y dos columnas. Mediante un botón verificar si el elemento "table" tiene la propiedad border. En caso que la tenga proceder a eliminarla y si no la tiene fijar dicha propiedad con el valor 20.</p>
+<table id="tabla3">
+    <tr>
+        <td>1100</td><td>2200</td><td>3300</td><td>4400</td><td>5500</td><td>6600</td>
+    </tr>
+    <tr>
+        <td>7700</td><td>8800</td><td>9900</td><td>1110</td><td>2220</td><td>3330</td>
+    </tr>
+</table><br>
+<input type="button" value="Cambiar Borde De Tabla" onClick="cambiarAtributoBorderDeTabla('tabla3')" id="boton1">
+
+<p class="problema">Problema:Crear una tabla de dos filas y dos columnas. Inicialmente la tabla no tiene la propiedad border. Al presionar un botón verificar si la tabla tiene la propiedad border. En el caso que no la tenga inicializarla con el valor 1 y en caso contrario recuperar el valor actual de dicha propiedad y sumarle 1.</p>
+<table id="tabla4">
+    <tr>
+        <td>11</td><td>12</td><td>13</td><td>14</td>
+    </tr>
+    <tr>
+        <td>21</td><td>22</td><td>23</td><td>24</td>
+    </tr>
+    <tr>
+        <td>31</td><td>32</td><td>33</td><td>34</td>
+    </tr>
+</table>
+<input type="button" value="Aumentar Borde" onClick="aumentarBordeDeTabla('tabla4')" id="boton1">
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Clonación de un nodo (cloneNode)</h1>
+<p>Si queremos hacer una copia idéntica de un nodo y ubicarlo en otra parte del árbol, podemos utilizar el método:</p>
+<pre>cloneNode(<true o false> )</pre>
+<p>Si le pasamos como parámetro el valor true, hará una copia del nodo y todos sus descendientes; en caso de pasarle false sólo hará una copia de dicho nodo.
+</p>
+<p class="problema">Problema:Confeccionaremos una página que clone un div que contiene tres hipervínculos, luego añadirlo a otro div. Modificar el id del div clonado.</p>
+<div id="GooglesaClonar">
+
+    <a href="#">Google 1</a><br>
+
+    <a href="#">Google 2</a><br>
+
+    <a href="#">Google 3</a><br><br>
+
+</div>
+<input type="button" onClick="clonarNodos('GooglesaClonar','Googlesnuevos')" value="Clonar nodos Googles" id="boton1">
+
+<div id="Googlesnuevos"></div>
+
+
+<p class="problema">Problema:Definir un párrafo con la marca h1. Luego, en forma dinámica, generar un clon de dicha marca y agregarla en otro div.</p>
+<h1 id="tituloaClonar">Titulo Principal</h1>
+<input type="button" onClick="javascript:clonarNodoParrafo('tituloaClonar','regionClonada')" value="Clonar nodo Parrafo" id="boton1">
+<div id="regionClonada">
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Consultar el tipo de nodo (nodeType)</h1>
+<p>Los nodos principales que puede tener el DOM son los nodos elemento y los nodos texto. Todo nodo tiene una propiedad nodeType que almacena de qué nodo es. Si almacena un 1 (uno) el nodo es de tipo elemento (div, a, p etc.), si almacena un 3 (tres) se trata de un nodo de tipo texto. <br>
+    A su vez, la propiedad nodeName almacena la marca HTML si se trata de un nodo de tipo elemento o el valor #text si se trata de un nodo de tipo text. <br>
+    Por último, la propiedad nodeValue almacena el contenido del nodo si se trata de un nodo de tipo text, en caso de tratarse de un nodo de tipo elemento (es decir una márca HTML) almacena null.</p>
+<p class="problema">Problema:Confeccionar una página que contenga un div y esta que contenga un párrafo con un texto cualquiera. Luego obtener la referencia del div, imprimir las propiedades nodeType y nodeName, luego obtener la referencia del párrafo contenido en el div, mostrar también las propiedades nodeType y nodeName, y por último, obtener la referencia del nodo texto que desciende del nodo párrafo.</p>
+<div id="grupo"><p>Este es un párrafo cualquiera</p></div>
+<input type="button" value="Verificar de que tipo de nodo se trata" onClick="tipoDeNodos('grupo')" id="boton1">
+
+<p class="problema">Problema:Definir un párrafo que contenga un texto, luego una marca em y por último otro texto. Imprimir los tres nodos que descienden del nodo párrafo.</p>
+<p id="parrafoConHijos">Este es un párrafo con un texto <em>resaltado</em> con la marca em y un texto <strong>engrosado</strong> que casi no se nota</p>
+<input type="button" value="Verificar que tipo de nodo es (Consola)" onClick="tipoDeNodosDelParrafo('parrafoConHijos')" id="boton1">
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Accediendo al estilo de un elemento HTML.</h1>
+<p class="problema">Problema:Definir un párrafo y luego mediante distintos controles select modificar las propiedades de: 'Color de fondo', 'Color de fuente', 'Cambiar tamaño de fuente', 'Cambiar tipo de fuente', 'Cambiar estilo de la fuente', 'Peso de la fuente', 'Alineación de la fuente', 'Decoración de la fuente', 'Espacio entre letras', 'Espacio entre palabras', 'Transformación de texto', 'Ancho de borde', 'Estilo de borde', 'Color de borde', 'padding' y 'margin'.</p>
+<p id="recuadro">¿Quién descubrió América y en que año fue?</p>
+Color de fondo:
+<select onChange="cambiarColorFondoParrafo()" id="colorfondo">
+    <option value="#ffff00">amarillo</option>
+    <option value="#ff0000">rojo</option>
+    <option value="#00ff00">verde</option>
+    <option value="#0000ff">azul</option>
+</select>
+<br>
+Color de fuente:
+<select onChange="cambiarColorFuenteParrafo()" id="colorfuente">
+    <option value="#000000">negro</option>
+    <option value="#ff0000">rojo</option>
+    <option value="#00ff00">verde</option>
+    <option value="#0000ff">azul</option>
+</select>
+<br>
+Cambiar tamaño de fuente:
+<select onChange="cambiarTamanoFuenteParrafo()" id="tamanofuente">
+    <option value="10px">10</option>
+    <option value="12px">12</option>
+    <option value="14px">14</option>
+    <option value="16px">16</option>
+    <option value="18px">18</option>
+    <option value="20px">20</option>
+    <option value="22px">22</option>
+    <option value="24px">24</option>
+</select>
+<br>
+Cambiar tipo de fuente:
+<select onChange="cambiarTipoFuenteParrafo()" id="tipofuente">
+    <option value="Arial">Arial</option>
+    <option value="Courier">Curier</option>
+    <option value="Verdana">Verdana</option>
+</select>
+<br>
+Cambiar estilo de la fuente:
+<select onChange="cambiarEstiloFuenteParrafo()" id="estilofuente">
+    <option value="normal">Normal</option>
+    <option value="Italic">Italic</option>
+    <option value="Oblique">Oblique</option>
+</select>
+<br>
+Peso de la fuente:
+<select onChange="cambiarPesoFuenteParrafo()" id="pesofuente">
+    <option value="normal">Normal</option>
+    <option value="bold">Bold</option>
+</select>
+<br>
+Alineación de la fuente:
+<select onChange="cambiarAlineacionFuenteParrafo()" id="alineacionfuente">
+    <option value="left">Left</option>
+    <option value="right">Right</option>
+    <option value="center">Center</option>
+</select>
+<br>
+Decoración de la fuente:
+<select onChange="cambiarDecoracionFuenteParrafo()" id="decoracionfuente">
+    <option value="none">none</option>
+    <option value="underline">underline</option>
+    <option value="overline">overline</option>
+    <option value="line-through">line-through</option>
+</select>
+<br>
+Espacio entre letras:
+<select onChange="cambiarEspacioLetrasParrafo()" id="espacioletras">
+    <option value="3px">3</option>
+    <option value="6px">6</option>
+    <option value="9px">9</option>
+    <option value="12px">12</option>
+    <option value="15px">15</option>
+    <option value="20px">20</option>
+    <option value="25px">25</option>
+    <option value="30px">30</option>
+</select>
+<br>
+Espacio entre palabras:
+<select onChange="cambiarEspacioPalabrasParrafo()" id="espaciopalabras">
+    <option value="3px">3</option>
+    <option value="6px">6</option>
+    <option value="9px">9</option>
+    <option value="12px">12</option>
+    <option value="15px">15</option>
+    <option value="20px">20</option>
+    <option value="25px">25</option>
+    <option value="30px">30</option>
+</select>
+<br>
+Transformación de texto:
+<select onChange="cambiarTransformacionTextoParrafo()" id="transformaciontexto">
+    <option value="none">none</option>
+    <option value="capitalize">capitalize</option>
+    <option value="lowercase">lowercase</option>
+    <option value="uppercase">uppercase</option>
+</select>
+<br>
+Ancho de borde:
+<select onChange="cambiarAnchoBordeParrafo()" id="anchoborde">
+    <option value="0px">0</option>
+    <option value="1px" selected="selected">1</option>
+    <option value="2px">2</option>
+    <option value="3px">3</option>
+    <option value="4px">4</option>
+    <option value="5px">5</option>
+</select>
+<br>
+Estilo de borde:
+<select onChange="cambiarEstiloBordeParrafo()" id="estiloborde">
+    <option value="none">none</option>
+    <option value="hidden">hidden</option>
+    <option value="dotted">dotted</option>
+    <option value="dashed">dashed</option>
+    <option value="solid">solid</option>
+    <option value="double">double</option>
+    <option value="groove">groove</option>
+    <option value="ridge">ridge</option>
+    <option value="inset">inset</option>
+    <option value="outset">outset</option>
+</select>
+<br>
+Color de borde:
+<select onChange="cambiarColorBordeParrafo()" id="colorborde">
+    <option value="#000000">negro</option>
+    <option value="#ffff00">amarillo</option>
+    <option value="#ff0000">rojo</option>
+    <option value="#00ff00">verde</option>
+    <option value="#0000ff">azul</option>
+</select>
+<br>
+padding:
+<select onChange="cambiarPaddingParrafo()" id="padding">
+    <option value="0px">0</option>
+    <option value="4px" selected="selected">4</option>
+    <option value="8px">8</option>
+    <option value="12px">12</option>
+    <option value="16px">16</option>
+    <option value="20px">20</option>
+</select>
+<br>
+margin:
+<select onChange="cambiarMarginParrafo()" id="margin">
+    <option value="0px">0</option>
+    <option value="4px" selected="selected">4</option>
+    <option value="8px">8</option>
+    <option value="12px">12</option>
+    <option value="16px">16</option>
+    <option value="20px">20</option>
+</select>
+<br>
+
+<p class="problema">Problema:Definir una lista con tres nombres de paises. Luego en tiempo de ejecución permitir cambiar el estilo de la lista.</p>
+<ul id="listapaises">
+    <li>Brasil</li>
+    <li>Uruguay</li>
+    <li>Argentina</li>
+    <li>Colombia</li>
+    <li>Paraguay</li>
+    <li>Ecuador</li>
+    <li>Bolivia</li>
+    <li>Peru</li>
+    <li>Venezuela</li>
+    <li>Chile</li>    
+</ul>
+<select onChange="cambiarEstiloLista('listapaises', 'estilolista')" id="estilolista">
+    <option value="none">none</option>
+    <option value="disc">disc</option>
+    <option value="circle">circle</option>
+    <option value="square">square</option>
+    <option value="decimal" selected="selected">decimal</option>
+    <option value="decimal-leading-zero">decimal-leading-zero</option>
+    <option value="lower-roman">lower-roman</option>
+    <option value="upper-roman">upper-roman</option>
+    <option value="lower-alpha">lower-alpha</option>
+    <option value="upper-alpha">upper-alpha</option>
+</select>
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Creación de controles de tipo input dinámicamente.</h1>
+<p class="problema">Problema:Permitir el ingreso del nombre de una persona y el nombre de sus hijos. Disponer un control de tipo text para el ingreso del nombre del padre y un botón para crear controles de tipo text cada vez que sea presionado.</p>
+<form method="post" action="#">
+    Ingrese su nombre:
+    <input type="text" name="nombre" id="nombre"><br><br>
+    <fieldset id="fs">
+        <legend>Ingrese los nombres de sus hijos</legend>
+        <input type="button" onClick="agregarHijo('fs')" value="Presione el botón para agregar un hijo." id="boton1">
+        <br><br>
+    </fieldset>
+    <input type="submit" value="Registrar" id="boton2">
+</form>
+
+<p class="problema">Problema:Disponer un control de tipo select con los valores enteros entre 0 y 5. Crear tantos controles de tipo text como indique el control select. Efectuar dicha creación cuando se dispara el evento onChange.</p>
+<form method="post" action="#">
+    <select onChange="crearText('seccionDeInputs','seleccionarCant')" id="seleccionarCant">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <br><br>
+    <div id="seccionDeInputs"></div><br>
+<input type="submit" value="Registrar" id="boton1">>
+</form>
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Referencia del objeto que generó el evento (this)</h1>
+<p>Cuando tenemos varios objetos que generan eventos y todos se asocian con una única función podemos pasar en la llamada a la función la referencia del objeto que emite el evento, esto mediante la palabra clave this.</p>
+<p class="problema">Problema:Disponer dos botones y al ser presionados llamar a una función pasando como parámetro su referencia. Mostrar las propiedades id, name y value.</p>
+<h1 id="titulo2">Datos del objeto que emite el evento.</h1>
+<input type="button" name=CreaEnlaces" value="boton 1" id="b1" onclick="mostrarAtributos(this)">
+<br> 
+<input type="button" name="boton2" value="boton 2" id="b2" onclick="mostrarAtributos(this)">
+
+<p class="problema">Problema:Disponer 3 botones con las etiquetas 1,2 y 3. Luego cada vez que se presione alguno de los botones concatenar el contenido de la etiqueta y mostrarlo en la página.</p>
+<h1 id="titulo3">Valor:</h1>
+<input type="button" name=CreaEnlaces" value="1" onclick="concatenar(this)">
+<input type="button" name="boton2" value="2" onclick="concatenar(this)">
+<input type="button" name="boton3" value="3" onclick="concatenar(this)">
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Información generada en un evento</h1>
+<p class="problema">Problema:Recuperar los datos del evento onclick. Implementar una página que capture el Click del mouse dentro del navegador. Luego mostrar la coordenada x e y donde se presionó.</p>
+<div id="capturaClick" onclick="presionado(event)">Hacer clic dentro de este Div y se mostrará la coordenada del mouse dentro de él en ese momento.</div>
+
+<p class="problema">Problema:Cuando se presione el botón del mouse mostrar un div a 10 píxeles más abajo y 10 píxeles a la derecha con un mensaje de ayuda.</p>
+<div id="ayuda"></div>
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Referencia del objeto que generó el evento (DOM)</h1>
+<pre>
+    function presionBoton(e)
+    {
+    var boton=e.target;
+    var ref=document.getElementById('titulo');
+    ref.firstChild.nodeValue='Name:'+boton.name+' Id:'+boton.id+' Value:'+boton.value;
+    }
+</pre>
+<p>La función que se dispara al producirse el evento recibe un parámetro con información referente a ese evento. entre otros:</p>
+<pre>
+    target: Referencia del objeto que generó el evento (en nuestro problema la referencia del botón b1 o b2)
+    type: El nombre del evento (en nuestro caso click)
+    button: El botón del mouse presionado (0 = izquierdo, 1 = medio, 2 = derecho)
+    keyCode: El caracter del teclado presionado (en caso que corresponda)
+    shiftKey: true o false en caso de estar presionada esta tecla.</pre>
+<p class="problema">Problema:Disponer dos botones, al ser presionados mostrar las propiedades id,name y value del botón presionado.</p>
+<h1 id="tituloObjeto">Datos del objeto que emite el evento: </h1>
+<input type="button" name=CreaEnlaces" value="boton 1" id="b11">
+<br> 
+<input type="button" name="boton2" value="boton 2" id="b22">
+
+<p class="problema">Problema:Disponer dos botones. Cambiar el color del botón luego que a sido presionado (pintarlos de color rojo)</p>
+<input type="button" name=CreaEnlaces" value="boton 1" id="b111">
+<br> 
+<input type="button" name="boton2" value="boton 2" id="b222">
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Información contenida en el objeto event (DOM)</h1>
+<p class="problema">Problema:Confeccionar una página que muestre las propiedades más importantes de event (recordar que esta página solo funcionará en navegadores que respetan los estándares del W3C, actualmente se acercan al 100%)</p>
+<h1>Navegadores que cumplen el estandar de W3C.</h1>
+<pre id="recuadro2">
+Presione con el mouse el recuadro.
+</pre>
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Burbujeo y captura de eventos (DOM)</h1>
+<p>El DOM permite capturar los eventos producidos en dos órdenes distintos. Si al tercer parámetro del método addEventListener le pasamos un valor false, luego el evento se captura primero por el objeto que produjo el evento y luego es capturado por todos los otros objetos superiores que capturan dicho evento. En caso de pasar el valor true, el evento es capturado por objetos que pertenecen a niveles superiores del DOM para luego ser capturado por el objeto que disparó el evento. <br>
+    En el ejemplo que desarrollaremos dispondremos una serie de div, unos contenidos en otros y veremos las dos formas de capturar los eventos:</p>
+<p class="problema">Problema:Confeccionar una página que contenga 4 div. Los dos primeros deben estar anidados, como así también los dos segundo. Capturar el evento click para los cuatro div. Los dos primeros registrarlos con el parámetro capture de la función addEventListener con el valor false. Luego para los otros dos div registrarlos con el valor true para el parámetro capture.</p>
+<h1>Presione con el mouse en el recuadro interior y en el recuadro exterior.</h1>
+<h3>Si disponemos false en el tercer parámetro de la función addEventListener</h3>
+<div id="div1e" class="recuadroexterior">
+Este es contenido del recuadro exterior.
+<div id="div1i" class="recuadrointerior">
+Este es contenido del recuadro interior.
+</div>
+También es contenido del recuadro exterior.
+</div>
+<br><br>
+<h3>Si disponemos true en el tercer parámetro de la función addEventListener</h3>
+<div id="div2e" class="recuadroexterior">
+Este es contenido del recuadro exterior.
+<div id="div2i" class="recuadrointerior">
+Este es contenido del recuadro interior.
+</div>
+También es contenido del recuadro exterior.
+</div>
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Detener el burbujeo de eventos (DOM)</h1>
+<p>En muchas situaciones podemos querer que un evento se dispare y no efectue el burbujeo, es decir que no pueda ser capturado por otros elementos de la página que lo contengan.
+    Para detener el burbujeo de eventos debemos llamar al metodo stopPropagation del parámetro que llega al método que captura el evento:</p>
+<pre>
+    event.stopPropagation();
+</pre>
+<p>Confeccionemos una página que contenga dos div (uno contenido en otro).Al presionar en el div interior mostrar un mensaje y detener el burbujeo al div que lo contiene.</p>
+<p class="problema">Problema:Disponer dos div (uno contenido en otro).Al presionar en el div interior mostrar un mensaje y detener el burbujeo al div que lo contiene.</p>
+<h1>Presione con el mouse en el recuadro interior</h1>
+<div id="div11" class="recuadroexterior">
+Este es contenido del recuadro exterior.
+<div id="div22" class="recuadrointerior">
+Este es contenido del recuadro interior.
+</div>
+También es contenido del recuadro exterior.
+</div>
+
+<p class="problema">Problema:Crear una página que contenga tres botones. Cuando se presione alguno de ellos mostrar un mensaje por pantalla. También mostrar un mensaje cuando se presione el fondo del documento. Luego modifique el programa comentando la línea donde se activa el burbujeo (debería aparecer tanto el mensaje que se presionó el botón como que se presionó el documento)</p>
+<input type="button" value="Botón 1" id="b1111">
+<input type="button" value="Botón 2" id="b2222">
+<input type="button" value="Botón 3" id="b3333">
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Desactivación del evento por defecto de un elemento HTML (DOM)</h1>
+<p>Hay elementos HTML que tienen por defecto eventos propios. El más característico es el hipervínculo <a>. Como sabemos por defecto al presionar en el mismo se carga otra página en el navegador. <br>
+Desde JavaScript podemos detectar mediante el evento click la selección del hipervínculo y hacer alguna actividad. Si queremos que no se dispare la carga de la página debemos hacer:</p>
+<pre>
+    e.preventDefault();
+</pre>
+<p>Siendo e el objeto de tipo event que llega como parámetro a la función. <br>
+Para probar su funcionamiento crearemos una página con un hipervínculo, al presionar el mismo capturaremos dicho evento y mediante JavaScript abriremos en otra pestaña del navegador la página indicada en el hipervínculo.</p>
+<p class="problema">Problema:Crear una página que detecte mediante el evento click la selección del hipervínculo. Luego desactivar la acción por defecto para la marca "a" y hacer la apertura de la página indicada en el ancla en otra pestaña del navegador.</p>
+<a href="http://www.google.com" id="enlaceGoogle">google</a>
+
+<p class="problema">Problema:Confeccionar una página que contenga un control text para el ingreso de una palabra. Disponer un hipervínculo que al ser presionado abra otra ventana con el buscador google mostrando todas las páginas que contiene dicha palabra (http://www.google.com/search?q=buscar) debemos remplazar la palabra "buscar" por la palabra que ingresamos en el control text.</p>
+<input type="text" id="palabraBuscar">
+<a href="http://www.google.com.ar" id="enlaceBuscar">BUSCAR PALABRA</a>
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Propiedad innerHTML</h1>
+<p>Esta propiedad crea automáticamente todos los elementos HTML y nodos de texto que le indicamos cuando le asignamos el valor.
+Para entener su funcionamiento implementemos una página que solicite el ingreso de dos URL y nos las muestre seguidamente al presionar un botón. Lo resolveremos utilizando las dos metodologías, es decir con y sin la propiedad innerHTML.</p>
+<p class="problema">Problema:Implementar una página que solicite el ingreso de dos URL y nos las muestre seguidamente al presionar un botón. Resolver el problema utilizando las dos metodologías, es decir con y sin la propiedad innerHTML.</p>
+
+Ingrese url:<input type="text" id="textEnlace1" value="http://www.lavoz.com.ar" size="30"><br>
+Ingrese url:<input type="text" id="textEnlace2" value="http://www.lanacion.com.ar" size="30"><br>
+<input type="button" value="Crear enlaces" id="botonCreaEnlaces">
+<h1>Mediante innerHTML</h1>
+<div id="enlaces1">
+</div>
+<h1>Creando nodos de elemento y texto (createElement)</h1>
+<div id="enlaces2">
+</div>
+
+<p class="problema">Problema:Crear una lista HTML en forma dinámica empleando la propiedad innerHTML.</p>
+<input type="button" value="Crear Lista" id="botonCreaLista">
+<div id="listaCreada"></div>
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Accediendo a un elemento HTML a través de un selector CSS (querySelector)</h1>
+<p>El método querySelector que le pasamos como referencia un selector CSS (Cascade Style Sheet) y nos retorna el primer nodo que cumple dicha regla.</p>
+<p>Es muy importante tener en cuenta que cuando le pasamos un nombre de clase al método querySelector nos devuelve el primer objeto de la página que define dicha clase.
+<br>Podemos pasar como parámetro al método querySelector cualquier selector CSS que definamos en nuestra página, por ejemplo:</p>
+<p class="problema">Plantear una página que contenga un párrafo, una lista ordenada y un botón. Al presionar el botón proceder a cambiar el color del párrafo accediendo a la clase que pertenece. Lo mismo hacer con la lista pero accediendo por medio de su id.</p>
+<pre>
+    #boton1
+    .mensaje
+    h1
+    div.mensaje
+    a:link
+</pre>
+<p class="mensaje">Esto es un mensaje</p>
+  <ol id="lista1">
+    <li>Opción 1</li>
+    <li>Opción 2</li>
+    <li>Opción 3</li>
+  </ol>
+<input type="button" value="Cambiar" id="boton11">
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Accediendo a un conjunto de elementos HTML a través de un selector CSS (querySelectorAll)</h1>
+<p>El método querySelectorAll devuelve una lista con todos los nodos del DOM que cumplen la regla que le pasamos como parámetro. Hay que tener en cuenta que querySelectorAll retorna un objeto de la clase NodeList.</p>
+<p class="problema">Problema:Disponer dos listas, una ordenada y otra no ordenada. Luego acceder a todas las opciones de la lista ordenada mediante el método querySelectorAll.</p>
+<ol class="listaOrdenada"> 
+    <li>uno</li>
+    <li>dos</li>
+    <li>tres</li>
+    <li>cuatro</li>
+    <li>cinco</li>
+</ol>
+<ul class="listaDesordenada">
+    <li>primero</li>
+    <li>segundo</li>
+    <li>tercero</li>
+</ul>
+<input type="button" value="Cambiar" id="boton111">
+
+<p class="problema">Problema:Crear una página que contenga dos tablas html que muestren los sueldos promedio de tres empleados durante los años 2014 y 2015: <br>
+    Desarrolar un programa que recupere mediante el método querySelectorAll los elementos "td" de una de las tablas y les cambie el color de fondo. Lo mismo hacer para la segunda tabla.</p>
+<h1>Año 2014</h1>
+<table class="tablasueldos" id="a2014">
+    <tr>
+        <td>Empleado</td><td>Sueldo</td>
+    </tr>
+    <tr>
+        <td>juan</td><td>1200</td>
+    </tr>
+    <tr>
+        <td>ana</td><td>1900</td>
+    </tr>
+    <tr>
+        <td>luis</td><td>1500</td>
+    </tr>
+</table>
+
+<h1>Año 2015</h1>
+<table class="tablasueldos" id="a2015">
+    <tr>
+        <td>Empleado</td><td>Sueldo</td>
+    </tr>
+    <tr>
+        <td>juan</td><td>1700</td>
+    </tr>
+    <tr>
+        <td>ana</td><td>1900</td>
+    </tr>
+    <tr>
+        <td>luis</td><td>1900</td>
+    </tr>
+    <tr>
+        <td>Carlos</td><td>2200</td>
+    </tr>
+</table>
+
+<input type="button" value="Cambiar" id="boton1111">
+
+
+<hr><hr><hr><hr>
+<h1 class="titulo">Mostrar un Tooltip</h1>
+<p class="problema">Problema: Crear un ToolTip que muestre un mensaje cuando pasamos el mouse sobre un determinado recuadro.</p>
+<p>Entre con el mouse al recuadro.</p>
+<div class="cuadradito" title="este es el mensaje1"></div>
+<div class="cuadradito" title="este es el mensaje2"></div>
+<div class="cuadradito" title="este es el mensaje3"></div>
+<div class="cuadradito" title="este es el mensaje4"></div>
+
+</body>
+<script>
+
+</script>
+</html>

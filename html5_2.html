@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Elementos Nuevos</title>
+  <meta charset="UTF-8">
+
+  <style>
+    h1 {
+        text-transform: uppercase; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;text-align: center; font-size: 3rem;
+    }
+    h2 {
+        text-transform: uppercase; font-family: 'Courier New', Courier, monospace;text-align: left; color: forestgreen; font-variant: small-caps; text-shadow: blue;
+    }
+    body{
+      background-color:burlywood;
+    }
+</style>
+</head>
+
+<body>
+<h1>audio y video en html5 y nuevos elementos semanticos</h1>
+<h2>insertando elementos de audio</h2>
+<audio controls src="multimedia/audio1.ogg">
+	<source src="http://www.tutorialesprogramacionya.com/audios/gallo.ogg">
+	<source src="http://www.tutorialesprogramacionya.com/audios/gallo.mp3">
+	<source src="http://www.tutorialesprogramacionya.com/audios/gallo.wav">
+</audio>
+<audio controls loop autoplay src="multimedia/audio2.ogg" ></audio>
+
+<hr>
+<h2>insertando elementos de video</h2>
+<video src="multimedia/video1.mp4" controls>video con tamaño automatico</video>
+<video src="multimedia/video2.mp4" controls autoplay>video con tamaño automatico</video>
+<video src="multimedia/video1.mp4" controls width="660" height="600"></video>
+<video src="multimedia/video2.mp4" controls width="660" height="600"></video>
+
+<hr>
+<h2 style="font-size: 4rem;">Elementos HTML semánticos</h2>
+<header style="background-color: aqua;"> 
+  <h2> <em><strong>header: </strong></em> Encabezado de la página</h2> 
+  <p><em><strong>header: </strong></em>  Encabezado de la página</p> 
+  <p style="font-size: 1.3rem;">El elemento header debe utilizarse para marcar la cabecera de una página (contiene el logotipo del sitio, una imagen, un cuadro de búsqueda etc)
+    El elemento header puede estar anidado en otras secciones de la página (es decir que no solo se utiliza para la cabecera de la página)</p>
+</header>
+
+<nav style="background-color:brown"> 
+  <p><em><strong>nav: </strong></em>  enlaces de navegación</p> 
+  <p style="font-size: 1.3rem;">El elemento nav representa una parte de una página que enlaza a otras páginas o partes dentro de la página. Es una sección con enlaces de navegación.
+    No todos los grupos de enlaces en una página deben ser agrupados en un elemento nav. únicamente las secciones que consisten en bloques de navegación más importantes son adecuados para el elemento de navegación.</p>
+</nav> 
+
+<section style="background-color:darkgreen"> 
+  <p><em><strong>section: </strong></em>Sección 1</p>
+  <p style="font-size: 1.3rem;">El elemento section representa un documento genérico o de la sección de aplicación. Una sección, en este contexto, es una agrupación temática de los contenidos. Puede ser un capítulo, una sección de un capítulo o básicamente cualquier cosa que incluya su propio encabezado.
+    Una página de inicio de un sitio Web puede ser dividida en secciones para una introducción, noticias, información de contacto etc.</p> 
+</section> 
+
+<section style="background-color:firebrick"> 
+  <p><em><strong>section: </strong></em>Sección 2</p> 
+  <p style="font-size: 1.3rem;">El elemento section representa un documento genérico o de la sección de aplicación. Una sección, en este contexto, es una agrupación temática de los contenidos. Puede ser un capítulo, una sección de un capítulo o básicamente cualquier cosa que incluya su propio encabezado.
+    Una página de inicio de un sitio Web puede ser dividida en secciones para una introducción, noticias, información de contacto etc.</p>
+</section>
+
+<article style="background-color: goldenrod;">
+  <p><em><strong>article: </strong></em>Articulo</p> 
+  <p style="font-size: 1.3rem;">El elemento article representa una entrada independiente en un blog, revista, periódico etc.
+    Cuando se anidan los elementos article, los artículos internos están relacionados con el contenido del artículo exterior. Por ejemplo, una entrada de blog en un sitio que acepta comentarios, el elemento article principal agrupa el artículo propiamente dicho y otro bloque article anidado con los comentarios de los usuario.</p>
+</article>
+
+<aside style="background-color:orangered">
+  <p><em><strong>aside: </strong></em>Publicidad</p>
+  <p style="font-size: 1.3rem;">El elemento aside representa una nota, un consejo, una explicación. Esta área son representados a menudo como barras laterales en la revistas impresa.
+    El elemento puede ser utilizado para efectos de atracción, como las comillas tipográficas o barras laterales, para la publicidad, por grupos de elementos de navegación, y por otro contenido que se considera por separado del contenido principal de la página.</p>
+</aside>
+
+<footer style="background-color:greenyellow"> 
+  <p><em><strong>footer: </strong></em>Pié de página</p> 
+  <p style="font-size: 1.3rem;">El elemento footer se utiliza para indicar el pié de la página o de una sección. Un pie de página contiene información general acerca de su sección el autor, enlaces a documentos relacionados, datos de derechos de autor etc.</p>
+</footer> 
+</body>
+</html>

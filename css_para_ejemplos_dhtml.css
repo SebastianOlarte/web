@@ -1,0 +1,115 @@
+#titulo {
+  text-align:center;
+
+}
+
+#boton1,#boton2 {
+  text-align:center;
+  width:300px;
+  height: 40px;
+  font-weight: bolder;
+  background-color: gold;
+  border-radius: 20px;
+  border-color: green;
+}
+
+h1.titulo{
+  font-style: unset;
+  color:rgb(71, 165, 253) ;
+  font-size: 40px;
+}
+
+p{
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: steelblue;
+}
+
+p.problema{
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: crimson;
+}
+
+#recuadro {
+  background-color:#ffff00;
+  border:1px solid #000000;
+  font-size:10px;
+}
+
+#listapaises {
+  list-style-type:decimal;
+}
+
+#capturaClick {
+  width: 600px;
+  height: 200px;
+  background-color: aqua;
+}
+
+#ayuda {
+  color:#aa0;
+  background-color:#ff0;
+  position:absolute;
+  text-align:center;
+  left:40px;
+  top:30px;
+  width:100px;
+  height:400px;
+  display: none;
+}
+
+#recuadro2 {
+  font-family:Courier;
+  font-size:12px;
+  background-color:#ffffcc;
+  border-width:1px;
+  border-style:dotted;
+  border-color:#ffaa00;
+  padding:20px;
+}
+
+.recuadrointerior {
+  font-family:Courier;
+  font-size:12px;
+  background-color:#ffffcc;
+  border-width:1px;
+  border-style:dotted;
+  border-color:#ffaa00;
+  padding:20px;
+}
+.recuadroexterior {
+  font-family:Courier;
+  font-size:12px;
+  background-color:#ff9900;
+  border-width:1px;
+  border-style:dotted;
+  border-color:#ffaa00;
+  padding:20px;
+}
+
+.tablasueldos {
+  border-collapse: collapse;
+}
+
+.tablasueldos td{
+   border: 1px dotted black;
+   padding:4px;
+}
+
+.cuadradito{
+  background-color: #f00;
+  height: 50px; 
+  width: 50px;
+  margin:3px;
+  z-index: -1;
+
+}
+
+#divmensaje {
+  background-color: yellow;
+   position: absolute; 
+   visibility: hidden; 
+   padding: 5px;
+  z-index: 100;
+}

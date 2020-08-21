@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript ES6</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css_para_ejemplos_jaascript.css" type="text/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    img {
+      width: 90%;
+      margin-left: 4.5%;
+      margin-top: 1%;
+    }
+  </style>
+</head>
+<body>
+<div id="Contenedor1"></div>
+
+<script>
+  window.addEventListener("load", inicio, false);
+  function inicio(){
+    let rutaCarpeta, imgInicio, imgFinal, contenedor;
+    rutaCarpeta = "C:\\Users\\Sebastian\\Documents\\CURSOS TUTORIALES YA\\HTML-CSS-JAVASCRIPT\\Resumenes De Video";
+    imgInicio = 5649, imgFinal = 5678, contenedor = "Contenedor1";
+    cargarImagenes(contenedor, rutaCarpeta, imgInicio, imgFinal);
+    // console.log(`rutaCarpeta: ${rutaCarpeta}`);
+    // console.log(`imgInicio: ${imgInicio}`);
+    // console.log(`imgFinal: ${imgFinal}`);
+  }
+  
+  function cargarImagenes(contenedor, rutaCarpeta, imgInicio, imgFinal){
+    let vectorDeImagenes = [];
+    for(let img = imgInicio; img <= imgFinal; img++){      
+      vectorDeImagenes.push(`<img src="${rutaCarpeta}\\Captura de pantalla (${img}).png" alt="La imagen numero ${img} no existe"><hr>`);
+    }
+    document.getElementById(`${contenedor}`).innerHTML = vectorDeImagenes.join("");
+  }
+  
+</script>
+
+
+
+<!-- Aquí empieza el codigo para seleccionar archivos desde una carpeta. Con este codigo es que debo trabajar para hacer la aplicación que quiero hacer.-->
+<input type="file" id="files" name="files[]" multiple />
+<output id="list"></output>
+<script>
+document.getElementById('files').addEventListener('change', handleFileSelect, false);
+function handleFileSelect(evt) {
+  var files = evt.target.files; // FileList object
+
+  // files is a FileList of File objects. List some properties.
+  var output = [];
+  for (var i = 0, f; f = files[i]; i++) {
+    output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                f.size, ' bytes, last modified: ', f.lastModifiedDate.toLocaleDateString(), '</li>');
+  }
+  document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+}
+
+// Para dominar la abreviación de EMMET:
+// !+tab --->Genera la estructura inicial de un sitio web
+// div{texto dentro del elemento} + tab
+// div>ul>li{texto dentro del elemento} + tab
+// div>ul>li*5 + tab
+// div>ul>li{elemento}*5 + tab
+// div>span{calle $@10}*5 + tab --->Crea los 5 elementos pero contando a partir de 10
+// img#photo + tab --->Me crea el elemento con el id indicado despues del signo #
+// img#photo.bordes + tab --->Me crea el elemento con el id photo y de la clase bordes
+// img.bordes.underline + tab --->Me crea el elemento que hace parte de dos clases
+// div>img+div.header + tab --->Me crea los dos elementos, img y un div de la clase header
+// div>(div.container>img.phto+div.titulo)*4
+// div#main-container>header+main+footer + tab --->
+// (div.post>h2.title+span.date+div.content>lorem)*5
+// ctrl+shift+l --->Seleccionamos todas las ocurrencias de un elemento seleccionado.
+</script>
+
+</body>
+</html>
+
+

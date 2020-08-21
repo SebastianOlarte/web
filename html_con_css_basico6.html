@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Problema</title>
+  <meta charset="UTF-8">
+  <link rel="StyleSheet" href="css_basico6.css" type="text/css">
+</head>
+<body>
+<h1 style="text-transform: uppercase;"> Pseudoclases</h1>
+<p>
+  Las pseudoclases son unas clases especiales, que se refieren a algunos estados del elemento HTML, las que se utilizan fundamentalmente son las que se aplican al elemento <a> (enlace).
+
+    La sintaxis varía con respecto al concepto de clase visto anteriormente ya que se tratan de pseudoclases predefinidas:
+    <pre>
+    a:pseudoclase {
+      propiedad: valor;
+    }</pre>
+    Es decir separamos el nombre del elemento HTML con dos puntos.
+    
+    Para el elemento HTML <a> tenemos 4 pseudoclases fundamentales:
+    <pre>
+    link - Enlace sin ingresar
+    visited - Enlace presionado
+    hover - Enlace que tiene la flecha del mouse encima
+    active - Es la que tiene foco en ese momento (pruebe de tocar la tecla tab)</pre>
+    Es importante hacer notar que el orden en que definimos las pseudoclases es fundamental para su funcionamiento (debe respetarse el orden: link-visited-hover-active)    
+    Este ejemplo es muy sencillo para ver el paso en los distintos estados que puede tener un enlace:
+</p>
+<a href="http://www.google.com">Google</a>
+<a href="http://www.yahoo.com">Yahoo</a>
+<a href="http://www.bing.com">Bing</a>
+<a href="http://www.fb.com">Facebook</a>
+
+<hr>
+<div id="menu">
+  <p><a href="http://www.google.com">Google</a></p>
+  <p><a href="http://www.yahoo.com">Yahoo</a></p>
+  <p><a href="http://www.bing.com">Bing</a></p>
+  <p><a href="http://www.ask.com">ASK</a></p>
+  </div>
+
+<hr>
+<ul id="menuhorizontal">
+  <li><a href="http://www.google.com">Google</a></li>
+  <li><a href="http://www.yahoo.com">Yahoo</a></li>
+  <li><a href="http://www.bing.com">Bing</a></li>
+  <li><a href="http://www.ask.com">Ask</a></li>
+  </ul>
+
+<br><hr>
+<ul id="menuhorizontal1">
+  <li><a href="http://www.google.com">Google</a></li>
+  <li><a href="http://www.yahoo.com">Yahoo</a></li>
+  <li><a href="http://www.bing.com">Bing</a></li>
+  <li><a href="http://www.ask.com">Ask</a></li>
+  </ul>
+  
+  <div id="menuvertical1">
+  <li><a href="http://www.google.com">Google</a></li>
+  <li><a href="http://www.yahoo.com">Yahoo</a></li>
+  <li><a href="http://www.bing.com">Bing</a></li>
+  <li><a href="http://www.ask.com">Ask</a></li>
+  </div>
+
+<br><hr>
+<h1 style="text-transform: uppercase;"> Propiedades relacionadas a la dimensión de un objeto en la página</h1>
+<p>
+  Disponemos de dos propiedades fundamentales que nos permiten fijar el ancho y el alto de un elemento HTML:
+    <pre>
+      width
+      height</pre>
+      Cuando no se fija el ancho de un elemento HTML la propiedad toma el valor por defecto que es "auto" por lo que el navegador tiene que calcular el ancho teniendo en cuenta el contenido del elemento y el espacio disponible.
+
+      Por el momento hemos visto solo la medida en píxeles y porcentajes (luego veremos que podemos utilizar otras unidades de medida para fijar el ancho y el alto de un elemento)
+      
+      Otras cuatro propiedades relacionadas con el ancho y el alto de un elemento HTML son:
+    <pre>
+      min-width
+      max-width
+      min-height
+      max-height
+      min-width Fija el ancho mínimo que puede tomar el elemento HTML (si reducimos el ancho del navegador a un valor menor a este veremos que aparece la barra de scroll en forma horizontal, es decir el elemento no puede tomar un valor menor a este)
+      max-width Fija el ancho máximo que puede tomar el elemento HTML (es útil en los casos de aquellos elementos HTML que muestran texto y no queremos que tome una dimensión muy grande ya que esto hace complejo la lectura)
+      min-height Fija el alto mínimo.
+      max-height Fija el alto máximo.
+    </pre>
+</p>
+<div id="cabecera">
+  Blog del Programador
+  </div>
+
+<br><hr>
+<h1 style="text-transform: uppercase;">Formas para indicar el color</h1>
+<p id="p1">Este es el párrafo nro 1</p>
+<p id="p2">Este es el párrafo nro 2</p>
+<p id="p3">Este es el párrafo nro 3</p>
+<p id="p4">Este es el párrafo nro 4</p>
+<p id="p5">Este es el párrafo nro 5</p>
+<p id="p6">Este es el párrafo nro 6</p>
+<p id="p7">Este es el párrafo nro 7</p>
+<p id="p8">Este es el párrafo nro 8</p>
+<p id="p9">Este es el párrafo nro 9</p>
+<p id="p10">Este es el párrafo nro 10</p>
+<p id="p11">Este es el párrafo nro 11</p>
+<p id="p12">Este es el párrafo nro 12</p>
+<p id="p13">Este es el párrafo nro 13</p>
+<p id="p14">Este es el párrafo nro 14</p>
+<p id="p15">Este es el párrafo nro 15</p>
+<p id="p16">Este es el párrafo nro 16</p>
+
+<br><hr>
+<h1 style="text-transform: uppercase;">Definir un cursor para un elemento HTML</h1>
+<p>
+  Disponemos de una propiedad llamada cursor que tiene por objetivo definir el cursor a mostrar cuando la flecha del mouse se encuentra sobre el elemento HTML.
+Los valores que podemos asignarle a esta propiedad cursor son:
+<pre style="color: coral;">
+crosshair
+default
+pointer
+move
+e-resize
+ne-resize
+nw-resize
+n-resize
+se-resize
+sw-resize
+s-resize
+w-resize
+text
+wait
+help
+auto</pre>
+</p>
+<p>Este texto tiene por mostrar las anclas con un cursor distinto al que 
+  está definido por defecto:</p>
+  <a href="http://www.google.com">google.com</a><br>
+  <a href="http://www.yahoo.com">yahoo.com</a><br>
+  <a href="http://www.bing.com">bing.com</a>
+  <ol>
+    <li id="elemento1">crosshair</li>
+    <li id="elemento2">default</li>
+    <li id="elemento3">pointer</li>
+    <li id="elemento4">move</li>
+    <li id="elemento5">e-resize</li>
+    <li id="elemento6">ne-resize</li>
+    <li id="elemento7">nw-resize</li>
+    <li id="elemento8">n-resize</li>
+    <li id="elemento9">se-resize</li>
+    <li id="elemento10">sw-resize</li>
+    <li id="elemento11">s-resize</li>
+    <li id="elemento12">w-resize</li>
+    <li id="elemento13">text</li>
+    <li id="elemento14">wait</li>
+    <li id="elemento15">help</li>
+    <li id="elemento16">auto</li>
+    </ol>
+
+<br><hr>
+<h1 style="text-transform: uppercase;">Aplicación de hojas de estilo a un formulario</h1>
+<div id="contenedorform">
+  <form method="post" action="#">
+    <label>Ingrese nombre:</label>
+    <input type="text" name="nombre" size="30">
+    <br>
+    <label>Ingrese mail:</label>
+    <input type="text" name="mail" size="45">
+    <br>
+    <label>Comentarios:</label>
+    <textarea name="comentarios" cols="30" rows="5"></textarea> 
+    <br>
+    <input class="botonsubmit" type="submit" value="confirmar">
+  </form>
+  </div>
+  <br><br>
+  <div id="contenedorform1">
+    <form method="post" action="#">
+      <label>Ingrese nombre:</label>
+      <input type="text" name="nombre" size="30" class="campo">
+      <br>
+      <label>Ingrese edad:</label>
+      <input type="text" name="edad" size="3" class="campo">
+      <br>
+      <input class="botonsubmit1" type="submit" value="confirmar">
+    </form>
+    </div>
+
+<br><hr>
+<h1 style="text-transform: uppercase;">Aplicación de hojas de estilo a una tabla</h1>
+<p>
+  Otro elemento muy común en un sitio web son las tablas. A este elemento HTML podemos aplicarle varias de las propiedades vistas tanto a la tabla en sí, como sus filas y celdas.
+
+El elemento table podemos definir la propiedad border-collapse que puede tomar dos valores:
+<pre style="color:indianred">
+collapse
+separate</pre>
+Si le asignamos el valor collapse une las líneas de los border de las celdas (con esto queda en muchas situaciones mejor estéticamente)
+El elemento caption dentro de una tabla es el título que debe aparecer arriba.
+Como vimos la propiedad border-collapse puede tomar dos valores: collapse o separate. Separate deja las celdas con unos pixeles de separación, no así collapse.
+El resto es la definición de una serie de reglas para los elementos th, th dentro del elemento tbody, th dentro del elemento thead y por último td.
+</p>
+<table>
+  <caption>
+  cantidad de lluvia caida en mm.
+  </caption>
+  <thead>
+    <tr>
+    <th>Provincia</th><th>Enero</th><th>Febrero</th><th>Marzo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Córdoba</th>
+      <td>210</td><td>170</td><td>120</td>
+    </tr>
+    <tr>
+      <th>Buenos Aires</th>
+      <td>250</td><td>190</td><td>140</td>
+    </tr>
+    <tr>
+      <th>Santa Fe</th>
+      <td>175</td><td>140</td><td>120</td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

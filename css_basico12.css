@@ -1,0 +1,61 @@
+.container {
+    width:100%;
+    margin:0 auto;
+    height:200px;
+    background-color: red;  
+  }
+  
+  @media (min-width: 576px) {
+    .container {
+      max-width: 540px;
+      background-color:rgb(60, 235, 153);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px;
+      background-color:rgb(134, 14, 233);	
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .container {
+      max-width: 960px;
+      background-color:rgb(73, 213, 238);	
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1140px;
+      background-color:#ccc;		
+    }
+  }
+  
+/*Otro ejemplo------------------------------------------------------------------------------------------------------------------------------ */
+  .container2 {
+    width:90%;
+    margin:0 auto;
+    background-color:#ccc;  
+    column-count:1;
+    text-align: justify;
+    padding:1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .container2 {
+      column-count:2;	  
+      max-width:720px;
+      font-size:1.20rem;	
+    }
+  }
+  
+  
+  @media (min-width: 1200px) {
+    .container2 {
+      column-count:4;	  	  
+      max-width:1140px;
+      font-size:1.40rem;
+    }
+  }

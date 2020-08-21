@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Problema</title>
+  <meta charset="UTF-8">
+  <link rel="StyleSheet" href="css_basico4.css" type="text/css">
+</head>
+<body>
+<h1>Definición de hojas de estilo en un archivo externo.</h1>
+<p>
+Hasta ahora hemos visto la definición de estilos a nivel de elemento HTML y la definición de estilos a nivel de página. Dijimos que la primera forma es muy poco recomendada y la segunda es utilizada cuando queremos definir estilos que serán empleados solo por esa página.
+Ahora veremos que la metodología más empleada es la definición de una hoja de estilo en un archivo separado que deberá tener la extensión css.
+</p>
+<hr>
+<h1>Base de Datos</h1>
+<h2>Conceptos básicos</h2>
+<p>Una base de datos almacena sus datos en tablas.</p>
+<p>Una tabla es una estructura de datos que organiza los datos en columnas
+ y filas; cada columna es un campo (o atributo) y cada fila, un registro.
+ La intersección de una columna con una fila, contiene un dato específico,
+ un solo valor.</p>
+<p>Cada registro contiene un dato por cada columna de la tabla.
+Cada campo (columna) debe tener un nombre. El nombre del campo hace referencia
+ a la información que almacenará.</p>
+<p>Cada campo (columna) también debe definir el tipo de dato que almacenará.</p>
+</p>
+<hr>  
+<h1 class="resaltado">Definición de estilos por medio de clases</h1>
+<p>
+  Este párrafo muestra el resultado de aplicar la clase .resaltado en la última <span class="resaltado">palabra.</span>
+</p>
+<p class="resaltado">Este es un parrafo afectado por la clase resaltado</p>
+
+<h1 class="subrayado">Estructuras repetitivas en Java</h1>
+<p>
+Hasta ahora hemos empleado estructuras <span class="subrayado">SECUENCIALES</span> y <span class="subrayado">CONDICIONALES</span>.
+ Existe otro tipo de estructuras tan importantes como las anteriores que son las estructuras <span class="subrayado">REPETITIVAS</span>.
+</p>
+<p>
+Las estructuras repetitivas son más <span class="tachado">sencillas</span> complejas. 
+</p>
+<p class="pregunta">¿Cuál de estos tres lenguajes es el más utilizado?</p>
+<p class="respuesta">Java</p>
+<p class="respuesta">C</p>
+<p class="respuesta">C++</p>
+
+<p class="pregunta">¿Qué posición se ubica el lenguaje C#?</p>
+<p class="respuesta">4</p>
+<p class="respuesta">5</p>
+<p class="respuesta">10</p>
+
+<p class="pregunta">¿Qué posición ocupa el PHP?</p>
+<p class="respuesta">7</p>
+<p class="respuesta">10</p>
+<p class="respuesta">20</p>
+<hr>
+
+<h1 class="resaltado">Definición de estilos por medio de id</h1>
+<p>La diferencia fundamental en la definición de un estilo por medio de id con respecto a las clases, es que sólo podremos aplicar dicho estilo a una solo elemento HTML dentro de la página, ya que todos los id que se definen en una página HTML deben tener nombres distintos.
+  La sintaxis para definir un estilo por medio de id es:
+  <pre>
+    #cabecera {
+      font-family:Times New Roman;
+      font-size:30px;
+      text-align:center;
+      color:#0000ff;
+      background-color:#bbbbbb;
+    }
+  </pre>
+  Luego, sólo un elemento HTML dentro de una página puede definir un estilo de este tipo:
+  <pre>div id="cabecera"</div></pre>
+</p>
+<div id="cabecera">
+  <h1>Título de la cabecera</h1>
+</div>
+
+<div id="cabecera">
+  <h1>Gestor de base de datos MySQL</h1>
+</div>
+  
+<div id="cuerpo">
+  <p>SQL, Structure Query Language (Lenguaje de Consulta Estructurado) 
+  es un lenguaje de programacion para trabajar con base de datos
+  relacionales como MySQL, Oracle, etc.</p>
+  <p>MySQL es un interpretador de SQL, es un servidor de base de
+  datos.</p>
+  <p>MySQL permite crear base de datos y tablas, insertar datos, 
+  modificarlos, eliminarlos, ordenarlos, hacer consultas y realizar
+  muchas operaciones, etc., resumiendo: administrar bases de datos.</p>
+</div>
+  
+<div id="pie">
+  <p>Tutorial de MySQL</p>
+</div>
+</body>
+</html>

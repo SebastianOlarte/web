@@ -1,0 +1,60 @@
+.header {
+  color: blue;
+  font-size:x-large;
+  font-size: 2rem;
+}
+.red {
+  color: red;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+p.clase1{
+  background-color:red;
+  color: white;
+}
+
+#div2 {
+  width: 300px;
+  height: 100px;
+  padding: 10px;
+  margin: 20px;
+  border: 3px solid blue;
+  background-color: red;
+  color: white;
+}
+
+div.clase1 {
+  padding: 10px;
+}
+p.clase3 {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+body, div, ul, li {
+  padding: 5px;
+  margin: 15px;
+}
+p.clase4 {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+div.clase2 {
+  background-color: aqua;
+  width: 300px;
+  height: 200px;
+}
+
+#p1 {
+  background-color:grey;
+  text-align:center;
+  color:white;
+  padding:5px;
+  cursor:pointer;
+}
+#div3 {
+  background-color:grey;
+  color:white;
+}

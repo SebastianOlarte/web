@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript ES6</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css_para_ejemplos_jaascript.css" type="text/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+<h1>ES6 - API fetch</h1>
+<p>ALgunas APIs publicas que se pueden usar para los ejercicios de ejemplo son estas.
+  <ul style="list-style-type: circle; list-style-position: inside;">
+    <li><a href="https://jsonplaceholder.typicode.com/">JSONPlaceholder</a>
+      <ol>
+        <li><a href="https://jsonplaceholder.typicode.com/posts">https://jsonplaceholder.typicode.com/posts</a></li>
+        <li><a href="https://jsonplaceholder.typicode.com/comments">https://jsonplaceholder.typicode.com/comments</a></li>
+        <li><a href="https://jsonplaceholder.typicode.com/albums">https://jsonplaceholder.typicode.com/albums</a></li>
+        <li><a href="https://jsonplaceholder.typicode.com/photos">https://jsonplaceholder.typicode.com/photos</a></li>
+        <li><a href="https://jsonplaceholder.typicode.com/todos">https://jsonplaceholder.typicode.com/todos</a></li>
+        <li><a href="https://jsonplaceholder.typicode.com/users">https://jsonplaceholder.typicode.com/users</a></li>
+      </ol>
+    </li>
+    <li><a href="https://freegeoip.app/">Free IP Geolocation API</a>
+      <ol>
+        <li><a href="https://freegeoip.app/json/">JSON</a></li>
+        <li><a href="https://freegeoip.app/xml/">XML</a></li>
+      </ol>
+    </li>
+    <li><a href="https://randomuser.me/">RANDOM USER GENERATOR</a>
+      <ol>
+        <li><a href="https://randomuser.me/api/">https://randomuser.me/api/</a></li>
+      </ol>
+    </li>
+    <li><a href="https://picsum.photos/">Lorem Picsum: The Lorem Ipsum for photos</a></li>
+    <li><a href="https://pokeapi.co/api/v2/pokemon">PokéAPI: The RESTful Pokémon API</a></li>
+    <li><a href="https://datosgobar.github.io/georef-ar-api/quick-start/">API del Servicio de Normalización de Datos Geográficos de Argentina</a></li>
+    <li><a href="https://datosgobar.github.io/series-tiempo-ar-api/quick-start/">API Argentina de Series de Tiempo</a></li>
+    <li><a href="https://datos.gob.ar/dataset">Datasets:</a> Estos son datos públicos generados, guardados y publicados por organismos de gobierno de la República Argentina.</li>
+    <li><a href="https://datos.gob.ar/series/api">Series de tiempo:</a> Desde aquí podés buscar las series de tiempo del tema que necesites, podés seleccionar más de una opcion de los resultados para compararlos.</li>
+    <li><a href="https://github.com/datosgobar">Datos Argentina: </a>Bienvenidos al repositorio oficial del equipo de Datos de la Nación Argentina.</li>
+  </ul>
+</p>
+<hr>
+
+<p><strong>PROBLEMA:</strong><br>Consumir el API publica <em>https://randomuser.me/api/</em> la cual nos retorna un objeto JSON con la información de un usuario. Mostrar entonces en la pagina el primer nombre, segundo nombre y la imagen respectiva. Hacer esto inmediatamente se carga la página web.</p>
+<div style="height: 400px; width: 300px; color: rgb(255, 0, 0); background-color:lightgreen;">
+<p><strong>NOMBRE: </strong> <span id="nombre"></span></p>
+<p><strong>LOCALIZACION: </strong> <span id="localizacion"></span></p>
+<p><strong>CORREO: </strong> <span id="email"></span></p>
+<p><strong>FECHA NACIMIENTO Y EDAD: </strong> <span id="edad"></span></p>
+<p><img id="foto" alt="No se obtuvo imagen"></p>
+</div>
+<hr>
+<p><strong>PROBLEMA: </strong><br>
+  Consumir la siguiente API <em> https://jsonplaceholder.typicode.com/users</em> y pintar los datos en una tabla</p>
+<div class="container">
+  <div class="row">
+    <table class="table table-striped" id="tabla1">
+    </table>
+  </div>
+</div>
+<hr>
+<p><strong>PROBLEMA:</strong><br>
+Consumir las siguientes APIS: en dos problemas diferentes<br>
+<a href="https://freegeoip.app/json/"><em>https://freegeoip.app/json/</em></a><br>
+<a href="https://jsonplaceholder.typicode.com/users"><em>https://jsonplaceholder.typicode.com/users?id=[número de 1 a 10]</em></a>
+</p>
+<p>Ingrese el id de un usuario(entre 1 y 10):
+  <input type="number" id="usuario">
+</p>
+<p><button id="buscar">Buscar</button></p>
+<div id="informacion"></div>
+<hr>
+<div id="informacion2"></div>
+
+<script>
+addEventListener("DOMContentLoaded", () => {
+//Codigo que consume la API de usuarios aleatorios
+fetch('https://randomuser.me/api/')
+  .then(response => response.json())
+  .then((datos) => {
+    document.getElementById("nombre").innerText = datos.results[0].name.first + ', ' + datos.results[0].name.last;
+    document.getElementById("localizacion").innerText = datos.results[0].location.city + '/' + datos.results[0].location.state + '/' + datos.results[0].location.country;
+    document.getElementById("email").innerText = datos.results[0].email;
+    document.getElementById("edad").innerText = datos.results[0].dob.date + ' --- ' + datos.results[0].dob.age;
+
+    let imagen;
+    if (datos.results[0].gender == "female")
+      imagen = "imagenes/femenino.png";
+    else
+    imagen = "imagenes/masculino.png";
+
+    // fetch(imagen)
+    //   .then(response => response.blob())
+    //   .then(datos => document.getElementById("foto").setAttribute('src', URL.createObjectURL(datos)));
+
+    fetch('https://randomuser.me/api/portraits/men/29.jpg', {
+      mode:"cors"
+    })
+      .then(response => response.blob())
+      .then(datos => document.getElementById("foto").setAttribute('src', URL.createObjectURL(datos)));
+  });
+
+//Codigo que consume la API de la lista de usuarios
+  fetch("https://jsonplaceholder.typicode.com/users")
+        .then(response => response.json())
+        .then(datos => {
+          let cad = '<tr><th>Nombre</th><th>Email</th><th>Télefono</th><th>Usuario</th><th>WebSite</th></tr>';
+          for (let usuario of datos) {
+            cad += `<tr><td>${usuario.name}</td>
+            <td>${usuario.email}</td>
+            <td>${usuario.phone}</td>
+            <td>${usuario.username}</td>
+            <td>${usuario.website}</td></tr>`;
+          }
+          document.getElementById("tabla1").innerHTML = cad;
+        });
+
+//Más ejemplos del consumo de APIs
+document.getElementById("buscar").addEventListener("click", () => {
+      fetch("https://jsonplaceholder.typicode.com/users?id=" + document.getElementById("usuario").value)
+        .then(response => response.json())
+        .then(datos => {
+          if (datos.length == 1)
+            document.getElementById("informacion").innerHTML =
+              `<p>Nombre:${datos[0].name}</p>
+            <p>Ciudad:${datos[0].email}</p>
+            <p>Teléfono:${datos[0].phone}</p>`;
+          else
+            document.getElementById("informacion").innerHTML = 'No existe el usuario con id=' +
+              document.getElementById("usuario").value;
+
+        });
+    });
+//Más ejemplos del consumo de APIs
+fetch("https://freegeoip.app/json/")
+      .then(response => response.json())
+      .then(datos => {
+        document.getElementById("informacion2").innerHTML = 
+          `<p>Pais:${datos.country_name}</p>
+            <p>Ciudad:${datos.city}</p>
+            <p>Código postal:${datos.zip_code}</p>
+            <p>Ip:${datos.ip}</p>`;
+      });
+});
+</script>
+
+<hr>
+<h2>API fetch: enviar datos de un formulario y enviar un archivo adjunto:<h2>
+<p>El siguiente ejemplo presenta el codigo y el front del porceso de enviar datos usando del metodo POST del API fetch. Solo faltaria implementar el BackEnd</p> <br>
+<div class="container h-100">
+  <div class="row">
+    <form id="formulario1">
+      <div class="form-group">
+        <label for="descripcion">Descripción del artículo</label>
+        <input type="text" class="form-control" id="descripcion" name="descripcion" required>
+      </div>
+      <div class="form-group">
+        <label for="precio">Precio:</label>
+        <input type="number" class="form-control" id="precio" name="precio" required>
+      </div>
+      <div class="form-group">
+        <button type="button" id="boton1" class="btn btn-primary">Nuevo artículo</button>
+      </div>
+    </form>
+
+    <table class="table table-striped" id="tabla1">
+    </table>
+  </div>
+</div>
+<p>Foto: <input type="file" id="foto" required></p>
+<p><button type="button" id="botonArchivo" >Subir foto</button></p>
+<p><img id="imagen"></p>
+
+<script>
+addEventListener("DOMContentLoaded", () => {
+  listarArticulos();
+  document.getElementById("boton1").addEventListener("click", () => agregarArticulo());//Botón para el formulario1
+  document.getElementById("botonArchivo").addEventListener("click", () => agregarArchivo());//Botón para subir el archivo
+});
+
+function agregarArticulo() {
+  const datos = new URLSearchParams(new FormData(document.getElementById("formulario1")));
+  fetch('nuevoarticulo.php', {
+    method: 'POST',
+    body: datos
+  })
+    .then(response => response.json())
+    .then(datos => listarArticulos());
+}
+
+function listarArticulos() {
+  fetch("listadoarticulos.php")
+    .then(response => response.json())
+    .then(datos => {
+      let cad = '<tr><th>Código</th><th>Descripción</th><th>Precio</th></tr>';
+      for (let articulo of datos) {
+        cad += `<tr><td>${articulo.codigo}</td>
+        <td>${articulo.descripcion}</td>
+        <td>${articulo.precio}</td></tr>`;
+      }
+      document.getElementById("tabla1").innerHTML = cad;
+    });
+  }
+function agregarArchivo() {
+let fd = new FormData();
+fd.append("foto", document.getElementById("foto").files[0]);
+fetch('subirfoto.php', {
+  method: 'POST',
+  body: fd
+})
+  .then(response => response.json())
+  .then(datos => {
+    if (datos.resultado == "Ok")
+      document.getElementById("imagen").setAttribute("src", document.getElementById("foto").files[0].name);
+  })
+}    
+</script>
+
+</body>
+</html>
+
+

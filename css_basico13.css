@@ -1,0 +1,241 @@
+h1.titulo {
+    text-transform: uppercase; text-decoration: dotted; font-variant: small-caps; font-style: oblique; background-color: gold;
+    text-align: center;
+  }
+
+  h2.subtitulo{
+    text-transform: uppercase; text-decoration: dotted; font-variant: small-caps; font-style: oblique; background-color: rgb(233, 42, 17);
+  }
+
+  p.contenido{
+    font-style: italic; font-weight: bolder; background-color: aquamarine;
+  }
+/* ----------------------------------------------------------------------------------------------------------------------------------------- */
+
+#contenedor1 {
+    display: flex;
+    background-color: #ddd;
+  }
+  
+  #contenedor1 div {
+    border:1px solid black;
+    padding:1rem;
+    color: blue;
+  }
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------*/
+#contenedor2{
+    display: flex;
+    flex-direction: column;
+    background-color: #000;  
+    height: 300px;
+    color:white;
+    font-size:2rem;
+  }
+  
+  #item1 {
+    background-color: #0078A6;
+  }
+  #item2 {
+    background-color: #0084B6;
+  }
+  #item3 {
+    background-color: #008CC1;
+  }
+
+  #contenedor3{
+    display: flex;  
+    justify-content: space-around;
+    flex-direction: row-reverse;
+    background-color: #000;  
+    height: 300px;
+    color:white;
+    font-size:2rem;
+  }
+
+  #contenedor4{
+    display: flex;  
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;  
+    height: 300px;
+    color:white;
+    font-size:2rem;
+  }
+  
+  #hola_mundo {
+    background-color: #0c612f;
+  }
+
+  #contenedor5{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #000;  
+    height: 300px;
+    color:white;
+    font-size:2rem;
+  }
+  
+  .item {
+    background-color: #8b1495;
+    width:150px;
+    height:150px;
+  }
+
+  #contenedor6{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    background-color: #000;  
+    height: 400px;
+    color:white;
+    font-size:2rem;
+  }
+
+  #contenedor7{
+    display: flex;
+    flex-flow: column wrap;
+    align-content: space-around;
+    background-color: #000;  
+    height: 400px;
+    color:white;
+    font-size:2rem;
+  }
+/* ------------------------------------------------------- */
+  #contenedor8{
+    display: flex;
+    background-color: #000;  
+    height: 300px;
+    color:white;
+    font-size:2rem;
+  }
+  
+  #item11 {  
+    background-color: #00a600;
+  }
+  #item22 {
+    flex-grow: 5;
+    background-color: #4000b6;
+  }
+  #item33 {
+    flex-grow: 1;
+    background-color: #c10000;
+  }
+/* -------------------------------------------------------- */
+  #contenedor9{
+    display: flex;
+    background-color: #000;  
+    height: 300px;
+    color:white;
+    font-size:2rem;
+  }
+  
+  #item111 {  
+    background-color: #6ca600;
+  }
+  #item222 {
+    flex-shrink: 0;
+    background-color: #0084B6;
+  }
+  #item333 {
+    background-color: #c17400;
+  }
+/* ----------------------------------------------------------- */
+#contenedor10{
+    display: flex;
+    background-color: #000;  
+    height: 300px;
+    color:white;
+    font-size:2rem;
+  }
+  
+  #item1111 {  
+    flex-basis: 20%;
+    background-color: #2fa600;
+  }
+  #item2222 {
+    flex-basis: 60%;  
+    background-color: #7312c2;
+  }
+  #item3333 {
+    flex-basis: 20%;  
+    background-color: #bff36b;
+  }
+/* ---------------------------------------------------------------------------------- */
+#contenedor11{
+    display: flex;
+    background-color: #000;  
+    height: 300px;
+    color:white;
+    font-size:2rem;
+  }
+  
+  #item11111 {  
+    flex: 1 1 20%;
+    background-color: #00a653;
+  }
+  #item22222 {
+    flex: 0 0 60%;  
+    background-color: #957fe4;
+  }
+  #item33333 {
+    flex: 0 1 20%;  
+    background-color: #aa2424;
+  }
+
+/* --------------------------------------------------------------------------------------- */
+#contenedor12{
+    display: flex;
+    background-color: #000;  
+    height: 300px;
+    color:white;
+    font-size:2rem;
+  }
+  
+  #item111111 {  
+    order: 2;
+    background-color: #d1e23a;
+  }
+  #item222222 {
+    order: 1;
+    background-color: #00b60f;
+  }
+  #item333333 {
+    order: 0;
+    background-color: #9a00c1;
+  }
+/* -------------------------------------------------------------------------------------------------- */
+#contenedor13{
+    display: flex;
+    background-color: #000;  
+    height: 300px;
+    color:white;
+    font-size:2rem;
+  }
+  
+  #item1111111 {  
+    align-self: auto;
+    background-color: #f39821;
+  }
+  #item2222222 {
+    align-self: flex-start;
+    background-color: #1deb5b;
+  }
+  #item3333333 {
+    align-self: flex-end;
+    background-color: #418199;
+  }
+  
+  #item4444444 {  
+    align-self: center;
+    background-color: #3a3977;
+  }
+  #item5555555 {
+    align-self: stretch;
+    background-color: #ff0000;
+  }
+  #item6666666 {
+    align-self: baseline;
+    background-color: #b6d681;
+  }

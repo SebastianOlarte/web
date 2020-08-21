@@ -1,0 +1,365 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Almacenamiento HTML5</title>  
+  <meta charset="UTF-8">
+  <style>
+    h1 {
+        text-transform: uppercase; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;text-align: center; font-size: 3rem;
+    }
+    h2 {
+        text-transform: uppercase; font-family: 'Courier New', Courier, monospace;text-align: left; color: forestgreen; font-variant: small-caps; text-shadow: blue;
+    }
+    body{
+      background-color:rgb(188, 243, 195);
+    }
+    form{
+      background-color:lemonchiffon;
+    }
+    p{
+      font-size: 1.4rem;
+      font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    input{
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 15px;
+    }
+
+    #recuadro, #recuadro2 {
+      width:300px;
+      height:50px;
+      background-color:yellow;
+      border-style:solid;
+      border-color:red;
+      font-size:1.5em;
+    }
+    #palabras span {
+      font-size:1.5em;
+      color: mediumblue;
+    }
+
+    #caja, #caja2 {
+      margin: 10px;
+      width: 800px;
+      height: 500px;
+      border: 5px dashed gray;
+      border-radius: 8px;
+      background: rgb(230,230,230);
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+
+</style>
+</head>
+<body>
+  <h1>WEB STORAGE (localStorage y sessionStorage) --- GEOLOCATION --- DRAG AND DROP --- API FILE</h1>
+  <h2>---WEB STORAGE---</h2>
+  <p>Con el HTML clásico si necesitamos almacenar datos en el cliente (navegador) se utilizan las cookies. Con HTML5 se han agregado otras tecnologías para almacenar datos en el cliente.
+    La primer tecnología que vamos a ver para almacenar datos en el navegador empleando HTML5 es la funcionalidad que provee el objeto localStorage.
+    El objeto localStorage nos permite almacenar datos que serán recordados por el navegador para siempre, es decir no tienen una fecha de caducidad.
+    La cantidad de información que podemos almacenar es muy superior a la permitida con las cookies, el localStorage permite almacenar por lo menos 5 Mb.
+    La información que se almacena en el localStorage a diferencia de las cookies no se envía al servidor cada vez que se solicita una página. Necesariamente debemos utilizar Javascript para almacenar y recuperar datos.
+    El objeto localStorage cuenta con dos métodos fundamentales para grabar y recuperar datos: <br>
+    <pre>
+      localStorage.setItem ( [clave] , [valor])
+      localStorage.getItem ( [clave] )
+    </pre></p>
+    <p><strong>PROBLEMA: </strong> Confeccionar una aplicación que permita administrar un diccionario ingles/castellano, almacenar en forma local dichos datos.</p>
+  
+    <p>Palabra en ingles:</p> 
+    <input type="text" id="ingles">
+    <input type="button" id="traducir" value="Traducir"> 
+    <br>      
+    <p>Palabra en castellano:</p> 
+    <input type="text" id="castellano"><br>
+    <input type="button" id="guardar" value="Guardar">
+  
+  <hr>
+  <h2>---GEOLOCATION---</h2>
+  <p>La geolocalización es una característica de HTML5 que nos permite acceder a ubicación geográfica del usuario del sitio web con una precisión absoluta en el caso que el dispositivo que utilice tenga GPS.
+
+    La precisión va a disminuir si no tiene GPS y debe utilizarse la IP del proveedor de servicios de Internet. De todos modos veremos que podemos detectar dicha precisión.
+    
+    El navegador administra la geolocalización mediante un objeto llamado geolocation que es un atributo del objeto navigator.
+    
+    El objeto geolocation cuenta con un método llamado getCurrentPosition que le enviamos el nombre de la función que se llamará cuando se obtenga la posición.</p>
+    <h3>GEOLOCATION (getCurrentPosition)</h3>
+    <p><strong>Problema: </strong>Confeccionar una aplicación que permita obtener la latitud, longitud de nuestra posición y además con que precisión se obtuvo.</p>
+    <input type="button" id="obtener" value="Obtener la localización actual">
+    <br>
+    <span id="dato"></span>
+
+    <h3>GEOLOCATION (mostrar en un mapa)</h3>
+    <p><strong>Problema: </strong>Confeccionar una aplicación que al presionar un botón obtenga la latitud y longitud de nuestra posición actual y luego solicitar a los servicios de Google Maps un mapa de dicha coordenada.</p>
+    <input type="button" id="obtener2" value="Obtener la localización actual en Google Maps">
+    <br>
+    <div id="dato2"></div>
+
+    <h3>GEOLOCATION (tiempo de espera y captura de errores)</h3>
+    <p>El método getCurrentPosition tiene otros dos parámetros opcionales:
+      <pre>
+        getCurrentPosition([funcion que recibe la coordenada],
+                     [función que captura el error],
+                     [objeto que configura parámetros iniciales]);
+      </pre>
+      El objeto error que llega como parámetro a la función nos informa el tipo de error generado por el intento de obtener la geolocalización. Como vemos hay tres posibilidades de errores que se pueden generar: <br>
+
+      (TIMEOUT) : El primer error posible es que el tiempo de espera para obtener la posición haya expirado. Veremos que podemos especificar al método getCurrentPosition el tiempo máximo que tiene para obtener la posición. <br>
+      (PERMISSION_DENIED) : Se genera si el usuario no aprueba la obtención de la geolocalización. <br>
+      (POSITION_UNAVAILABLE) : Cuando el dispositivo (por ejemplo un GPS) genera error interno. <br>
+      Otro concepto importante es que al llamar al método getCurrentPosition en el tercer parámetro podemos enviarle un objeto donde configuramos todos o alguno de sus atributos: <br>
+      <pre>
+        timeout //Especificamos el tiempo máximo de espera (si no se especifica el tiempo es infinito)
+        maximumAge  //El atributo maximumAge indica que la aplicación está dispuesto a aceptar una posición almacenada en el caché 
+                      cuya edad no supere la cantidad de milisegundos indicado en esta propiedad.
+                      Por defecto está configurada en cero. 
+        enableHighAccuracy  //Con el valor true activa la alta presición (por defecto está configurado en cero)
+      </pre>
+      La sintaxis para configurar algunos de dichos atributos: <br>
+      <pre>   navigator.geolocation.getCurrentPosition(mostrarCoordenada,errores,{timeout:50,maximumAge:60000});</pre></p>
+      <p><strong>Problema: </strong>Confeccionar una aplicación que al presionar un botón obtenga la latitud y longitud de nuestra posición actual y luego solicitar a los servicios de Google Maps un mapa de dicha coordenada. Esperar solo 10 milisegundos y ver si se genera un error por el tiempo de espera. Disponer luego en el atributo timeout un valor mayor hasta que no se dispare el error de tiempo de espera.</p>
+      <input type="button" id="obtener3" value="Obtener la localización actual en Google Maps"><br>
+      <div id="dato3"></div>
+
+      <hr>
+      <h2>---DRAG AND DROP---</h2>
+      <p>
+        <strong>- dragstart: </strong>Se dispara cuando el usuario selecciona el elemento que se quiere arrastrar. La función recibe como parámetro la referencia al elemento HTML que está siendo arrastrado. <br>
+        <strong>- dragover: </strong>Se dispara cuando el elemento se ha dispuesto dentro del contenedor. El parámetro de la función hace referencia al elemento contenedor. Como el comportamiento por defecto es denegar el drop, la función debe llamar al método preventDefault para indicar que se active el soltar elemento. <br>
+        <strong>- drop: </strong>El elemento arrastrado se ha soltado en el elemento contenedor. El parámetro de la función hace referencia al elemento contenedor. <br>
+        <strong>- drag : </strong>Se dispara cada vez que el elemento se mueve. El parámetro de la función hace referencia al elemento HTML que se está arrastrando. Debemos configurar este evento para cada elemento factible de mover. <br>
+        <strong>- dragend: </strong>Se dispara cuando el elemento se suelta, indistintamente que se suelte dentro o fuera del contenedor. <br>
+        <strong>- dragenter: </strong>se ejecuta este evento cuando un objeto que es arrastrado entra en el objeto contenedor. El parámetro de esta función hace referencia al objeto contenedor. <br>
+        <strong>- dragleave: </strong>se ejecuta este evento cuando un objeto que es arrastrado sale del objeto contenedor. El parámetro de esta función hace referencia al objeto contenedor. <br>
+      </p>
+      <p><strong>Problema: </strong> Confeccionar un programa que muestre una oración en Ingles con las palabras desacomodadas. Permitir mediante drag and drop disponer las palabras dentro de un div. Inmediatamente luego que el usuario selecciona una palabra cambiar el fondo del div que recibirá la palabra con colores aleatorios. Cuando se suelte la palabra volver el fondo del div al color amarillo.</p>
+      <p>Arrastre en orden las palabras para formar la oración correcta.</p>
+      <div id="recuadro"></div>
+      <div id="palabras">
+        <span id="palabra1" draggable="true">TODOS</span>
+        <span id="palabra2" draggable="true">PARA</span>
+        <span id="palabra3" draggable="true">FELIZ</span>
+        <span id="palabra4" draggable="true">AÑO</span>    
+      </div>
+      <br>
+      <p><strong>Problema: </strong> Confeccionar un programa que muestre una oración en Ingles con las palabras desacomodadas. Permitir mediante drag and drop disponer las palabras dentro de un div. Cambiar el color de fondo del recuadro donde se disponen las palabras una vez que el usuario entra a dicho recuadro y volverlo al color original si sale del recuadro sin soltar el objeto.</p>
+      <p>Arrastre en orden las palabras para formar la oración correcta.</p>
+      <div id="recuadro2"></div>
+      <div id="palabras">
+        <span id="palabra12" draggable="true">PARA </span>
+        <span id="palabra22" draggable="true">FELIZ </span>
+        <span id="palabra32" draggable="true">TODOS </span>
+        <span id="palabra42" draggable="true">AÑO </span>    
+      </div>
+
+      <hr>
+      <h2>---API FILE---</h2>
+      <p><strong><em>- lectura de archivo de texto local</em></strong></p>
+      <p><strong>Problema: </strong>Confeccionar un programa que nos permita seleccionar de nuestro disco duro un archivo de texto y posteriormente leer su contenido y mostrarlo en un control textarea. Mostrar además su nombre, tamaño y tipo.</p>
+      <p>Seleccione un archivo <input type="file" id="archivo1"></p>
+      <textarea rows="20" cols="100" id="editor1"></textarea><br>
+      <p id="datos1"></p>
+
+      <p><strong><em>- lectura de múltiples archivos de texto locales</em></strong></p>
+      <p><strong>Problema: </strong>Confeccionar un programa que nos permita seleccionar un conjunto de archivos de texto de una sola vez y muestre sus contenidos en un control textarea (separando el contenido de cada archivo por varios guiones). Mostrar además todos los nombres de archivos leidos.</p>
+      <p>Seleccione los archivos necesarios <input type="file" id="archivo2" multiple></p>
+      <textarea rows="20" cols="100" id="editor2"></textarea><br>
+      <p id="datos2"></p>
+
+      <p><strong><em></em>- lectura de una imagen</strong></p>
+      <p>Un formato muy fácil de leerlo y mostrarlo son las imágenes. Para la lectura de un archivo con formato de imagen la clase FileReader dispone de un método llamado readAsDataURL que transforma los datos de la imagen en una URL de datos.</p>
+      <p><strong>Problema: </strong>Permitir seleccionar una imagen del disco duro y posteriormente mostrarla en el fondo de un div.</p>
+      <p>Seleccione una imagen <input type="file" id="archivo3" multiple></p>
+      <div id="caja"></div>
+
+      <p><strong><em></em>- drag and drop de una imagen del escritorio</strong></p>   
+      <p>veremos ahora que las API de DRAG AND DROP que provee HTML5 nos permiten arrastrar archivos que se encuentran en el escritorio de la computadora (es decir fuera del navegador) y proceder a su lectura como hemos visto.</p>   
+      <p><strong>Problema: </strong>Permitir arrastrar una imagen que se encuentre en el escritorio de la computadora y posteriormente mostrarla en el fondo de un div.</p>
+      <p>Arrastre una imagen desde el escritorio</p>
+      <div id="caja2"></div>
+
+</body>
+<script>
+window.addEventListener('load', inicio, false);
+
+function inicio() {
+    //para el almacenamiento web
+    document.getElementById('guardar').addEventListener('click', guardar, false);
+    document.getElementById('traducir').addEventListener('click', recuperar, false);
+    //para la geolocalizacion
+    document.getElementById('obtener').addEventListener('click', recuperarLocalizacion, false);
+    document.getElementById('obtener2').addEventListener('click', recuperarLocalizacion2, false);
+    document.getElementById('obtener3').addEventListener('click', recuperarLocalizacion2, false);
+    //para el drag and drop ejercicio1
+    document.getElementById('palabra1').addEventListener('dragstart', dragInicio, false);
+    document.getElementById('palabra2').addEventListener('dragstart', dragInicio, false);
+    document.getElementById('palabra3').addEventListener('dragstart', dragInicio, false);
+    document.getElementById('palabra4').addEventListener('dragstart', dragInicio, false);         
+    document.getElementById('palabra1').addEventListener('drag', dragMueve, false);
+    document.getElementById('palabra2').addEventListener('drag', dragMueve, false);
+    document.getElementById('palabra3').addEventListener('drag', dragMueve, false);
+    document.getElementById('palabra4').addEventListener('drag', dragMueve, false);                 
+    document.getElementById('palabra1').addEventListener('dragend', dragSolto, false);
+    document.getElementById('palabra2').addEventListener('dragend', dragSolto, false);
+    document.getElementById('palabra3').addEventListener('dragend', dragSolto, false);
+    document.getElementById('palabra4').addEventListener('dragend', dragSolto, false);
+    document.getElementById('recuadro').addEventListener('dragover', permitirDrop, false);
+    document.getElementById('recuadro').addEventListener('drop', drop, false);
+    //para el drag and drop ejercicio2
+    document.getElementById('palabra12').addEventListener('dragstart', dragInicio, false);
+    document.getElementById('palabra22').addEventListener('dragstart', dragInicio, false);
+    document.getElementById('palabra32').addEventListener('dragstart', dragInicio, false);
+    document.getElementById('palabra42').addEventListener('dragstart', dragInicio, false);                
+    document.getElementById('recuadro2').addEventListener('dragover', permitirDrop, false);        
+    document.getElementById('recuadro2').addEventListener('drop', drop, false);
+    document.getElementById('recuadro2').addEventListener('dragenter', entra, false);
+    document.getElementById('recuadro2').addEventListener('dragleave', sale, false);
+    //para los ejercicios del API FILE
+    document.getElementById('archivo1').addEventListener('change', cargar, false);
+    document.getElementById('archivo2').addEventListener('change', cargar, false);
+    document.getElementById('archivo3').addEventListener('change', cargar, false);
+    document.getElementById('caja2').addEventListener('dragover', permitirDropCaja2, false);    
+    document.getElementById('caja2').addEventListener('drop', dropCaja2, false);
+}
+
+//para los ejercicios web storage
+function guardar(evt) {
+      sessionStorage.setItem(document.getElementById('ingles').value, document.getElementById('castellano').value);        
+      document.getElementById('ingles').value='';
+      document.getElementById('castellano').value='';
+  }
+function recuperar(evt) {
+      if (sessionStorage.getItem(document.getElementById('ingles').value) == null) 
+          alert('No está almacenala la palabra '+document.getElementById('ingles').value);
+      else  
+          document.getElementById('castellano').value=sessionStorage.getItem(document.getElementById('ingles').value);
+  }     
+
+//para los ejercicios de geolocalizacion
+function recuperarLocalizacion() {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(mostrarCoordenada);
+      } else {
+        alert('El navegador no dispone la capacidad de geolocalización');
+      }
+  } 
+function mostrarCoordenada(posicion) {
+      document.getElementById('dato').innerHTML = 'Latitud:'+ posicion.coords.latitude+
+          '<br> Longitud:'+posicion.coords.longitude+
+          '<br>Exactitud:'+posicion.coords.accuracy;
+}
+function recuperarLocalizacion2() {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(mostrarCoordenada2, errores, {timeout:50, maximumAge:60000});
+      } else {
+        alert('El navegador no dispone la capacidad de geolocalización');
+      }
+  }
+function mostrarCoordenada2(posicion) {
+      var direccion = posicion.coords.latitude + "," + posicion.coords.longitude;
+      var mapa = "http://maps.googleapis.com/maps/api/staticmap?center="+direccion+"&zoom=14&size=500x500&sensor=false";
+      document.getElementById("dato2").innerHTML = "<img src='"+mapa+"'>";    
+      document.getElementById("dato3").innerHTML = "<img src='"+mapa+"'>";    
+  }
+function errores(err) {
+        if (err.code == err.TIMEOUT) 
+            alert("Se ha superado el tiempo de espera");
+        if (err.code == err.PERMISSION_DENIED)     
+            alert("El usuario no permitió informar su posición");
+        if (err.code == err.POSITION_UNAVAILABLE)                 
+            alert("El dispositivo no pudo recuperar la posición actual");
+    }
+//para los ejercicios de drag and drop
+function dragInicio(ev)
+{
+    ev.dataTransfer.setData("Text",ev.target.id);        
+}   
+function dragMueve(ev)
+{    
+    var rojo= 200+parseInt(Math.random()*55);
+    var verde= 100+parseInt(Math.random()*55);
+    var azul= 200+parseInt(Math.random()*55);
+    document.getElementById('recuadro').style.background = "rgb("+rojo+","+verde+","+azul+")";
+}
+function dragSolto(ev)
+{
+    document.getElementById('recuadro').style.background = "rgb(255,255,0)";        
+}
+function drop(ev)
+{
+    ev.preventDefault();   
+    var dato=ev.dataTransfer.getData("Text");
+    ev.target.appendChild(document.getElementById(dato));
+    document.getElementById(dato).removeEventListener('dragstart', dragInicio, false);
+    document.getElementById('recuadro2').style.background = "rgb(255,255,0)";
+}  
+function permitirDrop(ev)
+{
+    ev.preventDefault();
+}
+function entra(ev)
+{
+    document.getElementById('recuadro2').style.background = "rgb(0,255,0)";
+}
+function sale(ev)
+{
+    document.getElementById('recuadro2').style.background = "rgb(255,255,0)";    
+}   
+
+//para los ejercicios del API FILE
+function cargar(ev) {
+    //para un solo documento
+    document.getElementById('datos1').innerHTML='Nombre del archivo:'+ev.target.files[0].name+'<br>'+
+                                                'Tamaño del archivo:'+ev.target.files[0].size+'<br>'+  
+                                                'Tipo MIME:'+ev.target.files[0].type;
+    var arch=new FileReader();
+    arch.addEventListener('load',leer,false);
+    arch.readAsText(ev.target.files[0]);
+
+    //para multiples documentos
+    document.getElementById('datos2').innerHTML='';
+    document.getElementById('editor2').value='';
+    for(var f=0;f<ev.target.files.length;f++) {
+    document.getElementById('datos2').innerHTML=document.getElementById('datos2').innerHTML +
+                                                'Nombre del archivo:' + ev.target.files[f].name + '<br>'+
+                                                'Tamaño del archivo:' + ev.target.files[f].size + '<br>'+  
+                                                'Tipo MIME:' + ev.target.files[f].type + '<br>'+
+                                                '---------------------------------------------------------------------------------------------' + '<br>';
+      var arch2 = new FileReader();
+      arch2.addEventListener('load',leer,false);
+      arch2.readAsText(ev.target.files[f]);
+    }
+
+    //para cargar una imagen
+    var arch3 = new FileReader();
+    arch3.addEventListener('load',leer,false);
+    arch3.readAsDataURL(ev.target.files[0]);
+}
+function leer(ev) {
+    //para un solo documento
+    document.getElementById('editor1').value=ev.target.result;
+    //para multiples documentos
+    document.getElementById('editor2').value=document.getElementById('editor2').value + ev.target.result+
+                                                '\n----------------------------------------------------------------------------------------------\n';
+    //para cargar una imagen
+    document.getElementById('caja').style.backgroundImage="url('" + ev.target.result + "')";
+}
+//para los ejercicios del API FILE: arrastrar y soltar imagen
+function dropCaja2(ev)
+{
+    ev.preventDefault();
+    var arch5 =new FileReader();
+    arch5.addEventListener('load',leerCaja2,false);
+    arch5.readAsDataURL(ev.dataTransfer.files[0]);        
+}      
+function leerCaja2(ev) {
+    document.getElementById('caja2').style.backgroundImage="url('" + ev.target.result + "')";
+}
+function permitirDropCaja2(ev)
+{
+    ev.preventDefault();
+}    
+    
+    
+</script> 
+</html>
+

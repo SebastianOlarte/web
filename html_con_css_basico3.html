@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Problema</title>
+  <meta charset="UTF-8">
+<style>
+body {
+  color:#0000ff;
+  font-family:verdana;
+}
+em {
+  color:#008800;
+}
+p {
+  color:#999999;
+}
+h1 {
+  font-family:"Times New Roman";
+}
+h2 {
+  font-family:Courier;
+}
+h3 {
+  font-family:Arial;
+}
+p strong{
+  color:#0000ff;
+}
+h1 strong{
+  color:#ff0000;
+}
+div h1 em {
+  color:#ff0000;
+}
+h1 em {
+  color:#dddddd;
+}
+h2 em {
+  color:#cccccc;
+}
+h3 em {
+ color:#bbbbbb;
+}
+h4 em {
+  color:#aaaaaa;
+}
+h5 em {
+  color:#999999;
+}
+h6 em {
+  color:#888888;
+}
+</style>
+</head>
+<body>
+<h1>Este es un título de nivel 1 y con el elemento 'em' la palabra: 
+<em>Hola</em></h1>
+<p>Todo este párrafo debe ser de color gris ya que lo redefine la 
+marca p y no lo hereda de la marca body.</p>
+<hr>
+<h1>Titulo de nivel 1 que tiene su propia fuente y hereda el color del body</h1>
+<h2>Titulo de nivel 2 que tiene su propia fuente y hereda el color del body</h2>
+<h3>Titulo de nivel 3 que tiene su propia fuente y hereda el color del body</h3>
+<p>Prueba de un párrafo. Aparece con fuente de tipo "Verdana"
+ que es el heredado del elemento body.</p>
+<hr>
+<h2 style="text-transform: uppercase;">Definición de un estilo en función del contexto.</h2>
+<p>Este otro recurso que provee las hojas de estilo en cascada (css) es la definición de un estilo para un elemento HTML siempre y cuando la misma esté contenida por otro elemento determinado. Sólo en ese caso el estilo para dicha elemento se activará.
+Supongamos que queremos que cuando disponemos un texto encerrado por el elemento strong dentro de un párrafo el color del mismo sea verde. Pero si el elemento strong está contenida por el elemento h1 el color debe ser rojo, luego la sintaxis del problema es:
+<pre>
+  div h1 em {
+    color:#ff0000;
+}
+</pre>
+Con esto estamos diciendo que se debe pintar de color rojo el texto contenido por el elemento em siempre y cuando esté contenida en un elemento h1 y esta a su vez dentro de un div.
+</p>
+<h1>Acá tenemos un título de nivel uno, luego un bloque con el elemento strong debe aparecer <strong>así</strong></h1>
+<p>
+Luego si escribimos un párrafo y encerramos un bloque con el elemento strong debe aparecer <strong>así</strong>
+</p>
+<div>
+  <h1>Este es un titulo de nivel 1 dentro de un <em>div</em></h1>
+</div>
+<h1>Este es un titulo de nivel 1 fuera de un <em>div</em></h1>
+<hr>
+<h1>Titulo de nivel 1 y enfatizamos <em>esto</em></h1>
+<h2>Titulo de nivel 2 y enfatizamos <em>esto</em></h2>
+<h3>Titulo de nivel 3 y enfatizamos <em>esto</em></h3>
+<h4>Titulo de nivel 4 y enfatizamos <em>esto</em></h4>
+<h5>Titulo de nivel 5 y enfatizamos <em>esto</em></h5>
+<h6>Titulo de nivel 6 y enfatizamos <em>esto</em></h6>
+</body>
+</html>

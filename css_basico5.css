@@ -1,0 +1,164 @@
+#cabecera {
+  background-color:#888;
+  color:#ffffff;
+  font-family:Courier;
+}
+
+#cuerpo {
+  background-color:#eee;
+  font-family:Arial;
+  text-indent:20px;
+}
+
+#pie {
+  background-color:#888;  
+  text-align:center;
+  color:#eedd00;
+}
+
+.pregunta {
+  background-color:#ffff00;
+  border-width:1px;
+  border-style:solid;
+  border-color:#000000;
+}
+.respuesta {
+  border-width:1px;
+  border-style:dashed;
+  border-color:#e67f0a;
+}
+
+.titulopagina {
+  background-color:#ffffcc;
+  text-align:center;
+  font-family:verdana;
+  font-size:40px;
+
+  border-top-width:1px;
+  border-right-width:3px;
+  border-bottom-width:3px;
+  border-left-width:1px;
+
+  border-top-style:dotted;
+  border-right-style:solid;
+  border-bottom-style:solid;
+  border-left-style:dotted;
+
+  border-top-color:#ffaa00;
+  border-right-color:#ff0000;
+  border-bottom-color:#ff0000;
+  border-left-color:#ffaa00;
+}
+
+.titulosecundario{
+  background-color:#ffffcc;
+  text-align:center;
+  font-family:verdana;
+  font-size:40px;
+
+  border-top-width:2px;
+  border-bottom-width:2px;
+  border-right-width:0px;
+  border-left-width:0px;
+
+  border-top-style:dotted;
+  border-bottom-style:dotted;
+
+  border-top-color:#ff0000;
+  border-bottom-color:#ff0000;
+}
+
+.codigofuente {
+  font-size:12px;
+  background-color:#ffffcc;
+  border-width:1px;
+  border-style:dotted;
+  border-color:#ffaa00;
+
+  padding:50px;
+}
+
+.titulo {
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-right:100px;
+  padding-left:200px;
+  background-color:#aaaaaa;
+  color: gold;
+}
+
+.parrafo_con_margen {
+  background-color:#ffffaa;
+  margin:50px;
+  border-width:1px;
+  border-style:solid;
+  border-color:#ff0000;
+}
+/*---------OTRO EJEMPLO--------------------------------------------------------------------------------------------------*/
+.vacio{
+  list-style-type:none;
+}
+.circulorelleno{
+  list-style-type:disc;
+}
+.decimal{
+  list-style-type:decimal;
+}
+.romanominuscula{
+  list-style-type:lower-roman;
+}
+.romanomayuscula{
+  list-style-type:upper-roman;
+}
+.circulovacio{
+  list-style-type:circle;
+}
+.cuadrado{
+  list-style-type:square;
+}
+.letrasminusculas{
+  list-style-type:lower-alpha;
+}
+.letrasmayusculas{
+  list-style-type:upper-alpha;
+}
+.estilo1 {
+  list-style-type:decimal;
+  list-style-position: inside;
+}
+
+.estilo2 {
+  list-style-type:lower-roman;
+  list-style-position: outside;
+}
+
+body {
+  background-image:url(fondopag5.jpg.jpg);
+}
+
+/*---------OTRO EJEMPLO: INICIALIZANDO PROPIEDADES EN UNA SOLA LINEA--------------------------------------------------------------------------------------------------*/
+.fuente1{
+  font: bold italic 25px verdana;
+}
+.fuente2{
+  font: 16px Arial, Helvetica, sans-serif;
+}
+.fuente3{
+  font: italic bold 25px sans-serif;
+}
+
+.tituloprincipal{
+  border:5px solid #ff0000;
+}
+.comentarios{
+  border-top:2px solid #00ff40;
+  border-bottom:2px solid #ffff00;
+  background-color:#dddddd;
+  padding:50px 200px;
+  margin:70px 20px;
+}
+.fondo1 {
+  background: #7dc2e2 url(fondopag5.jpg) repeat-x; 
+  width: 100%;
+  height: max-content;
+}

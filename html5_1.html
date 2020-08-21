@@ -1,0 +1,755 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Título de la página</title>
+  <meta charset="UTF-8">
+<style>
+    h1 {
+        text-transform: uppercase; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;text-align: center; font-size: 3rem;
+    }
+    h2 {
+        text-transform: uppercase; font-family: 'Courier New', Courier, monospace;text-align: left; color: forestgreen; font-variant: small-caps; text-shadow: blue;
+    }
+</style>
+
+<script type="text/javascript">
+
+function retornarLienzo(x)
+{
+   var canvas = document.getElementById(x);
+   if (canvas.getContext) 
+   {
+     var lienzo = canvas.getContext("2d");   
+     return lienzo;
+   }
+   else
+     return false;
+}
+
+
+function dibujar()//funcion que dibuja el primer rectangulo
+{
+   var lienzo=retornarLienzo("lienzo1");
+   if (lienzo)
+   { 
+     lienzo.fillStyle = "rgb(200,0,0)";
+     lienzo.fillRect (10, 10, 200, 100);
+   }
+}
+
+function dibujar2()//funcion que dibuja dos letras V
+{
+   var lienzo=retornarLienzo("lienzo2");
+   if (lienzo)
+   { 
+     lienzo.strokeStyle = "rgb(200,0,0)";
+    //Inicio de camino
+    lienzo.beginPath();
+    lienzo.moveTo(0,0);
+    lienzo.lineTo(150,300);
+    lienzo.lineTo(300,0);
+    lienzo.lineTo(450,300);
+    lienzo.lineTo(600,0);
+    //Para que se hagan efectivas todas la líneas trazadas hasta el momento debemos llamar al método stroke:
+    lienzo.stroke();
+   }
+}
+
+function dibujar21()//funcion que dibuja una cuadricula
+{
+    var lienzo=retornarLienzo("lienzo3");
+    if (lienzo)
+    { 
+        lienzo.strokeStyle = "rgb(0,0,255)";
+        lienzo.beginPath();
+        for(var col=0;col<=300;col+=30)
+        {
+            lienzo.moveTo(col,0);
+            lienzo.lineTo(col,300);
+        }	
+        for(var fil=0;fil<=300;fil+=30)
+        {
+            lienzo.moveTo(0,fil);
+            lienzo.lineTo(300,fil);
+        }		  
+        lienzo.stroke();
+    }
+}
+
+function dibujar3(){//funcion que dibuja el perimetro de un rectangulo
+    var lienzo=retornarLienzo("lienzo4");
+    if (lienzo) { 
+        lienzo.strokeStyle = "rgb(0,0,255)";
+        lienzo.strokeRect(50,10,200,100);
+        //dibujando más rectangulos
+        lienzo.strokeStyle="rgb(255,0,0)";
+        lienzo.strokeRect(10,10,50,50);
+        lienzo.strokeStyle="rgb(0,255,0)";
+        lienzo.strokeRect(70,10,50,50);
+        lienzo.strokeStyle="rgb(0,0,255)";
+        lienzo.strokeRect(130,10,50,50);
+    }
+}
+
+function dibujar4(){//funcion que dibuja lineas con diferentes finales en las puntas
+    var lienzo=retornarLienzo("lienzo5");
+    if (lienzo) { 
+    lienzo.beginPath();
+    lienzo.strokeStyle="rgb(255,0,0)";
+    lienzo.lineWidth=10 ;
+    lienzo.moveTo(10,5);
+    lienzo.lineTo(10,295);
+    lienzo.stroke();
+
+    lienzo.beginPath();
+    lienzo.strokeStyle="rgb(0,255,0)";
+    lienzo.lineCap="butt";
+    lienzo.moveTo(30,5);
+    lienzo.lineTo(30,295);
+    lienzo.stroke();
+    lienzo.lineCap="round";
+    lienzo.beginPath();
+    lienzo.moveTo(50,5);
+    lienzo.lineTo(50,295);
+    lienzo.stroke();
+    lienzo.lineCap="square";
+    lienzo.beginPath();
+    lienzo.moveTo(70,5);
+    lienzo.lineTo(70,295);
+    lienzo.stroke();
+
+    lienzo.beginPath();
+    lienzo.strokeStyle="rgb(0,0,255)";
+    lienzo.lineJoin="bevel";
+    lienzo.moveTo(100,90);
+    lienzo.lineTo(130,10);
+    lienzo.lineTo(160,90);
+    lienzo.stroke();
+    lienzo.beginPath();
+    lienzo.lineJoin="round";
+    lienzo.moveTo(100,180);
+    lienzo.lineTo(130,100);
+    lienzo.lineTo(160,180);
+    lienzo.stroke();
+    lienzo.beginPath();
+    lienzo.lineJoin="miter";
+    lienzo.moveTo(100,270);
+    lienzo.lineTo(130,190);
+    lienzo.lineTo(160,270);
+    lienzo.stroke();
+    //Funcion para dibujar el triangulo
+    lienzo.beginPath();
+    lienzo.strokeStyle="rgb(0,0,0)";
+    lienzo.lineWidth=20;
+    lienzo.lineCap="round";
+    lienzo.lineJoin="round";
+    lienzo.moveTo(350,20);
+    lienzo.lineTo(200,280);
+    lienzo.lineTo(500,280);
+    lienzo.lineTo(350,20);
+    lienzo.stroke();
+    }
+}
+
+function dibujar5() {
+  var lienzo=retornarLienzo("lienzo6");
+  if (lienzo) {
+    var rojo=0;
+    for(var fil=1;fil<=5;fil++) {
+      for(var col=1;col<=50;col++) {  
+        lienzo.fillStyle="rgb("+rojo+",0,0)";
+        lienzo.fillRect(col*15,fil*15,14,14);
+        rojo++;
+      }
+    }      
+  }
+}
+
+function borrar() {
+  var lienzo=retornarLienzo("lienzo7");
+  if (lienzo) {
+    lienzo.clearRect(300,0,300,300);
+  }
+}
+
+function dibujar6() {//funcion que dibuja y borra rectangulos
+  var lienzo=retornarLienzo("lienzo7");
+  if (lienzo) {
+    lienzo.fillStyle="rgb(0,200,0)";
+    lienzo.fillRect(0,0,300,300);
+    lienzo.clearRect(10,10,20,20);
+    lienzo.clearRect(140,140,20,20);
+    lienzo.clearRect(270,270,20,20);
+
+    lienzo.fillStyle="rgb(255,0,0)";
+    lienzo.fillRect(300,0,300,300);
+  }
+  setTimeout(borrar,4000)
+}
+
+function dibujar7() {//funcion que dibuja figuras con relleno
+  var lienzo=retornarLienzo("lienzo8");
+  if (lienzo) {
+    lienzo.fillStyle="rgb(255,0,0)";
+    lienzo.strokeStyle="rgb(0,0,255)";
+    lienzo.lineWidth=5;
+    lienzo.beginPath();
+    lienzo.moveTo(150,10);
+    lienzo.lineTo(10,290);
+    lienzo.lineTo(290,290);
+    lienzo.lineTo(150,10);
+    lienzo.fill();
+    lienzo.stroke();
+
+    //dibujando un paralelogramo de color verde
+    lienzo.fillStyle = "rgb(0,250,0)";
+    lienzo.strokeStyle = "rgb(100,0,100)";
+    lienzo.lineWidth = 8;
+    lienzo.beginPath();
+    lienzo.moveTo(320,10);
+    lienzo.lineTo(700,10);
+    lienzo.lineTo(700,290);
+    lienzo.lineTo(320,290);
+    lienzo.lineTo(320,10);
+    lienzo.fill();
+    lienzo.stroke();
+  }
+}
+
+var col=300;
+function graficarCirculo() {
+  var lienzo=retornarLienzo("lienzo9");
+  if (lienzo) {
+     lienzo.clearRect(250,0,550,300);
+     lienzo.fillStyle="rgb(0,255,200)";
+     lienzo.beginPath();
+     lienzo.arc(col,150,50,0,Math.PI*2,true);
+     lienzo.fill();
+     col+=10;
+     if (col>800)
+       col=300;
+     
+  }
+}
+function dibujar8() {//funcion que dibuja y rellena arcos
+  var lienzo=retornarLienzo("lienzo9");
+  if (lienzo) {
+    lienzo.strokeStyle="rgb(255,0,0)";
+    lienzo.beginPath();
+    lienzo.arc(50,100,50,0,Math.PI,true);
+    lienzo.stroke();
+    
+    lienzo.strokeStyle="rgb(0,255,0)";
+    lienzo.beginPath();
+    lienzo.arc(50,200,50,0,Math.PI,false);
+    lienzo.stroke();
+    
+    lienzo.fillStyle="rgb(0,0,288)";
+    lienzo.beginPath();    
+    lienzo.arc(200,100,50,0,Math.PI,true);
+    lienzo.fill();
+    
+    lienzo.fillStyle="rgb(255,255,0)";
+    lienzo.beginPath();
+    lienzo.arc(200,200,50,0,Math.PI*2,true);
+    lienzo.fill();
+    //se llama a la funcion que grafica el circulo amarillo cada cierto tiempo
+    setInterval(graficarCirculo,20);
+    //Se llama a la funcion que grafica la curva de bezier de forma dinamica
+    setInterval(dibujarCurvaBezier,20);
+    //Se llama a la funcion que grafica la curva cuadratica de forma dinamica
+    setInterval(dibujarCruvaCuadratica,20);
+  }
+}
+
+var fila1=10;
+var fila2=290;
+var direccion=true;
+function dibujarCurvaBezier() {
+  var lienzo=retornarLienzo("lienzo10");
+  if (lienzo) {
+    lienzo.clearRect(0,0,300,300);
+    lienzo.strokeStyle="rgb(255,0,0)";
+    lienzo.lineWidth=10;
+    lienzo.lineCap="round";
+    lienzo.beginPath();
+    lienzo.moveTo(10,150);
+    lienzo.bezierCurveTo(100,fila1,200,fila2,290,150);
+    lienzo.stroke();
+    if (direccion) {
+      fila1++;
+      fila2--;
+      if (fila1==290)
+        direccion=false;
+    } else {
+      fila1--;
+      fila2++;
+      if(fila1==10) 
+        direccion=true;
+    }
+  }
+}
+
+var fila=0;
+function dibujarCruvaCuadratica() {
+  var lienzo=retornarLienzo("lienzo11");
+  if (lienzo) {
+    lienzo.clearRect(0,0,300,300);
+    lienzo.strokeStyle="rgb(255,0,0)";
+    lienzo.beginPath();
+    lienzo.moveTo(0,150);
+    lienzo.quadraticCurveTo(150,fila,300,150);
+    lienzo.stroke();    
+    fila++;
+    if (fila>300)
+      fila=0;
+  }
+}
+
+function dibujar9() {//funcion que dibuja texto usando los diferentes metodos de texto
+  var lienzo=retornarLienzo("lienzo12");
+  if (lienzo) {
+    lienzo.fillStyle="rgb(255,0,0)";
+    lienzo.font="bold 25px Arial";
+    lienzo.fillText("Hola Mundo",150,50);
+    lienzo.textAlign="center";
+    lienzo.fillText("Hola Mundo",150,100);    
+    lienzo.textAlign="right";
+    lienzo.fillText("Hola Mundo",150,150);
+    var anchopx=lienzo.measureText("Hola Mundo");
+    lienzo.textAlign="start";
+    lienzo.fillText(anchopx.width,150,200);    
+    lienzo.strokeStyle="rgb(0,0,255)";
+    lienzo.strokeText("Fin",150,250);
+    //graficar la fecha actual 
+    var fecha = new Date();    
+    var cad = fecha.getDay()+"/"+fecha.getMonth()+"/"+fecha.getFullYear();
+    lienzo.font="bold 30px Arial";
+    lienzo.fillStyle="rgb(255,0,0)";
+    var anchoTexto=lienzo.measureText(cad).width;
+    lienzo.textAlign="center";
+    lienzo.fillText(cad,400,50);
+  }
+}
+
+function dibujar10() {//funcion que dibuja la imagen de la ardilla de diferentes maneras usando los diferentes metodos de imagenes
+  var lienzo=retornarLienzo("lienzo13");
+  if (lienzo) {
+    lienzo.fillStyle="rgb(0,0,0)";
+    lienzo.fillRect(0,0,1200,800);
+    img1 = new Image(); 
+    img1.src = 'imagenes/animales/ardilla.jpg';
+    img1.onload = function(){ 
+      lienzo.drawImage(img1,0,0);
+      lienzo.drawImage(img1,950,0,200,200);
+      lienzo.drawImage(img1,300,300,200,200,0,600,200,200);
+    }  
+  }
+}
+
+function dibujar11() {//Funcion que dibuja una imagen columna por columna
+  function graficarLinea() {
+    lienzo.drawImage(img2,columna,0,columna+1,600,columna,0,columna+1,600);
+    columna++;
+    if (columna==900)
+      clearInterval(ini);
+  }
+
+  var ini=0;
+  var columna=0;
+  var lienzo=retornarLienzo("lienzo14");
+  if (lienzo) {
+    lienzo.fillStyle="rgb(0,0,0)";
+    lienzo.fillRect(0,0,900,600);
+    img2 = new Image(); 
+    img2.src = 'imagenes/animales/pajaro.jpg';
+    img2.onload = function(){ 
+      ini=setInterval(graficarLinea,10);
+    }  
+  }
+}
+var transp=10;
+function dibujarCudradosConOpacidad() {
+  var lienzo=retornarLienzo("lienzo15");
+  if (lienzo) {
+    lienzo.clearRect(0,0,750,300);
+    var verde=0;
+    for(var fil=1;fil<=5;fil++) {
+      for(var col=1;col<=50;col++) {  
+        lienzo.fillStyle="rgb(0,"+verde+",0)";
+        lienzo.fillRect(col*15,fil*15,14,14);
+        verde++;
+      }
+    }
+    lienzo.fillStyle="rgba(0,0,0,"+(transp/10)+")";
+    lienzo.fillRect(0,0,750,100);
+    transp=transp-1;
+    if (transp<0)
+      clearInterval(ini2);    
+  }
+
+    lienzo.fillStyle="rgb(255,0,0)";
+    lienzo.fillRect(10,120,50,50);
+    lienzo.fillStyle="rgba(0,255,0,0.3)";
+    lienzo.fillRect(40,140,50,50);
+}
+
+
+
+var contador=0;
+var ini;
+function dibujarConSombra() {
+  var lienzo=retornarLienzo("lienzo16");
+  if (lienzo) {
+    lienzo.clearRect(0,0,300,300);
+    lienzo.shadowOffsetX=30;
+    lienzo.shadowOffsetY=30;
+    lienzo.shadowBlur=contador;
+    lienzo.shadowColor="rgba(255,0,0,0.5)";
+    lienzo.fillStyle="rgb(255,0,0)";
+    lienzo.fillRect(50,50,200,200);
+    contador++;
+    if (contador==100)
+      clearInterval(ini);
+  }
+}
+
+function dibujar12() {//funcion que grafica elementos usando colores con gradiente lineal
+  var lienzo=retornarLienzo("lienzo17");
+  if (lienzo) {
+    var gradiente1=lienzo.createLinearGradient(0,0,200,0);
+    gradiente1.addColorStop(0,"rgb(255,0,0)");
+    gradiente1.addColorStop(1,"rgb(0,255,0)");
+    lienzo.fillStyle=gradiente1;
+    lienzo.fillRect(0,0,250,250);
+    
+    var gradiente2=lienzo.createLinearGradient(200,300,0,300);
+    gradiente2.addColorStop(0,"rgb(255,255,0)");
+    gradiente2.addColorStop(1,"rgb(255,0,0)");
+    lienzo.fillStyle=gradiente2;
+    lienzo.fillRect(0,300,250,250);
+    
+    var gradiente3=lienzo.createLinearGradient(300,0,500,200);
+    gradiente3.addColorStop(0,"rgb(255,0,0)");
+    gradiente3.addColorStop(1,"rgb(0,0,0");
+    lienzo.fillStyle=gradiente3;
+    lienzo.fillRect(300,0,250,250);
+    
+    var gradiente4=lienzo.createLinearGradient(300,300,500,500);
+    gradiente4.addColorStop(0,"rgb(0,255,0)");
+    gradiente4.addColorStop(0.5,"rgb(255,0,0)");
+    gradiente4.addColorStop(1,"rgb(0,0,255)");
+    lienzo.fillStyle=gradiente4;
+    lienzo.fillRect(300,300,250,250);
+  }
+}
+
+function dibujar13() {//funcion que grafica elementos usando colores con gradiente radial
+  var lienzo=retornarLienzo("lienzo18");
+  if (lienzo) {
+    var gradiente1=lienzo.createRadialGradient(200,200,0,200,200,200);
+    gradiente1.addColorStop(0,"rgb(0,255,0)");
+    gradiente1.addColorStop(0.3,"rgb(100,0,0)");
+    gradiente1.addColorStop(1,"rgb(0,0,255)");
+    lienzo.fillStyle=gradiente1;
+    lienzo.arc(200,200,200,0,Math.PI*2,true);
+    lienzo.fill();
+    
+  }
+}
+
+function dibujar14() {//funcion que rellena figuras usando patrones de imagenes
+  var lienzo=retornarLienzo("lienzo19");
+  if (lienzo) {
+    img3 = new Image(); 
+    img3.src = 'imagenes/trabajo_y_rectitud.png';
+    img3.onload = function(){ 
+      var patron = lienzo.createPattern(img3,'repeat');
+      lienzo.fillStyle = patron;
+      lienzo.fillRect(0,0,1000,800);
+    }      
+  }
+  //Otro ejemplo
+  var lienzo1=retornarLienzo("lienzo20");
+  if (lienzo1) {
+    img4 = new Image(); 
+    img4.src = 'imagenes/trabajo_y_rectitud2.png';
+    img4.onload = function(){ 
+      var patron = lienzo1.createPattern(img4,'repeat');
+      lienzo1.fillStyle = patron;
+      lienzo1.beginPath();
+      lienzo1.moveTo(300,0);
+      lienzo1.lineTo(0,600);
+      lienzo1.lineTo(600,600);
+      lienzo1.lineTo(300,0);
+      lienzo1.fill();
+    }      
+  }
+}
+
+function dibujar15() {//Funcion que rellena una imagen dentro de un canvas, usando otro canvas como patrón
+  var lienzo1=retornarLienzo("lienzo21");
+  if (lienzo1) {
+    lienzo1.strokeStyle="rgb(0,0,255)";
+    lienzo1.beginPath();
+    lienzo1.moveTo(25,0);
+    lienzo1.lineTo(25,50);
+    lienzo1.stroke();
+    lienzo1.beginPath();
+    lienzo1.moveTo(0,25);
+    lienzo1.lineTo(50,25);
+    lienzo1.stroke();
+    var lienzo2=retornarLienzo("lienzo22");
+    if (lienzo2) {
+      var patron = lienzo2.createPattern(lienzo1.canvas,'repeat');
+      lienzo2.fillStyle = patron;
+      lienzo2.fillRect(0,0,300,300);            
+    }  
+  }
+
+  var lienzo3=retornarLienzo("lienzo23");
+  if (lienzo3) {
+    lienzo3.strokeStyle="rgb(0,200,100)";
+    lienzo3.beginPath();
+    lienzo3.moveTo(25,0);
+    lienzo3.lineTo(0,49);
+    lienzo3.lineTo(49,49);
+    lienzo3.lineTo(25,0);
+    lienzo3.stroke();
+    var lienzo4=retornarLienzo("lienzo24");
+    if (lienzo4) {
+      var patron = lienzo4.createPattern(lienzo3.canvas,'repeat');
+      lienzo4.fillStyle = patron;
+      lienzo4.fillRect(0,0,300,300);            
+    }  
+  }    
+}
+
+function dibujarCuadradoGradiente(lienzo,x,y,ancho,alto) {
+  lienzo.save();
+  var gradiente1=lienzo.createLinearGradient(x,y,x+ancho,y+alto);
+  gradiente1.addColorStop(0,"rgb(255,255,0)");
+  gradiente1.addColorStop(1,"rgb(0,0,255)");
+  lienzo.fillStyle=gradiente1;
+  lienzo.fillRect(x,y,ancho,alto);
+  lienzo.restore();
+}
+
+function dibujar16() {//Funcion que dibuja un cuadrado verde y llama a otra que guarda el canvas antes de dibujar y luego lo restaura
+  var lienzo=retornarLienzo("lienzo25");
+  if (lienzo) {
+    lienzo.fillStyle="rgb(0,255,0)";
+    lienzo.fillRect(10,30,100,200);
+    dibujarCuadradoGradiente(lienzo,150,30,100,200);
+    lienzo.fillRect(300,30,100,200);
+  }
+}
+
+function dibujarTriangulo(lienzo,x,y,base,altura) {
+  lienzo.save();
+  lienzo.translate(x,y);
+  lienzo.fillStyle="rgb(50,255,255)";
+  lienzo.beginPath();
+  lienzo.moveTo(base/2,0);
+  lienzo.lineTo(0,altura);
+  lienzo.lineTo(base,altura);
+  lienzo.lineTo(base/2,0);
+  lienzo.fill();
+  lienzo.restore();
+}
+
+
+function dibujar17() {//Funcion que dibuja haciendo uso de los metodos Translate, Rotate y Scale
+  var lienzo=retornarLienzo("lienzo26");
+  if (lienzo) {
+    for(var col=0;col<550;col+=50)
+      dibujarTriangulo(lienzo,col,10,50,150);
+  }
+  //Graficando con rotacion
+  var lienzo1=retornarLienzo("lienzo27");
+  if (lienzo1) {
+    lienzo1.clearRect(0,0,600,600);
+    lienzo1.save();
+    lienzo1.fillStyle="rgb(0,200,200)";
+    lienzo1.translate(300,300);    
+    lienzo1.rotate(avance);    
+    lienzo1.fillRect(-100,-100,200,200);
+    lienzo1.restore();
+    avance+=0.05;
+    //avance+=Math.PI/6;
+    if (avance>Math.PI*2)
+      avance=0;
+  }
+  //Graficando con rotacion y escalado
+  var lienzo2=retornarLienzo("lienzo28");
+  if (lienzo2) {
+    lienzo2.clearRect(0,0,600,600);
+    lienzo2.save();
+    lienzo2.translate(500,300);
+    lienzo2.rotate(avance2);
+    lienzo2.scale(tamx,tamy);
+    lienzo2.drawImage(img1,-125,-125);
+    avance2+=0.05;
+    tamx+=0.01;
+    tamy+=0.01;
+    if (avance>Math.PI*2)
+      avance2=0;
+    if (tamx>=10) {
+      tamx=0.01;
+      tamy=0.01;
+    }
+    lienzo2.restore();  
+  }
+}
+var avance=0;
+var avance2=0;
+var img_pato;
+var tamx=0.01;
+var tamy=0.01;
+function inicio() {
+  //Parametros para la funcion dibujar parametros con opacidad
+  var ini2;  
+  ini2=setInterval(dibujarCudradosConOpacidad,1000);
+  ini=setInterval(dibujarConSombra,20);  
+  
+  img_pato = new Image(); 
+  img_pato.src = 'imagenes/animales/pato.jpg';
+  img_pato.onload = function(){ 
+    setInterval(dibujar17,100);
+  }  
+}
+</script>
+
+</head>
+<body onload="dibujar(), dibujar2(), dibujar21(), dibujar3(), dibujar4(), dibujar5(),dibujar6(),dibujar7(),dibujar8(),dibujar9(),dibujar10(),dibujar11(),inicio(),dibujar12(),dibujar13(),dibujar14(),dibujar15(),dibujar16(),dibujar17() " >
+
+<h1>trabajando con el elemento CANVAS de html5</h1>
+<h2>dibujo del primer rectangulo</h2>
+<canvas id="lienzo1" width="300" height="200">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (dibujar líneas)</h2>
+<p>Problema: Dibujar dos líneas que formen la letra "V".</p>
+<canvas id="lienzo2" width="600" height="300">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (dibujar líneas)</h2>
+<p>Problema: Dibujar una cuadrícula formada por 10 líneas horizontales y 10 líneas verticales.</p>
+<canvas id="lienzo3" width="300" height="300">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (dibujar rectángulo - perímetro)</h2>
+<p>Problema: Dibujar un rectángulo ubicado en la columna 50 y fila 10 con un ancho de 200 píxeles y 100 píxeles de altura</p>
+<p>Problema: Dibujar tres cuadrados de color rojo, verde y azul.</p>
+<canvas id="lienzo4" width="300" height="300">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (estilos de línea)</h2>
+<p>Problema:Confeccionar una serie de líneas que muestren como afectan las propiedades lineWidth, lineCap y lineJoin.</p>
+<p>Problema: Dibujar un triángulo con líneas de 20 píxeles de ancho y los vértices redondeados.</p>
+<canvas id="lienzo5" width="600" height="300">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (rectángulo relleno)</h2>
+<p>Problema: Dibujar 250 cuadraditos (50 por línea) Los colores de los cuadrados deben empezar en negro y avanzar hasta el rojo.</p>
+<canvas id="lienzo6" width="750" height="300">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (borrar una región)</h2>
+<p>Problema: Confeccionar un programa que dibuje un cuadrado rojo de 300 píxeles de lado y luego borrar tres cuadraditos en la diagonal principal del cuadrado rojo</p>
+<p>Problema: Dibujar un cuadrado. Luego de 4 segundos hacer que se borre.</p>
+<canvas id="lienzo7" width="800" height="300">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (dibujar varias líneas y rellenar la figura creada)</h2>
+<p>Problema: Dibujar un triángulo con el color de perímetro azul y su interior de color rojo. El borde del perímetro debe ser de 5 píxeles.</p>
+<p>Problema: Dibujar un paralelogramo de color verde.</p>
+<canvas id="lienzo8" width="800" height="300">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (arcos rellenos y lineal)</h2>
+<p>Problema: Mostrar una serie de arcos lineales y cerrados.</p>
+<p>Problema: Mostrar un círculo que se desplace de izquierda a derecha. Cada vez que llega a la columna 300 hacer que comience nuevamente en la columna 0.</p>
+<canvas id="lienzo9" width="800" height="300">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (curva de bezier)</h2>
+<p>Problema: Crear una curva de bézier y hacer que los puntos de atracción cambien de valor. Redibujar la curva cada vez que modificamos dichos valores.</p>
+<canvas id="lienzo10" width="800" height="300">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (método quadraticCurveTo)</h2>
+<p>Problema: Confeccionar un programa que muestre el tipo de curva que genera el método quadraticCurveTo.</p>
+<canvas id="lienzo11" width="800" height="300">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (graficar texto)</h2>
+<p>Problema: Confeccionar un programa que emplee los métodos fillText y strokeText.</p>
+<p>Problema: Mostrar la fecha actual en la parte superior del canvas centrado.</p>
+<canvas id="lienzo12" width="800" height="300">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (graficar imagenes)</h2>
+<p>Problema: Utilizar las distintas variantes como se puede llamar al método drawImage.</p>
+<canvas id="lienzo13" width="1200" height="800">Su navegador no permite utilizar canvas.</canvas>
+<p>Mostrar una foto de tal forma que aparezca la primer columna de píxeles, luego la segunda columna y así sucesivamente (la foto tiene un tamaño de 900 píxeles de ancho y 600 de alto)</p>
+<canvas id="lienzo14" width="900" height="600">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (transparencias)</h2>
+<p>Problema: Dibujar 250 cuadrados del negro al verde. Dibujar un rectángulo negro grande que tape todos los cuadrados. Redibujar y hacer que el rectángulo se vuelva cada vez más transparente.</p>
+<p>Problema: Graficar dos cuadrados. El segundo graficarlo sobre el primero activando transparencias.</p>
+<canvas id="lienzo15" width="750" height="200">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (sombras)</h2>
+<p>Problema: Mostrar un cuadrado y definir una sombra que aumente su difuminado lentamente hasta el valor 100.</p>
+<canvas id="lienzo16" width="400" height="400">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (gradiente lineal)</h2>
+<p>Problema: Dibujar cuatro cuadrados. El primero debe tener una gradiente del color rojo al negro. El segundo del negro al rojo. El tercero el gradiente debe ser diagonal y por último el cuarto debe ser diagonal y tener tres colores (del rojo al negro y luego del negro al rojo).</p>
+<canvas id="lienzo17" width="600" height="600">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (gradiente radial)</h2>
+<p>Problema: Dibujar un círculo utilizando gradiente radial.</p>
+<canvas id="lienzo18" width="600" height="450">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (patrones de imagenes)</h2>
+<p>Problema: Dibujar un cuadrado y definir un patrón con una imagen para rellenar el mismo.</p>
+<canvas id="lienzo19" width="900" height="800">Su navegador no permite utilizar canvas.</canvas>
+<p>Problema: Dibujar un triángulo y utilizar un patrón de tipo imagen para pintar su interior.</p>
+<canvas id="lienzo20" width="600" height="600">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (otro canvas como patrón)</h2>
+<p>Problema: Confeccionar una página que tenga dos CANVAS, en el primero graficar una cruz y en el segundo graficar un cuadrado que cubra todo el canvas utilizando como patrón el primer canvas.</p>
+<canvas id="lienzo21" width="50" height="50">Su navegador no permite utilizar canvas.</canvas> <br>
+<canvas id="lienzo22" width="300" height="300">Su navegador no permite utilizar canvas.</canvas>
+<p>Crear dos canvas, en el primero dibujar un triángulo y en el segundo canvas dibujar un cuadrado utilizando como patrón el contenido del primer canvas.</p>
+<canvas id="lienzo23" width="50" height="50">Su navegador no permite utilizar canvas.</canvas> <br>
+<canvas id="lienzo24" width="300" height="300">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (grabar y recuper el estado - save(), restore())</h2>
+<p>Problema: Confeccionar una función que grafique un rectángulo con gradiente. Previo a graficar grabar el estado actual, luego de graficar restaurar el estado original.</p>
+<canvas id="lienzo25" width="400" height="280">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (translate)</h2>
+<p>Problema: Confeccionar un programa que implemente una función que dibuje un triángulo, la función recibe la coordenada donde debe dibujarla y la base y altura del triángulo. Trasladar el punto de origen a través del método translate.</p>
+<canvas id="lienzo26" width="400" height="150">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (rotate)</h2>
+<p>Problema: Graficar un cuadrado y rotarlo en forma indefinida.</p>
+<canvas id="lienzo27" width="500" height="500">Su navegador no permite utilizar canvas.</canvas>
+
+<hr>
+<h2>CANVAS (scale)</h2>
+<p>Problema: Mostrar una imagen que gire en el lienzo y cada avance muestre la imagen con tamaño mayor.</p>
+<canvas id="lienzo28" width="1300" height="1000">Su navegador no permite utilizar canvas.</canvas>
+</body>
+</html>

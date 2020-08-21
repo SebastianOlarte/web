@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formularios</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      background-color: azure;
+    }
+    h1 {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 2.2rem; font-weight: bold; text-transform: uppercase; color:dodgerblue; text-align: center;
+    }
+    h2 {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 1.7rem; font-weight: bold; text-transform: uppercase; color:rgb(142, 62, 218); text-align: left;
+    }
+    h3
+    {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 1.4rem; font-weight: normal; text-transform: uppercase; color:rgba(106, 218, 62, 0.781); text-align: left;
+    }
+    p {
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 1.1rem; font-weight: normal; text-transform:capitalize; color:rgba(8, 141, 158, 0.781);
+    }
+    form{
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 1.1rem; font-weight: bold; text-transform: uppercase; color:rgba(16, 152, 170, 0.781);
+    }
+  </style>
+</head>
+<body onload="activarPrimerControl()">
+<h1>Formularios dinamicos con javascript</h1>
+<hr>
+<h2>Controles FORM, BUTTON y TEXT.</h2>
+<form>
+
+  Ingrese su nombre:
+  <input type="text" id="nombre"><br>
+  Ingrese su edad:
+  <input type="text" id="edad"><br>
+  <input type="button" value="Confirmar" onClick="mostrar()">
+</form>
+
+<hr>
+<p><strong>PROBLEMAS:</strong><br>
+  Crear un programa que permita cargar un entero en un text y al presionar un botón nos muestre dicho valor elevado al cubo (emplear la función alert). <br>
+  Cargar dos números en objetos de tipo text y al presionar un botón, mostrar el mayor. <br>
+  Cargar un nombre y un apellido en sendos text. Al presionar un botón, concatenarlos y mostrarlos en un tercer text (Tener en cuenta que podemos modificar la propiedad value de un objeto TEXT cuando ocurre un evento). <br>
+  **************************************************************************************************************************************************
+</p>
+
+<form>
+  Ingrese un valor:
+  <input type="text" id="num">
+  <br>
+  <input type="button" value="Calcular cubo" onClick="calcularCubo()">
+</form>
+<br>
+<form>
+  Ingrese primer valor:
+  <input type="text" id="num1">
+  <br>
+  Ingrese segundo valor:
+  <input type="text" id="num2">
+  <br>
+  <input type="button" value="mostrar mayor" onClick="mostrarMayor()">
+</form>
+<br>
+<form>
+  Ingrese nombre:
+  <input type="text" id="nombre1">
+  <br>
+  Ingrese apellido:
+  <input type="text" id="apellido">
+  <br>
+  <input type="button" value="Concatenar datos ingresados" onClick="concatenar()">
+  <br>
+  <input type="text" id="resultado">
+</form>
+<hr>
+<h2>Control PASSWORD</h2>
+<p><strong>PROBLEMAS:</strong><br>
+  Disponer dos campos de texto tipo password. Cuando se presione un botón mostrar si las dos claves ingresadas son iguales o no (es muy común solicitar al operador el ingreso de dos veces de su clave para validar si las escribió correctamente, esto se hace cuando se crea una password para el ingreso a un sitio o para el cambio de una existente).
+  Tener en cuenta que podemos emplear el operador == para ver si dos string son iguales. <br>
+  ***************************************************************************************************************************************************</p>
+  <form>
+    Ingrese clave:
+    <input type="password" id="clave1">
+    <br>
+    Repita la clave:
+    <input type="password" id="clave2">
+    <br>
+    <input type="button" value="Verificar clave" onClick="verificar()">
+    </form>
+<hr>
+<h2>Control SELECT</h2>
+<form>
+  <select id="select1" onChange="cambiarColor()">
+    <option value="ff0000">Rojo</option>
+    <option value="00ff00">Verde</option>
+    <option value="0000ff">Azul</option>
+  </select>
+  <br>
+  Número de índice seleccionado del objeto SELECT:<input type="text" id="text1"><br>
+  Texto seleccionado:<input type="text" id="text2"><br>
+  Valor asociado:<input type="text" id="text3"><br>
+</form>
+
+<p><strong>PROBLEMAS:</strong>
+  Confeccionar una página que muestre un objeto SELECT con distintos tipos de pizzas (Jamón y Queso, Muzzarella, Morrones). Al seleccionar una, mostrar en un objeto de tipo TEXT el precio de la misma.</p>
+  <form>
+    Pizzas:
+    <select id="pizza" onChange="mostrarSeleccionPizza()">
+      <option value="180">Jamon y Queso</option>
+      <option value="150">Muzzarella</option>
+      <option value="170">Morrones</option>
+    </select>
+    <br>
+    <input type="text" id="mensaje">
+  </form>
+<p>*******************************************************************************************************************************************************</p>
+<p>Generar un presupuesto de un equipo de computación a partir de tres objetos de tipo SELECT que nos permiten seleccionar: <br>
+  Procesador (Intel I3 - $400, Intel I5 $600, Intel I7 $800). <br>
+  Monitor (Samsung 20' - $250, Samsung 22' - $350, Samsung 26' - $550) <br>
+  Disco Duro(500 Gb - $300, 1 Tb - $440, 3 Tb - $500) <br>
+  Para cada característica indicamos string a mostrar (Ej. Intel I3) y el valor asociado a dicho string (Ej. 400). <br>
+  Al presionar un botón "Calcular" mostrar el presupuesto en un objeto de tipo TEXT.</p>
+  <form>
+    Procesador:
+    <select id="procesador">
+      <option value="400">Intel I3</option>
+      <option value="600">Intel I5</option>
+      <option value="800">Intel I7</option>
+    </select>
+    <br>
+    Monitor:
+    <select id="monitor">
+      <option value="250">Monitor Samsung 20'</option>
+      <option value="350">Monitor Samsung 22'</option>
+      <option value="550">Monitor Samsung 26'</option>
+    </select>
+    <br>
+    Disco duro:
+    <select id="discoduro">
+      <option value="300">Disco Duro 500 Gb</option>
+      <option value="440">Disco Duro 1 Tb</option>
+      <option value="500">Disco Duro 3 Tb</option>
+    </select>
+    <br>
+  <input type="button" value="Calcular Presupuesto" onClick="calcularPresupuestoComputador()">
+  <br>
+  <input type="text" id="resultadoPresupuesto">
+  </form>
+<p>*******************************************************************************************************************************************************</p>
+<p>Confeccionar una página que permita seleccionar una pizza y la cantidad de unidades. Luego al presionar un botón calcular el importe a pagar.
+  Utilizar un objeto de la clase SELECT para la selección de la pizza, pudiendo ser: <br>
+  Queso: $ 4. <br>
+  Jamón y queso: $ 6. <br>
+  Especial: $ 10. <br>
+  A la cantidad de pizzas cargarla en un objeto de la clase TEXT y en otro objeto de la clase TEXT mostrar el importe total a abonar.</p>
+  <form>
+    Seleccione la pizza:
+    <select id="pizza2">
+      <option value="4">Queso</option>
+      <option value="6">Jamon y Queso</option>
+      <option value="10">Especial</option>
+    </select>
+    <br>
+    Cantidad de pizzas:
+    <input type="text" id="cantidadPizzas">
+    <br>
+    <input type="button" value="Calcular costo" onClick="calcularPresupuestoPizza()">
+    <br>
+    <input type="text" id="resultadoPizza">
+  </form>
+<p>*******************************************************************************************************************************************************</p>
+<p>Confeccionar una página que permita tomar un examen múltiple choice. Se debe mostrar una pregunta y seguidamente un objeto SELECT con las respuestas posibles. Al presionar un botón mostrar la cantidad de respuestas correctas e incorrectas (Disponer 4 preguntas y sus respectivos controles SELECT).</p>
+<form>
+  Como se dice rojo en ingles:<br>
+  <select id="pregunta1">
+    <option value="1">blue</option>
+    <option value="2">green</option>
+    <option value="3">red</option>
+  </select>
+  <br>
+  Como se dice ventana en ingles:<br>
+  <select id="pregunta2">
+    <option value="1">window</option>
+    <option value="2">door</option>
+    <option value="3">bedroom</option>
+  </select>
+  <br>
+  Como se dice gato en ingles:<br>
+  <select id="pregunta3">
+    <option value="1">dog</option>
+    <option value="2">cat</option>
+    <option value="3">lion</option>
+  </select>
+  <br>
+  Como se dice hombre en ingles:<br>
+  <select id="pregunta4">
+    <option value="1">women</option>
+    <option value="2">man</option>
+    <option value="3">child</option>
+  </select>
+  <br>
+  <input type="button" value="Ver resultado" onClick="verificarPreguntas()">
+</form>
+<hr>
+<h2>Control CHECKBOX</h2>
+<form>
+  <input type="checkbox" id="checkboxJavaScript" value="JAVASCRIPT">JavaScript
+  <br>
+  <input type="checkbox" id="checkboxPHP" value="PHP">PHP
+  <br>
+  <input type="checkbox" id="checkboxJSP" value="JSP">JSP
+  <br>
+  <input type="checkbox" id="checkboxVB.Net" value="VISUAL BASIC">VB.Net
+  <br>
+  <input type="button" value="Mostrar" onClick="contarLenguajesSeleccionados()">
+</form>
+<p>*******************************************************************************************************************************************************</p>
+<p><strong>PROBLEMA:</strong>Confeccionar una página que muestre tres checkbox que permitan seleccionar los deportes que practica el usuario (Fútbol, Básket, Tenis) Mostrar al presionar un botón los deportes que eligió.</p>
+<form>
+  Seleccione los deportes que practica:<br>
+  <input type="checkbox" id="checkboxFutbol">Fútbol<br>
+  <input type="checkbox" id="checkboxBasquet">Básquet<br>
+  <input type="checkbox" id="checkboxTenis">Tenis<br>
+  <input type="button" value="Controlar" onClick="verificarDeportes()">
+</form>
+<hr>
+<h2>Control RADIO</h2>
+<form>
+  <input type="radio" id="radio1" name="estudios">Sin estudios
+  <br>
+  <input type="radio" id="radio2" name="estudios">Primarios
+  <br>
+  <input type="radio" id="radio3" name="estudios">Secundarios
+  <br>
+  <input type="radio" id="radio4" name="estudios">Universitarios
+  <br>
+  <input type="button" value="Mostrar" onClick="mostrarSeleccionado()">
+</form>
+<hr>
+<h2>Control TEXTAREA</h2>
+<p><strong>PROBLEMA: </strong>Solicitar la carga del mail y el curriculum de una persona. Mostrar un mensaje si el curriculum supera los 1000 caracteres.</p>
+<form>
+  <textarea id="curriculum" rows="10" cols="50" ></textarea>
+  <br>
+  <input type="button" value="Mostrar" onClick="controlarCaracteres()">
+</form>
+<p>*******************************************************************************************************************************************************</p>
+<p><strong>PROBLEMA: </strong>Confeccionar una página de visitas a un sitio, solicitar ingresar el nombre de una persona, su mail y los comentarios (TEXTAREA). Mostrar luego llamando a la función alert los datos ingresados.</p>
+<form>
+  Ingrese nombre:
+  <input type="text" id="nombreComentario"><br>
+  Ingrese mail:
+  <input type="text" id="mailComentario"><br>
+  Comentarios:<br>
+  <textarea id="comentarios" rows="20" cols="100"></textarea><br>
+  <input type="button" value="confirmar" onClick="verificarComentario()">
+</form>
+<hr>
+<h2>Eventos onFocus y onBlur</h2>
+<p><strong>PROBLEMA: </strong>Implementar un formulario que solicite la carga del nombre y la edad de una persona. Cuando el control tome foco borrar el contenido actual, al abandonar el mismo, mostrar un mensaje de alerta si el mismo está vacío. Mostrar en las propiedades value de los controles text los mensajes "nombre" y "mail" respectivamente.</p>
+<form>
+  <input type="text" id="nombre" onFocus="vaciar(this)" 
+         onBlur="verificarEntrada(this)" value="nombre"><br>
+  <input type="text" id="edad" onFocus="vaciar(this)" 
+         onBlur="verificarEntrada(this)" value="mail">
+  <br>
+  <input type="button" value="Confirmar">
+</form>
+<p>*******************************************************************************************************************************************************</p>
+<p><strong>PROBLEMA: </strong>Solicitar que se ingrese el nombre y la clave de un usuario. Mostrar una ventana de alerta si en la clave se ingresan menos de 7 caracteres o más de 20.</p>
+<form>
+  Ingrese nombre de usuario:
+  <input type="text" id="usuario"><br>
+  Ingrese clave:
+  <input type="password" id="clave" onBlur="verificarClave(this)"><br>
+  <input type="button" value="confirmar">
+</form>
+<hr>
+<h2>Eventos onMouseOver y onMouseOut</h2>
+<p><strong>PROBLEMA: </strong>Implementaremos una función que cambie el color con un valor que llegue como parámetro. Cuando retiramos la flecha del mouse volvemos a pintar de negro el fondo de cuadrado.</p>
+<a href="#" onMouseOver="pintarCuadrado('#f00')" onMouseOut="pintarCuadrado('#000')">Rojo</a> -
+<a href="#" onMouseOver="pintarCuadrado('#0f0')" onMouseOut="pintarCuadrado('#000')">Verde</a> -
+<a href="#" onMouseOver="pintarCuadrado('#00f')" onMouseOut="pintarCuadrado('#000')">Azul</a>
+<div id="cuadrado1" style="background:#000;width:200px;height:200px"></div>
+<p>*******************************************************************************************************************************************************</p>
+<p><strong>PROBLEMA: </strong>Pinta de color el interior de una casilla de una tabla y regresar a su color original cuando salimos de la misma.</p>
+<table border="1">
+  <tr>
+    <td onMouseOver="pintarTabla(this,'#ff0000')" onMouseOut="pintarTabla(this,'#ffffff')">
+      <a href="http://www.outlook.com">Outlook</a>
+    </td>
+    <td onMouseOver="pintarTabla(this,'#00ff00')" onMouseOut="pintarTabla(this,'#ffffff')">
+      <a href="http://www.yahoo.com">Yahoo</a>
+    </td>
+    <td onMouseOver="pintarTabla(this,'#0000ff')" onMouseOut="pintarTabla(this,'#ffffff')">
+      <a href="http://www.gmail.com">GMail</a>
+    </td>
+  </tr>
+</table>
+<hr>
+<h2>Evento onLoad</h2>
+<p>El evento onLoad se ejecuta al final de la carga de la página en el navegador. Tener en cuenta que se dispara el evento cuando todos los elementos HTML están creados y se han descargado todos los recursos que hace referencia la página como podrían ser las imágenes, archivos de hoja de estilo etc. Un uso posible es para fijar el foco en algún control de un formulario, para que el operador no tenga que activar con el mouse dicho control. <br>
+  Este evento está asociado a la etiqueta body.</p>
+<form>
+  Ingrese su nombre:
+  <input type="text" id="nombreFoco"><br>
+  Ingrese su edad:
+  <input type="text" id="edadFoco"><br>
+  <input type="button" value="Confirmar Datos">
+</form>
+
+
+
+</body>
+</html>
+
+<script>
+
+function activarPrimerControl()
+  {
+    document.getElementById('nombreFoco').focus();
+  }
+function pintarTabla(objeto,color)
+  {
+    objeto.style.backgroundColor=color;
+  }
+function pintarCuadrado(color)
+  {
+    document.getElementById('cuadrado1').style.backgroundColor=color;
+  }
+function verificarClave(objetoControl)
+  {
+    if (objetoControl.value.length<7 || objetoControl.value.length>20)
+    {
+      alert('cantidad de caracteres no valido en la clave(deben ser entre 7-20 caracteres)');
+    }
+  }
+function vaciar(objetoControl)
+  {
+    objetoControl.value='';
+  }
+  function verificarEntrada(objetoControl)
+  {
+    if (objetoControl.value=='')
+      alert('Debe ingresar datos');
+  }
+function verificarComentario()
+  {
+    var nombre=document.getElementById('nombreComentario').value;
+    var mail=document.getElementById('mailComentario').value;
+    var comentarios=document.getElementById('comentarios').value;
+    alert(nombre+'\n'+mail+'\n'+comentarios);
+  }
+function controlarCaracteres()
+{
+  if (document.getElementById('curriculum').value.length>1000)
+  {
+    alert('curriculum muy largo');
+  }
+  else
+  {
+    alert('datos correctos');
+  }
+}
+function mostrarSeleccionado()
+  {
+    if (document.getElementById('radio1').checked)
+    {
+      alert('no tienes estudios');
+    }
+    if (document.getElementById('radio2').checked)
+    {
+      alert('tienes estudios primarios');
+    }
+    if (document.getElementById('radio3').checked)
+    {
+      alert('tienes estudios secundarios');
+    }
+    if (document.getElementById('radio4').checked)
+    {
+      alert('tienes estudios universitarios');
+    }
+  }
+function verificarDeportes()
+  {
+    var deportes='';
+    if (document.getElementById("checkboxFutbol").checked)
+    {
+      deportes=deportes+'Fútbol ';
+    }
+    if (document.getElementById("checkboxBasquet").checked)
+    {
+      deportes=deportes+'Básquet ';
+    }
+    if (document.getElementById("checkboxTenis").checked)
+    {
+      deportes=deportes+'Tenis';
+    }
+    alert('Los deportes seleccionados son: '+deportes);
+  }
+function contarLenguajesSeleccionados()
+{
+  var cant=0;
+  var lenguajes = new Array(4);
+  if (document.getElementById('checkboxJavaScript').checked)
+  {
+    lenguajes[cant] = document.getElementById('checkboxJavaScript').value;
+    cant++;
+  }
+  if (document.getElementById('checkboxPHP').checked)
+  {
+    lenguajes[cant] = document.getElementById('checkboxPHP').value;
+    cant++;
+  }
+  if (document.getElementById('checkboxJSP').checked)
+  {
+    lenguajes[cant] = document.getElementById('checkboxJSP').value;
+    cant++;
+  }
+  if (document.getElementById('checkboxVB.Net').checked)
+  {
+    lenguajes[cant] = document.getElementById('checkboxVB.Net').value;
+    cant++;
+  }
+  alert('Conoce ' + cant + ' lenguajes');
+  for(i = 0; i < lenguajes.length; i++)
+  {
+    if(lenguajes[i] != undefined)
+      alert('Conoce ' + lenguajes[i] );
+  }
+}
+function verificarPreguntas()
+  {
+    var correctas=0;
+    var ele1=document.getElementById('pregunta1');
+    var ele2=document.getElementById('pregunta2');
+    var ele3=document.getElementById('pregunta3');
+    var ele4=document.getElementById('pregunta4');
+    if (ele1.options[ele1.selectedIndex].value==3)
+    {
+      correctas++;
+    }
+    if (ele2.options[ele2.selectedIndex].value==1)
+    {
+      correctas++;
+    }
+    if (ele3.options[ele3.selectedIndex].value==2)
+    {
+      correctas++;
+    }
+    if (ele4.options[ele4.selectedIndex].value==2)
+    {
+      correctas++;
+    }
+    alert('Cantidad de respuestas correctas:'+correctas);
+  }
+function calcularPresupuestoPizza()
+  {
+    var precio=document.getElementById('pizza2').options[document.getElementById('pizza2').selectedIndex].value;
+    precio=parseInt(precio);
+    var cantidad=document.getElementById('cantidadPizzas').value;
+    cantidad=parseInt(cantidad);
+    var total=precio*cantidad;
+    document.getElementById('resultadoPizza').value = total;
+  }
+function calcularPresupuestoComputador()
+  {
+    var ele1=document.getElementById('procesador')
+    var precio1=ele1.options[ele1.selectedIndex].value;
+    var ele2=document.getElementById('monitor')
+    var precio2=ele2.options[ele2.selectedIndex].value;
+    var ele3=document.getElementById('discoduro')
+    var precio3=ele3.options[ele3.selectedIndex].value;
+    precio1=parseInt(precio1);
+    precio2=parseInt(precio2);
+    precio3=parseInt(precio3);
+    var suma=precio1+precio2+precio3;
+    document.getElementById('resultadoPresupuesto').value=suma;
+  }
+  function mostrarSeleccionPizza()
+  {
+    document.getElementById('mensaje').value = document.getElementById('pizza').options[document.getElementById('pizza').selectedIndex].value;
+  }
+function cambiarColor()
+{
+  var seleccion=document.getElementById('select1');
+  document.getElementById('text1').value=seleccion.selectedIndex;
+  document.getElementById('text2').value=seleccion.options[seleccion.selectedIndex].text;
+  document.getElementById('text3').value=seleccion.options[seleccion.selectedIndex].value;
+}
+  function mostrar()
+  {
+    var nom=document.getElementById('nombre').value;
+    var ed=document.getElementById('edad').value;
+    alert('Ingresó el nombre:' + nom);
+    alert('Y la edad:' + ed);
+  }
+  function calcularCubo()
+    {
+      var v=document.getElementById('num').value;
+      v=parseInt(v);
+      var cubo=v*v*v;
+      alert(cubo);
+    }
+    function mostrarMayor()
+    {
+      var num1=document.getElementById('num1').value;
+      var num2=document.getElementById('num2').value;
+      num1=parseInt(num1);
+      num2=parseInt(num2);
+      if (num1>num2)
+      {
+        alert('El mayor es '+num1);
+      }
+      else
+      {
+        alert('El mayor es '+num2);
+      }
+    }
+    function concatenar()
+    {
+      var nom=document.getElementById('nombre1').value;
+      var ape=document.getElementById('apellido').value;
+      document.getElementById('resultado').value= nom + " " + ape;
+    }
+    function verificar()
+  {
+    var clave1=document.getElementById('clave1').value;
+    var clave2=document.getElementById('clave2').value;
+    if (clave1==clave2)
+    {
+      alert('Las dos claves ingresadas son iguales');
+    }
+    else
+    {
+      alert('Las dos claves ingresadas son distintas');
+    }
+  }
+  
+  </script>

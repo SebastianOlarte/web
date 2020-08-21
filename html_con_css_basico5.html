@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Problema</title>
+  <meta charset="UTF-8">
+  <link rel="StyleSheet" href="css_basico5.css" type="text/css">
+</head>
+<body>
+
+<div id="cabecera">
+<h1>Gestor de base de datos MySQL</h1>
+</div>
+
+<div id="cuerpo">
+<p>SQL, Structure Query Language (Lenguaje de Consulta Estructurado) 
+es un lenguaje de programacion para trabajar con base de datos
+ relacionales como MySQL, Oracle, etc.</p>
+<p>MySQL es un interpretador de SQL, es un servidor de base de
+ datos.</p>
+<p>MySQL permite crear base de datos y tablas, insertar datos, 
+modificarlos, eliminarlos, ordenarlos, hacer consultas y realizar
+ muchas operaciones, etc., resumiendo: administrar bases de datos.</p>
+</div>
+
+<div id="pie">
+<p>Tutorial de MySQL</p>
+</div>
+<hr>
+
+<h1>Propiedades relacionadas al borde de un elemento HTML (border-width, border-style, border-color)</h1>
+<p class="pregunta">¿Quién descubrió América y en que año fue?</p>
+<p class="respuesta">Colón en 1492</p>
+<p>Disponemos de los siguientes estilos de borde:
+<pre>
+  none
+  hidden
+  dotted
+  dashed
+  solid
+  double
+  groove
+  ridge
+  inset
+  outset
+</pre>
+Pero podemos ir un paso más allá, CSS nos permiten modificar independientemente cada uno de los cuatro bordes del rectángulo. Contamos con las siguientes propiedades:
+<pre>
+border-top-width
+border-right-width
+border-bottom-width
+border-left-width
+
+border-top-style
+border-right-style
+border-bottom-style
+border-left-style
+
+border-top-color
+border-right-color
+border-bottom-color
+border-left-color
+</pre>
+</p>
+<h1 class="titulopagina">El blog del pensador</h1>
+<h1 class="titulosecundario">Prueba de estilos de bordes en css.</h1>
+<hr>
+
+<h1>Propiedades relacionadas al padding de un elemento HTML</h1>
+<p>El padding (almohadilla) suma espacio entre el contenido del elemento HTML (por ejemplo dentro del elemento párrafo el texto propiamente dicho es el contenido) y el borde (recordar propiedad border)
+
+  Podemos configurar los 4 en caso que tengan el mismo valor accediendo a la propiedad: padding. <br>
+  o podemos configurar en forma independiente cada lado:
+  <pre>
+  padding-top
+  padding-right
+  padding-bottom
+  padding-left</pre></p>
+  <pre class="codigofuente">
+    public class Rectangulo{
+      //atributos
+      int alto;
+      int ancho;
+      boolean relleno;
+      //métodos
+      public int devolverArea(){
+        return alto*ancho;
+      }
+      public void rellenar(boolean r){
+        relleno=r;
+      }
+      public void cambiarTamano(int an, int al){
+        ancho=an;
+        alto=al;
+      }
+      public Rectangulo() {// constructor
+        alto=20;
+        ancho=10;
+        relleno=false;
+      }
+    }//fin clase Rectangulo
+    </pre>
+<h1 class="titulo">Prueba de título</h1>
+<hr>
+<h1>Propiedades relacionadas al margen de un elemento HTML.</h1>
+<p>El margen está después del borde. El margen separa un elemento HTML de otro elemento HTML dentro de la página.</p>
+<pre>
+margin
+margin-top
+margin-right
+margin-bottom
+margin-left
+</pre>
+<p class="parrafo_con_margen">Soy un parrafo con estilo y con margen</p>
+<p class="parrafo_con_margen">Soy otro parrafo con estilo y con margen</p>
+<hr>
+
+<h1>Propiedades relacionadas a listas</h1>
+<p>Las CSS nos permiten configurar las listas por medio de tres propiedades:
+<pre>
+list-style-type
+list-style-position
+list-style-image
+</pre>
+A list-style-type puede asignársele alguno de estos valores:
+<pre>
+none
+disc
+circle
+square
+decimal
+decimal-leading-zero
+lower-roman
+upper-roman
+lower-alpha
+upper-alpha
+</pre>
+Los valores de list-style-position:
+<pre>
+inside
+outside
+</pre>
+Los valores de list-style-image:
+<pre>
+none
+url</pre>
+</p>
+<ul class="vacio">
+  <li>Brasil</li>
+  <li>Uruguay</li>
+  <li>Argentina</li>
+</ul>
+<ul class="circulorelleno">
+  <li>Brasil</li>
+  <li>Uruguay</li>
+  <li>Argentina</li>
+</ul>
+<ul class="circulovacio">
+  <li>Brasil</li>
+  <li>Uruguay</li>
+  <li>Argentina</li>
+</ul>
+<ul class="cuadrado">
+  <li>Brasil</li>
+  <li>Uruguay</li>
+  <li>Argentina</li>
+</ul>
+<ul class="decimal">
+  <li>Brasil</li>
+  <li>Uruguay</li>
+  <li>Argentina</li>
+</ul>
+<ul class="romanominuscula">
+  <li>Brasil</li>
+  <li>Uruguay</li>
+  <li>Argentina</li>
+</ul>
+<ul class="romanomayuscula">
+  <li>Brasil</li>
+  <li>Uruguay</li>
+  <li>Argentina</li>
+</ul>
+<ul class="letrasminusculas">
+  <li>Brasil</li>
+  <li>Uruguay</li>
+  <li>Argentina</li>
+</ul>
+<ul class="letrasmayusculas">
+  <li>Brasil</li>
+  <li>Uruguay</li>
+  <li>Argentina</li>
+</ul>
+<ul class="estilo1">
+  <li>Pascal</li>
+  <li>C</li>
+</ul>
+<ul class="estilo2">
+  <li>C++</li>
+  <li>Java</li>
+  <li>C#</li>
+</ul>
+<hr>
+<h1>Propiedades relacionadas al fondo (background)</h1>
+<p>Hasta ahora hemos probado y utilizado la propiedad background-color para fijar el color de fondo del contenido de un elemento HTML (body, h1, h2, p, etc.).
+
+  Hay otras propiedades relacionadas al fondo que nos permiten, entre otras cosas, disponer un archivo de imagen. Las propiedades relacionadas al background y sus valores son:
+  <pre>
+  background-color
+  background-image
+  background-repeat
+  background-position
+  background-attachment</pre></p>
+</body>
+
+<hr>
+<h1 style="font-variant: small-caps; color: blueviolet;">Propiedades relacionadas a fuentes (FORMATO RESUMIDO)</h1>
+<p>font-family
+  font-size
+  font-style
+  font-weight
+  font-variant 
+  <h3 class="fuente1">En situaciones donde necesitemos inicializar varias de estas propiedades CSS nos permite utilizar una propiedad que engloba a todas estas:</h3>
+  
+  <pre> font</pre>
+  <h4 class="fuente2">Podemos indicar en cualquier orden font-weight, font-style, font-variant y luego los valores obligatorios font-size y font-family en ese orden.</h4>
+  <h3 class="fuente3">Es importante recordar que font-size y font-family deben ser los últimos valores inicializados y en ese orden. No debemos separar por coma.</h3>
+  <h4 class="fuente2">Como ejemplo tenemos los parrafos que hacen parte de este ejemplo:</h4>
+  <pre class="fuente1">
+    p {
+      font:bold italic 25px verdana;
+    }
+  </pre>
+</p>
+
+<hr>
+<h1 style="font-variant: small-caps; color: blueviolet;">Propiedades relacionadas al border (FORMATO RESUMIDO)</h1>
+<p>Podemos inicializar todos los bordes con una sola propiedad:
+  <pre>border</pre> <br>
+  <h4 class="fuente2">Debemos indicar el border-width border-style border-color</h4>
+  No debemos separarlas por coma y deben estar especificados en ese orden.Por ejemplo:
+  <pre class="fuente1">
+    h1 {
+      border:1px solid #ff0000;
+    }
+  </pre>
+  <h4 class="fuente3">Por otro lado podemos inicializar cada borde con:</h4>
+  <pre>border-top
+    border-right
+    border-bottom
+    border-left</pre>
+  <h4 class="fuente1">Debemos indicar el border-(top/right/bottom/left): width border-style border-color</h4>
+  <h1 class="tituloprincipal">Propiedad border</h1>
+<p class="comentarios">Debemos indicar el border-width border-style 
+border-color</p>
+</p>
+
+<hr>
+<h1 style="font-variant: small-caps; color: blueviolet;">Propiedades relacionadas al padding (FORMATO RESUMIDO)</h1>
+<p>Podemos inicializar el padding de un elemento HTML en forma resumida con:
+
+  <pre>padding:padding-top padding-right padding-bottom padding-left</pre>
+  Un ejemplo:
+  
+  <pre> padding: 5px 10px 12px 3px;</pre>
+  si indicamos un único valor se aplica a los cuatro lados:
+  
+  <pre> padding: 1px;</pre>
+  Si indicamos dos valores, el primero se aplica a la parte superior e inferior y el segundo valor a los lados izquierdo y derecho:
+  
+  <pre> padding: 5px 10px;</pre>
+  <p class="comentarios">Esto es una prueba para ver el funcionamiento 
+    de la propiedad padding.
+    Esto es una prueba para ver el funcionamiento de la propiedad padding.
+    Esto es una prueba para ver el funcionamiento de la propiedad padding.
+    Esto es una prueba para ver el funcionamiento de la propiedad padding.
+    Esto es una prueba para ver el funcionamiento de la propiedad padding.
+    Esto es una prueba para ver el funcionamiento de la propiedad padding.
+    Esto es una prueba para ver el funcionamiento de la propiedad padding.
+    </p>
+</p>
+
+<hr>
+<h1 style="font-variant: small-caps; color: blueviolet;">Propiedades relacionadas al margin (FORMATO RESUMIDO)</h1>
+<p>
+  El funcionamiento y sintaxis es similar al visto para el padding:
+
+  <pre> margin: margin-top margin-right margin-bottom margin-left</pre>
+  Ejemplo:
+  <pre>
+  p {
+    margin:5px 2px 4px 10px;
+  }</pre>
+  si indicamos un único valor se aplica a los cuatro lados:
+
+  <pre> margin: 1px</pre>
+  si indicamos dos valores, el primero se aplica a la parte superior e inferior y el segundo valor a los lados izquierdo y derecho.
+  Para el ejemplo acontinuacion la clase recuadro fija un márgen de 70 píxeles en el borde superior e inferior, y 20 píxeles en los bordes izquierdo y derecho.
+<h1 class="comentarios"> Titulo con un buen margen</h1>
+</p>
+
+<hr>
+<h1 style="font-variant: small-caps; color: blueviolet;">Propiedades relacionadas al fondo (background)(FORMATO RESUMIDO)</h1>
+<p>La propiedad background resume las propiedades vistas anteriormente:
+  <pre>
+  background: background-color 
+              background-image 
+              background-repeat 
+              background-attachment 
+              background-position</pre>
+  Se puede inicializar una o varias de las propiedades referentes al fondo (es indistinto el orden en que indicamos los valores)
+  
+  Ejemplos:
+  <pre>
+  p {
+    background: #cccccc url(fondo.jpg) repeat;
+  }
+  
+  ul {
+    background url(fondo.png) no-repeat fixed #0000ff;
+  }
+  
+  div {
+    background: top repeat-y scroll url(fondo.png);
+  }</pre>
+  No es obligatorio inicializar todos los valores, tampoco el orden es importante.
+  Ejemplo de un DIV con la propiedad fondo inicializada
+</p>
+<div class="fondo1">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure quod enim porro? Dolor aliquid numquam ipsam omnis, autem quibusdam amet totam, nihil facilis soluta, similique velit quasi temporibus magnam provident!
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus excepturi, quis minima aut veniam ipsum doloribus nihil consectetur incidunt amet mollitia, dignissimos esse nam odio sed placeat officiis ad suscipit!
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit dolore magnam odit pariatur facere ut ullam modi, quis aspernatur veritatis nobis repudiandae quia debitis, vero ad minus accusantium neque mollitia.
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur officiis amet corporis voluptatem quasi ex. Odio dolores delectus veritatis fugiat explicabo, corrupti ipsum repudiandae soluta vitae vero aliquid nihil corporis?
+    <br>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure quod enim porro? Dolor aliquid numquam ipsam omnis, autem quibusdam amet totam, nihil facilis soluta, similique velit quasi temporibus magnam provident!
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus excepturi, quis minima aut veniam ipsum doloribus nihil consectetur incidunt amet mollitia, dignissimos esse nam odio sed placeat officiis ad suscipit!
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit dolore magnam odit pariatur facere ut ullam modi, quis aspernatur veritatis nobis repudiandae quia debitis, vero ad minus accusantium neque mollitia.
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur officiis amet corporis voluptatem quasi ex. Odio dolores delectus veritatis fugiat explicabo, corrupti ipsum repudiandae soluta vitae vero aliquid nihil corporis?
+    <br>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure quod enim porro? Dolor aliquid numquam ipsam omnis, autem quibusdam amet totam, nihil facilis soluta, similique velit quasi temporibus magnam provident!
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus excepturi, quis minima aut veniam ipsum doloribus nihil consectetur incidunt amet mollitia, dignissimos esse nam odio sed placeat officiis ad suscipit!
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit dolore magnam odit pariatur facere ut ullam modi, quis aspernatur veritatis nobis repudiandae quia debitis, vero ad minus accusantium neque mollitia.
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur officiis amet corporis voluptatem quasi ex. Odio dolores delectus veritatis fugiat explicabo, corrupti ipsum repudiandae soluta vitae vero aliquid nihil corporis?
+  
+</div>
+</html>

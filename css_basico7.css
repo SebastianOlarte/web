@@ -1,0 +1,30 @@
+/* Otro Ejemplo Posicionamiento absoluto y propiedad z-index------------------------------------------------------------------------------------------------------------------------------------ */
+#caja1{
+  position:absolute;
+  background-color:red;
+  left:10px;
+  top:10px;
+  width:200px;
+  height:200px;
+  z-index:1;
+}
+
+#caja2{
+  position:absolute;
+  background-color:green;
+  left:50px;
+  top:50px;
+  width:200px;
+  height:200px;
+  z-index:3;
+}
+
+#caja3{
+  position:absolute;
+  background-color:blue;
+  left:30px;
+  top:30px;
+  width:200px;
+  height:200px;
+  z-index:2;
+}

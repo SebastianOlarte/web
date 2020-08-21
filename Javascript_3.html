@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ejemplo de JavaScript</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css_para_ejemplos_jaascript.css" type="text/css">
+</head>
+<body>
+  <h1>Programación orientada a objetos en JavaScript.</h1>
+  <script>
+    function Cliente(nombre,saldo)
+    {
+      this.nombre=nombre;
+      this.saldo=saldo;
+      this.depositar=depositar;
+      this.extraer=extraer;
+    }
+  
+    function depositar(dinero)
+    {
+      this.saldo=this.saldo+dinero;
+    }
+  
+    function extraer(dinero)
+    {
+      this.saldo=this.saldo-dinero;
+    }
+  
+    var cliente1;
+    cliente1=new Cliente('diego',1200);
+    document.write('Nombre del cliente:'+cliente1.nombre+'<br>');
+    document.write('Saldo actual:'+cliente1.saldo+'<br>');
+    cliente1.depositar(120);
+    document.write('Saldo luego de depositar $120---->'+cliente1.saldo+'<br>');
+    cliente1.extraer(1000);
+    document.write('Saldo luego de extraer $1000---->'+cliente1.saldo+'<br>'); 
+  </script>
+
+<p>Confeccionar una clase llamada suma, que contenga dos atributos (valor1, valor2) y tres métodos: cargarvalor1, cargarvalor2 y retornarresultado. Implementar la clase suma.
+  La definición de un objeto de la clase que deben plantear es: <br>
+  var s=new suma(); <br>
+  s.primerValor(10); <br>
+  s.segundoValor(20); <br>
+  document.write('La suma de los dos valores es:'+s.retornarResultado());</p>
+  
+  <script>
+    function Suma(valor1,valor2)
+    {
+      this.valor1=valor1;
+      this.valor2=valor2;
+      this.primerValor=primerValor;
+      this.segundoValor=segundoValor;
+      this.retornarResultado=retornarResultado;
+    }
+  
+    function primerValor(valor1)
+    {
+      this.valor1=valor1;
+    }
+  
+    function segundoValor(valor2)
+    {
+      this.valor2=valor2;
+    }
+  
+    function retornarResultado()
+    {
+      return this.valor1+this.valor2;
+    }
+  
+    var suma1;
+    suma1=new Suma(5,10);
+    document.write('La suma de 5 y 10 es:'+suma1.retornarResultado()+'<br>');
+    suma1.primerValor(70);
+    suma1.segundoValor(30);
+    document.write('La suma de 70 y 30 es:'+suma1.retornarResultado()+'<br>'); 
+  </script>
+<hr>
+<h2>Definición de varias clases.</h2>
+<p>Plantearemos una clase Numeroquiniela que representa una persona que elige un número de quiniela y además registra su nombre, la clase tiene por objetivo la carga por el teclado del número deseado. Por otra parte crearemos una clase Bolillero que sortee un valor aleatorio entre 1 y 10 (que representa el valor extraído del bolillero)</p>
+
+<script>
+
+  //clase Numeroquiniela *********************************
+  function Numeroquiniela(nombre)
+  {
+    this.nombre=nombre;
+    this.cargarnumero=cargarnumero;
+    this.verificarsigano=verificarsigano;
+  }
+
+  function cargarnumero()
+  {
+    this.numero=prompt("Que número de quiniela quiere?","");
+  }
+
+  function verificarsigano(num)
+  {
+    if (this.numero==num)
+      return true;
+    else
+      return false;
+  }
+
+  //clase Bolillero **************************************
+  function Bolillero()
+  {
+    this.numero=-1;
+    this.sortear=sortear;
+  }
+  
+  function sortear()
+  {
+    this.numero=parseInt(Math.random()*10)+1;
+  }
+
+  // bloque principal
+  var numeroquiniela1, numeroquiniela2, bolillero;
+
+  numeroquiniela1=new Numeroquiniela("juan");
+  numeroquiniela1.cargarnumero();  
+  numeroquiniela2=new Numeroquiniela("ana");
+  numeroquiniela2.cargarnumero();  
+  bolillero=new Bolillero();
+  bolillero.sortear();
+
+  document.write('Numero sorteado:' + bolillero.numero + '<br>');
+  document.write(numeroquiniela1.nombre + ' eligió ' + numeroquiniela1.numero +'<br>');
+  document.write(numeroquiniela2.nombre + ' eligió ' + numeroquiniela2.numero +'<br>');
+  if (numeroquiniela1.verificarsigano(bolillero.numero))
+  {
+    document.write(numeroquiniela1.nombre + ' ha ganado <br>');
+  }
+  else if (numeroquiniela2.verificarsigano(bolillero.numero))
+  {
+    document.write(numeroquiniela2.nombre + ' ha ganado <br>');
+  }
+  else
+  {
+    document.writeln("NINGUNO DE LOS PARTICIPANTES HA GANADO");
+  } 
+</script>
+
+<hr>
+<h2>Vectores con componentes de tipo objeto.</h2>
+<p>Confeccionar una clase persona que permita almacenar el nombre y la edad. Luego definir un vector de 4 componentes de tipo persona. Imprimir el nombre de la persona de mayor edad; decir también si hay más de una persona con la edad mayor.</p>
+
+<script>
+  function Persona(nombre,edad)
+  {
+    this.nombre=nombre;
+    this.edad=edad;
+    this.imprimirNombre=imprimirNombre;
+  }
+
+  function imprimirNombre()
+  {    
+    document.write(this.nombre+' que tiene una edad '+this.edad+'<br>' );
+  }
+  
+  var vector=new Array(4);
+  vector[0]=new Persona('juan',44);
+  vector[1]=new Persona('ana',22);
+  vector[2]=new Persona('pedro',44);
+  vector[3]=new Persona('marcos',18);
+  var posmayor=0;
+  for(var f=1;f<vector.length;f++)
+  {
+    if (vector[f].edad>vector[posmayor].edad)
+    {
+      posmayor=f;
+    }
+  }
+  document.write('Personas con mayor edad:<br>');
+  for(var f=0;f<vector.length;f++)    
+  {
+    if (vector[f].edad==vector[posmayor].edad)
+    {
+      vector[f].imprimirNombre();
+    }
+  }
+</script>
+
+<hr>
+<h2>Creación de objetos literales --> notacion de objeto</h2>
+<p>Veremos ahora otra forma muy utilizada en Javascript para definir objetos. Esta forma se la llama Objetos literales. Esta metodología consiste en definir una lista de propiedades y sus valores. La forma en como se declaran es conocida como la notacion de objetos de javascript</p>
+
+<script>
+  var cliente1 = {
+      nombre: 'Juan',
+      deposito: 0,
+      imprimir: function ()
+      {
+        document.write(this.nombre+'<br>');
+        document.write(this.deposito+'<br>');
+      },
+      depositar: function(monto) {
+        this.deposito=this.deposito+monto;
+      },
+      extraer: function(monto) {
+        this.deposito=this.deposito-monto;
+      }                  
+   };
+ 
+   cliente1.imprimir();
+   cliente1.depositar(1000);
+   document.write('Estado luego de depositar 1000 pesos</br>');
+   cliente1.imprimir();
+   cliente1.extraer(200);
+   document.write('Estado luego de extraer 200 pesos</br>');
+   cliente1.imprimir();
+ </script>
+
+<hr>
+<h1>trabajando con vectores</h1>
+<h2>Diferentes formas de crearlos: </h2>
+<p>Confeccionar un programa que defina dos array, en uno almacenar los días de la semana y en otro los nombres de los meses. Emplear dos sintaxis diferentes para crear e inicializar sus componentes.</p>
+<script>
+  var meses=new Array('enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre');
+  var dias=['lunes','martes','miercoles','jueves','viernes','sábado','domingo']; 
+  var f;  
+  for(f=0;f<meses.length;f++)
+  {
+    document.write(meses[f]+'<br>');
+  } 
+  document.write('<br>');
+  for(f=0;f<dias.length;f++)
+  {
+    document.write(dias[f]+'<br>');
+  } 
+</script>
+
+<h2>arrays densos</h2>
+<p>Crear un vector con 10 valores aleatorios comprendidos entre 1 y 500. Luego crear otros dos vectores y copiar los elementos menores a 250 en el segundo vector y los mayores o iguales a 250 en el tercer vector. Imprimir los tamaños del segundo y tercer vector. Imprimir los tres vectores.</p>
+<script>
+  var vec1=[];
+  var f;
+  for(f=0;f<10;f++)
+  {
+    vec1[f]=parseInt(1+(Math.random()*500));    
+  }
+  var vec2=[];
+  var vec3=[];
+  var indice1=0;
+  var indice2=0;
+  for(f=0;f<vec1.length;f++)
+  {
+    if(vec1[f]<250)
+    {
+      vec2[indice1]=vec1[f];
+      indice1++;
+    }
+    else
+    {
+      vec3[indice2]=vec1[f];
+      indice2++;
+    }
+  }
+  document.write('Tamaño del primer vector '+vec1.length+'<br>');
+  document.write('Tamaño del segundo vector '+vec2.length+'<br>');
+  document.write('Tamaño del tercer vector '+vec3.length+'<br>');
+  document.write('Elementos del primer vector.<br>');
+  for(f=0;f<vec1.length;f++)
+  {
+    document.write(vec1[f]+'-');
+  }
+  document.write('<br>');
+  document.write('Elementos del segundo vector.<br>');
+  for(f=0;f<vec2.length;f++)
+  {
+    document.write(vec2[f]+'-');
+  }
+  document.write('<br>');
+  document.write('Elementos del tercer vector.<br>');
+  for(f=0;f<vec3.length;f++)
+  {
+    document.write(vec3[f]+'-');
+  }
+</script>
+<h2>arrays no densos o dispersos</h2>
+<p>Javascript permite crear array e inicializar componentes no contiguas. Este tipo de array se los llama array dispersos ya que no tenemos todas las componentes contiguas ocupadas.</p>
+<p>Crear un vector disperso que representen premios de una rifa. Las posiciones indican los números que tienen premio. Almacenar en dichas posiciones los premios. Genera 10 premios con los montos 1000,2000,3000 etc.
+  La cantidad de números de la rifa son 1000.
+  Generar valores aleatorios para los números con premio.
+  Imprimir Los números con premio y los montos de los mismos.</p>
+  <script>
+    var carton=[];
+     var f;
+     var cant=0;
+     do {
+       var premio=parseInt(Math.random()*1000);
+       carton[premio]=1000*(cant+1);
+       cant++;
+     } while (cant!=11);
+     for(f=0;f<carton.length;f++)
+     {
+       if (carton[f] !== undefined)
+       {
+         document.write('Carton '+f+' tiene un premio de '+carton[f]+'<br>');
+       }
+     }
+   </script>
+<h2>Array: métodos push y pop</h2>
+<p>Crear un vector con 10 valores aleatorios comprendidos entre 1 y 1000. Luego extraer los dos últimos elementos sumarlos y mostrarlos. Imprimir también el tamaño final del vector.</p>
+<script>
+  var  vec=[];
+  var f;
+  for(f=0;f<10;f++)
+  {
+    var nro=1+(Math.random()*1000);
+    vec.push(parseInt(nro));
+  }
+  for(f=0;f<vec.length;f++)
+  {
+    document.write('-' + vec[f]);
+  }
+  document.write('<br>');
+  document.write('Tamaño del vector antes de hacer pop:'+vec.length+'<br>');
+  var sumaultimos=vec.pop()+vec.pop();
+  document.write('La suma de las dos últimas componentes es:'+sumaultimos+'<br>');
+  document.write('Tamaño final del vector: '+vec.length+'<br>');
+  document.write('Elementos restantes del vector <br>');
+  for(f=0;f<vec.length;f++)
+  {
+    document.write('-' + vec[f]);
+  }
+</script>
+<h2>Array: métodos unshift y shift e instrucción delete</h2>
+<p>Así como el método push inserta un elemento al final del vector el método unshift inserta un elemento al principio del vector y desplaza el resto una posición. <br>
+  El método shift extrae el primer elemento del vector y desplaza hacia delante el resto de elementos del vector.</p>
+<p>Javascript tiene una instrucción que permite eliminar un elemento de un vector llamada delete. Al comando delete le pasamos el nombre del vector y la posición que queremos borrar: <br>
+    delete vec[3]; <br>
+  Con el comando anterior estamos eliminando la componente de la posición 3 del vector. Cuando se elimina una componente no se modifica la propiedad length y el vector se convierte en no denso. Si luego tratamos de acceder a dicha posición el resultado es el valor undefined.</p>
+<p>Crear un vector de 20 elementos y almacenar valores aleatorios en el mismo. Luego borrar los elementos de las posiciones pares e imprimir el vector antes y después de borrar las componentes, inclusive tratar de acceder a las componentes que acabamos de borrar.</p>
+<script>
+  var vec=[];
+  var f;
+  for(f=0;f<10;f++)
+  {
+    var valor=parseInt(Math.random()*1000);
+    vec.push(valor);
+    valor=parseInt(5000 + Math.random()*1000);
+    vec.unshift(valor);
+  }
+  document.write('Vector antes de borrar<br>');
+  for(f=0;f<vec.length;f++)
+  {
+    document.write(vec[f]+'<br>');
+  }
+  for(f=0;f<vec.length;f=f+2)
+  {
+    delete vec[f];
+  }
+  document.write('Vector luego de borrar las posiciones pares<br>');
+  for(f=0;f<vec.length;f++)
+  {
+    document.write(vec[f]+'<br>');
+  }
+</script>
+<h2>Array: métodos sort y reverse</h2>
+<p>Para ordenar una lista de enteros se complica el algoritmo ya que debemos pasar al método sort una función anónima indicando como implementar la comparación entre elementos</p>
+<p>Crear un vector con 10 elementos enteros con valores aleatorios. Ordenarlos de menor a mayor. Luego invertir el vector para verlo de mayor a menor.</p>
+<script>
+  var vec=new Array(10);
+  var f;
+  document.write('Vector antes de ordenar<br>');
+  for(f=0;f<vec.length;f++)
+  {
+    vec[f]=parseInt(Math.random()*10000);
+    document.write(vec[f]+'<br>');
+  }
+  vec.sort(function(v1,v2) {
+    if (v1>v2)
+      return 1;
+    else
+      return -1;
+  });
+  document.write('Vector ordenado en forma ascendente<br>');
+  for(f=0;f<vec.length;f++)
+  {
+    document.write(vec[f]+'<br>');
+  }
+  vec.reverse();
+  document.write('Vector ordenado en forma descendente<br>');
+  for(f=0;f<vec.length;f++)
+  {
+    document.write(vec[f]+'<br>');
+  }
+</script>
+<h2>Array: método splice</h2>
+<p>El método splice permite eliminar componentes, insertar componentes o eliminar e insertar componentes en forma simultánea.</p>
+<h3>borrar</h3>
+<p>Veamos primero como podemos utilizar éste método para borrar elementos. Para borrar elementos debemos indicar dos parámetros al método splice, el primero indica a partir de que posición procedemos a borrar componentes y el segundo parámetro indica la cantidad de componentes a borrar.
+  Veamos con un ejemplo como eliminamos 3 componentes del vector a partir de la segunda componentes:</p>
+  <script>
+    var vec=[0,1,2,3,4,5,6,7,8,9];
+    document.write('Vector inicial<br>');
+    var f;
+    for(f=0;f<vec.length;f++)
+    {
+      document.write(vec[f] + '-');
+    }
+    document.write('<br>');
+
+    var vec2=vec.splice(1,3);
+    document.write('Vector luego de borrar<br>');
+    var f;
+    for(f=0;f<vec.length;f++)
+    {
+      document.write(vec[f]+'-');
+    }
+    document.write('<br>');
+
+    document.write('Elementos extraídos<br>');
+    var f;
+    for(f=0;f<vec2.length;f++)
+    {
+      document.write(vec2[f]+'-');
+    }
+    document.write('<br>');
+  </script>
+  <p>Podemos indicar un valor negativo y el posicionamiento se cuenta desde el final del vector, por ejemplo si queremos eliminar los tres últimos elementos del vector luego debemos codificar:</p>
+  
+  <script>
+    var vec=[0,1,2,3,4,5,6,7,8,9];
+    document.write('Vector inicial<br>');
+    var f;
+    for(f=0;f<vec.length;f++)
+    {
+      document.write(vec[f]+'-');
+    }
+    document.write('<br>');
+    vec.splice(-3,3);
+    document.write('Eliminados los tres últimos elementos<br>');
+    var f;
+    for(f=0;f<vec.length;f++)
+    {
+      document.write(vec[f]+'-');
+    }
+    document.write('<br>');
+  </script>
+  <h3>Insertar</h3>
+  <p>Veamos ahora como procedemos a insertar valores dentro del vector. Debemos pasar como mínimo 3 o más parámetros. Los dos primeros cumplen la misma función que cuando borramos (pero en este caso pasamos un cero en el segundo parámetro) y del tercer parámetro en adelante se indican los valores a insertar en el vector.
+    Codificaremos un programa que inserte los valores 10,20,30,40 a partir de la segunda componente:</p>
+    <script>
+      var vec=[0,1,2,3,4,5,6,7,8,9];
+      document.write('Vector inicial<br>');
+      var f;
+      for(f=0;f<vec.length;f++)
+      {
+        document.write(vec[f]+'-');
+      }
+      document.write('<br>');
+
+      vec.splice(1,0,10,20,30,40);
+      document.write('Vector luego de insertar 4 valores<br>');
+      var f;
+      for(f=0;f<vec.length;f++)
+      {
+        document.write(vec[f]+'-');
+      }
+      document.write('<br>');
+    </script>
+    <h3>Borrar e insertar</h3>
+    <p>La tercer posibilidad que nos presenta este método es en el mismo momento que borramos elementos procedemos a insertar otros.
+      Para probar el borrar e insertar en forma simultánea confeccionaremos un programa que borre desde la posición 1 tres elementos e inserte otros cinco elementos:</p>
+    <script>
+      var vec=[0,1,2,3,4,5,6,7,8,9];
+        document.write('Vector inicial<br>');
+        var f;
+        for(f=0;f<vec.length;f++)
+        {
+          document.write(vec[f]+'-');
+        }
+        document.write('<br>');
+
+        vec.splice(1,3,10,20,30,40,50);
+        document.write('Vector luego de borrar 3 elementos e insertar otros 5 valores<br>');
+        var f;
+        for(f=0;f<vec.length;f++)
+        {
+          document.write(vec[f]+'-');
+        }
+        document.write('<br>');
+      </script>
+    <p>Crear un vector con una lista de valores. Luego borrar las componentes donde hay un 2 y al mismo tiempo insertar dos elementos con el valor 1.</p>
+    <script>
+      var vec=[0,7,2,3,4,2,6,2,8,2];
+      var f;
+      var indice=0;
+      do {
+        if (vec[indice]==2)
+        {
+          vec.splice(indice,1,1,1);
+        }
+        indice++;
+      } while (indice<vec.length);
+      for(f=0;f<vec.length;f++)
+      {
+        document.write(vec[f]+' ');
+      }
+    </script>
+<h2>Array: método slice</h2>    
+<p>El método slice (traducido al castellano: trozo) retorna un trozo del vector. La sintaxis es:
+  vec.slice(2,4);
+ El primer parámetro indica a partir de que elementos debe retornar y el segundo parámetro hasta cual elemento (sin incluir dicha posición)
+ El método slice no modifica el vector original, sino que retorna otro vector con las componentes indicadas.</p>
+ <script>
+  var vec=[10,20,30,40,50,60];
+  document.write('Vector original<br>');
+  var f;
+  for(f=0;f<vec.length;f++)
+  {
+    document.write(vec[f]+'-');
+  }
+  document.write('<br>');
+  var vec2=vec.slice(1,4);
+  document.write('Vector resultante de la llamada a slice<br>');
+  for(f=0;f<vec2.length;f++)
+  {
+    document.write(vec2[f]+'-');
+  }
+</script>
+
+<p>Crear un vector de 10 elementos con valores aleatorios comprendidos entre 0 y 1000. Buscar el menor y luego generar otro vector a partir de dicha posición hasta el final.</p>
+<script>
+  var vec=[];  
+  var f;
+  for(f=0;f<10;f++)
+  {
+    vec[f]=parseInt(Math.random()*1001);
+  }
+  document.write('Vector original<br>');
+  for(f=0;f<vec.length;f++)
+  {
+    document.write(vec[f]+'-');
+  }
+  document.write('<br>');
+  var menor=vec[0];
+  var pos=0;
+  for(f=1;f<vec.length;f++)
+  {
+    if (vec[f]<menor)
+    {
+      menor=vec[f];
+      pos=f;
+    }
+  }
+  document.write('Elemento menor del vector:'+menor);
+  document.write('<br>');
+  var vec2=vec.slice(pos);
+  document.write('Vector resultante de la llamada a slice<br>');
+  for(f=0;f<vec2.length;f++)
+  {
+    document.write(vec2[f]+'-');
+  }
+</script>
+<h2>Array: método join</h2>
+<p>El método join concatena todos los elementos del vector en un único string. Al método join le pasamos como parámetro el o los caracteres de separación que debe agregar entre los elementos dentro del string que se genera.</p>
+<script>
+  var vec=[10,20,30,40,50]; 
+  var cadena=vec.join('**--**');
+  document.write(cadena);
+</script>
+<h2>Array: método concat</h2>
+<p>El método concat crea un nuevo vector con los datos del objeto original y los datos que le enviamos como parámetro.</p>
+<script>
+  var vec=[10,20,30,40];
+  var vecnuevo=vec.concat(1,2,3);
+  document.write('Vector origen<br>');
+  document.write(vec.join()+'<br>');
+  document.write('Vector generado<br>');
+  document.write(vecnuevo.join()+'<br>');
+  
+  //Uniendo dos vectores
+  var vec1=[10,20,30,40];
+  var vec2=[100,200,300,400];
+  var vecsuma=vec1.concat(vec2);
+  document.write('Primer vector:');
+  document.write(vec1.join()+'<br>');
+  document.write('Segundo vector:');
+  document.write(vec2.join()+'<br>');
+  document.write('vectores concatenados:');
+  document.write(vecsuma.join()+'<br>');
+</script>
+<h2>Array: método toString</h2>
+<p>El método toString del objeto Array retorna un string con todos los elementos del vector separados por coma.</p>
+<p>Crear un vector de 10 elementos. Inicializar los valores del vector cuando se crea. Inicializar dos variables que resulten de llamar primero al método toString() y la segunda variable inicializarla llamando al método join() sin parámetros. Mostrar un mensaje si el resultado de la ejecución de los dos métodos retorna el mismo valor (empleando un if para comparar los string)</p>
+<script>
+  var vec=[1,2,3,4,5,6,7,8,9,10];
+  var cadena1=vec.toString();
+  var cadena2=vec.join();
+  if (cadena1==cadena2)
+    document.write('son iguales los dos string');
+  else
+  document.write('no son iguales los dos string');  
+</script>
+<h2>Array: distintas formas de recorrerlo</h2>
+<h3>ciclo for clasico</h3>
+<h3>ciclo for in</h3>
+<h3>ciclo foreach</h3>
+<script>
+  var vec = [10, 20, ,,30, 40,,, 50];
+  document.write('Recorrido del vector con un for clásico<br>');
+  var f;
+  for(f=0;f<vec.length;f++)
+  {
+    document.write(vec[f]+'-');
+  }
+  document.write('<br>');document.write('<br>');
+
+  document.write('Recorrido del vector con un for in<br>');
+  for(var indice in vec)
+  {
+    document.write(vec[indice]+'-');
+  }
+  document.write('<br>');document.write('<br>');
+
+  document.write('Recorrido del vector con un for each<br>');
+  
+  vec.forEach(function (componente, indice) {
+    document.write('Posición:' + indice + ' = ');
+    document.write(componente + '<br>');
+  })
+</script>
+
+
+
+
+</body>
+</html>
+

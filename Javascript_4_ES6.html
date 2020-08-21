@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript ES6</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css_para_ejemplos_jaascript.css" type="text/css">
+</head>
+<body>
+<h1>ES6 - Map</h1>
+<p>Con la llegada de ES6 se presenta un nuevo objeto llamado 'Map' que nos evita tener que implementar desde cero una estructura de datos tipo diccionario o mapa.
+La estructura de datos tipo 'Map' utiliza una clave para acceder a un valor. Como clave se puede utilizar cualquier tipo de dato primitivo como también de tipo objeto. Podemos almacenar como valor también datos primitivos como objetos.</p>
+
+<script>
+  const mapa1 = new Map();
+  mapa1.set("casa", "house");
+  mapa1.set("rojo", "red");
+  mapa1.set("auto", "car");
+  mapa1.set("escuela","school");
+  console.log(mapa1);
+  console.log(`El tamaño inicial del mapa1 es ${mapa1.size}`);
+  mapa1.set("arbol","tree")
+  console.log(`El tamaño del mapa1 después de hacer una inserción es ${mapa1.size}`);
+  mapa1.delete("casa");
+  console.log(`El tamaño del mapa1 después de hacer un delete es ${mapa1.size}`);
+
+const palcastellano = prompt("Ingrese una palabra en castellano:", "");
+if (mapa1.has(palcastellano))
+  document.write(`La traducción de ${palcastellano} es ${mapa1.get(palcastellano)} <br><br>`);
+else
+  document.write(`No existe una traducción para la palabra ${palcastellano} <br><br>`)
+
+//Creando un mapa e inicializando sus valores en el constructor.
+  const mapa2 = new Map([
+    ["Colombia","Bogotá"],
+    ["España","Madrid"],
+    ["Inglaterra","Londres"],
+    ["Francia","Paris"],
+    ["Portugal","Lisboa"]
+  ]);
+  mapa2.set("Alemania","Munich");
+  console.log(mapa2);
+  console.log(`El tamaño del mapa2 es ${mapa2.size}`);
+
+//Imprimiendo los elementos de las estructuras MAP
+imprimirMapa1();
+imprimirMapa2();
+
+function imprimirMapa1(){
+  document.write("Claves del mapa1 usando for of mapa1.keys().<br>")
+  for (let clave of mapa1.keys()) {
+    document.write(clave);
+    document.write("<br>");
+  }
+
+  document.write("<hr>");
+  document.write("Valores del mapa1 usando for of mapa1.values().<br>")
+  for (let valor of mapa1.values()) {
+    document.write(valor);
+    document.write("<br>");
+  }
+
+  document.write("<hr>");
+  document.write("Claves y valores del mapa 1 usando for of mapa1.<br>")
+  for (let [clave, valor] of mapa1) {
+    document.write(clave + ' - ' + valor);
+    document.write("<br>");
+  } 
+
+  document.write("<hr>");
+  document.write("Claves y valores del mapa 1 usando for of  mapa1.entries().<br>")
+  for(let [clave, valor] of mapa1.entries()){
+    document.write(`${clave} - ${valor}`);
+    document.write("<br>");
+  }
+  document.write("<hr>");
+  document.write("Claves y valores del mapa1 usando la funcion forEach.<br>")
+  mapa1.forEach((clave,valor) => document.write(`${valor} - ${clave}<br>`));
+
+  document.write("<hr><hr>")
+}
+
+function imprimirMapa2(){
+  document.write("Claves del mapa2 usando for of mapa2.keys().<br>")
+  for (let clave of mapa2.keys()) {
+    document.write(clave);
+    document.write("<br>");
+  }
+
+  document.write("<hr>");
+  document.write("Valores del mapa2 usando for of mapa2.values().<br>")
+  for (let valor of mapa2.values()) {
+    document.write(valor);
+    document.write("<br>");
+  }
+
+  document.write("<hr>");
+  document.write("Claves y valores del mapa2 usando for of mapa2.<br>")
+  for (let [clave, valor] of mapa2) {
+    document.write(clave + ' - ' + valor);
+    document.write("<br>");
+  } 
+
+  document.write("<hr>");
+  document.write("Claves y valores del mapa2 usando for of  mapa2.entries().<br>")
+  for(let [clave, valor] of mapa2.entries()){
+    document.write(`${clave} - ${valor}`);
+    document.write("<br>");
+  }
+  document.write("<hr>");
+  document.write("Claves y valores del mapa2 usando la funcion forEach.<br>")
+  mapa2.forEach((clave,valor) => document.write(`${valor} - ${clave}<br>`));
+
+  document.write("<hr><hr>")
+}
+
+</script>
+<p><strong>PROBLEMA: </strong>Almacenar en un Map los nombres de paises como clave y la cantidad de habitantes como valores. Mostrar en una lista HTML que se debe crear en forma dinámica inmediatamente luego que se carga la página.</p>
+<div id="paises"></div>
+<hr><hr><hr><hr>
+<script>
+  addEventListener('DOMContentLoaded', inicio);
+
+  function inicio() {
+    const paises = new Map([
+      ["Argentina", 45000000],
+      ["España", 46000000],
+      ["Brasil", 190000000],
+      ["Urugual", 3400000]
+    ]);
+    paises.set("Colombia",50000000);
+
+    let cadena = '';
+    for (let [pais, cantidad] of paises) {
+      cadena += `<li>${pais} => ${cantidad}</li>`;
+    }
+    document.getElementById("paises").innerHTML = cadena;
+  }
+</script>
+
+<h1>ES6 - Set</h1>
+<p>Con ES6 se presenta el objeto llamado 'Set' que nos evita tener que implementar desde cero una estructura de datos tipo conjunto. <br>
+El objeto 'Set' permite almacenar una colección de elementos que pueden ser de tipo primitivo u objeto y que no se pueden repetir.</p>
+
+<script>
+//Creando un conjunto vacio y añadiendo elementos con el metodo add.
+const conjunto1 = new Set();
+conjunto1.add("C");
+conjunto1.add("Pascal");
+conjunto1.add("PHP");
+conjunto1.add("Python");
+conjunto1.add("C#");
+conjunto1.add("JavaScript");
+console.log("EL CONJUNTO1 ES:");
+console.log(conjunto1);
+console.log("LOS OBJETOS SET TIENEN METODOS DE OBJETOS MAP: Los Keys() del conjunto1 son");
+console.log(conjunto1.keys());
+console.log("LOS OBJETOS SET TIENEN METODOS DE OBJETOS MAP: Los Values() del conjunto1 son");
+console.log(conjunto1.values());
+console.log("LOS OBJETOS SET TIENEN METODOS DE OBJETOS MAP: Las Entries() del conjunto1 son");
+console.log(conjunto1.entries());
+console.log("EL TAMAÑO DEL conjunto1 ES:");
+console.log(conjunto1.size);
+conjunto1.delete("PHP");
+console.log("EL TAMAÑO DEL conjunto1 LUEGO DE UN DELETE ES:");
+console.log(conjunto1.size);
+
+//Creando un conjunto e inicializandolo en la declaracion
+const conjunto2 = new Set(["Lunes", "Martes", "Miercoles", "Jueves","Viernes","Sabado","Domingo"]);
+console.log("IMPRIMIENDO EL CONJUNTO DE LOS DIAS DE LA SEMANA:  ");
+console.log(conjunto2);
+console.log("EL TAMAÑO DEL CONJUNTO DE LOS DIAS DE LA SEMANA ES:  ");
+console.log(conjunto2.size);
+
+//Imprimiendo los elementos de un Conjunto
+imprimirConjuntoLenguajes();
+imprimirConjuntoDias();
+
+function imprimirConjuntoLenguajes(){
+  document.write(`Recorriendo conjunto1 usando for of conjunto1<br>`);
+  for(let elemento of conjunto1){
+    document.write(`${elemento}<br>`);
+  }
+  document.write(`<hr>`);
+
+  document.write(`Recorriendo conjunto1 usando for of conjunto1.entries()<br>`);
+  for(let elemento of conjunto1.entries()){
+    document.write(`${elemento}<br>`);
+  }
+  document.write(`<hr>`);
+
+  document.write(`Recorriendo conjunto1 usando forEach<br>`);
+  conjunto1.forEach(elemento => document.write(`${elemento}<br>`) );
+  document.write(`<hr>`);
+}
+
+
+function imprimirConjuntoDias(){
+  document.write(`Recorriendo conjunto2 usando for of conjunto2<br>`);
+  for(let elemento of conjunto2){
+    document.write(`${elemento}<br>`);
+  }
+  document.write(`<hr>`);
+
+  document.write(`Recorriendo conjunto2 usando for of conjunto2.entries()<br>`);
+  for(let elemento of conjunto2.entries()){
+    document.write(`${elemento}<br>`);
+  }
+  document.write(`<hr>`);
+
+  document.write(`Recorriendo conjunto2 usando forEach<br>`);
+  conjunto2.forEach(elemento => document.write(`${elemento}<br>`) );
+  document.write(`<hr>`);
+}
+
+</script>
+
+<p><strong>PROBLEMA: </strong>Generar 10 números aleatorios comprendidos entre 1 y 50. Almacenar los mismos en un Set. Verificar luego si el conjunto tiene el valor 12.</p><script>
+  const conjuntoAletaorio = new Set();
+  for (let x = 0; x < 10; x++)
+    conjuntoAletaorio.add(parseInt(Math.random() * 50) + 1);
+  document.write(`La cantidad de números aleatorios distintos son ${conjuntoAletaorio.size}<br>`)
+  if (conjuntoAletaorio.has(12))
+    document.write("Si se generó el número 12")
+  else
+    document.write("No se generó el número 12")      
+</script>
+<hr><hr>
+<p><strong>PROBLEMA: </strong>Almacenar en un Set los días feriados del año actual. Guardar cada fecha con formato de tipo string: "día/mes/año". <br>
+Ingresar por teclado una fecha cualquiera y luego verificar si dicha fecha es un feriado.</p>
+<script>
+  const feriados = new Set([
+    "1/1/2020",
+    "25/5/2020",
+    "25/12/2020",
+    "16/6/2020",
+    "23/6/2020",
+    "30/6/2020",
+    "20/7/2020"
+  ]);
+
+  const dia = parseInt(prompt("Ingrese día:", ""));
+  const mes = parseInt(prompt("Ingrese mes:", ""));
+  const año = parseInt(prompt("Ingrese año:", ""));
+  if (feriados.has(`${dia}/${mes}/${año}`))
+    document.write("La fecha corresponde a un feriado");
+  else
+    document.write("La fecha no corresponde a un feriado");
+</script>
+<hr><hr><hr><hr>
+
+<h1>ES6 - WeakMap y WeakSet</h1>
+<p>Son dos objetos con funcionalidades similares a Map y Set pero con la capacidad de que el recolector de basura de JavaScript elimine elementos de los mismos cuando lo considere oportuno.</p>
+<p><strong>WeakSet: </strong><br>Solo pueden almacenar datos de tipo objeto (es lógico ésto debido a que los tipos de datos primitivos no pueden tener la referencia de más de una variable)
+  Las referencias a objetos en la colección de tipo WeakSet se mantienen débilmente, ésto significa que si en algún momento durante la ejecución del algoritmo se deja de tener referencias del objeto, luego el recolector de basura de JavaScript libera espacio de la colección WeakSet.
+<pre>
+  const conjunto1 = new WeakSet();
+  let usuario1 = {
+    nombre: "juan",
+    puntos: 200
+  };
+  conjunto1.add(usuario1);
+  console.log(conjunto1.has(usuario1)); //true
+  usuario1 = null;
+  ....</pre>
+  Una vez que la variable 'usuario1' se elimina al asignar el valor null, el "garbage collector" (recolector de basura) de JavaScript se encarga de eliminar el elemento del objeto conjunto1.
+</p>
+<p><strong>WeakMap: </strong><br>Solo se puenden almacenar en la clave del mapa un valor de tipo objeto. JavaScript se encarga de eliminar elementos del mapa cuando se dejan de tener referencias al objeto que actúa como clave dentro del WeakMap.</p>
+<h3>acotaciones</h3>
+<p>Los objetos WeakMap y WeakSet no disponen la capacidas de recorrer sus elementos mediante la estructura for of, tampoco podemos conocer la cantidad de elementos.
+  Podemos eliminar un elemento de la colección mediante el método 'delete', pero no dispone de un método para borrar todos los elementos.  
+  El uso de estos objetos tiene sentido cuando sabemos que durante la ejecución del algoritmo se eliminarán muchos objetos que actúan como claves, en caso contrario es conveniente emplear los objetos Map y Set.</p>
+
+<h1>ES6 - Array</h1>
+<p>Veremos los métodos que ha incorporado el objeto Array con la versión de ES6, recordando que todos los navegadores actuales los implementan en su totalidad.</p>
+<h2>Método estático 'from'</h2>
+<p>El método estático 'from' retorna la referencia de un objeto de tipo Array que se crea a partir del dato que le pasamos:</p>
+<pre>
+    const arreglo1 = [10, 20, 30];
+    const arreglo2 = Array.from(arreglo1);
+    arreglo1.fill(5);
+    console.log(arreglo1); // [5,5,5]
+    console.log(arreglo2); // [10,20,30]
+</pre>
+<p>Al método 'from' podemos pasar cualquier objeto que tenga la capacidad de iterar (más adelande veremos como crear objetos iterables). <br>
+  Por ejemplo un string es iterable:</p>
+<pre>
+  const titulo = "administración";
+  const arreglo1 = Array.from(titulo);
+  console.log(arreglo1);        // ["a", "d", "m", "i", "n", "i", "s", "t", "r", "a", "c", "i", "ó", "n"]
+  console.log(arreglo1.length); // 14
+</pre>
+<p>Un objeto de tipo Map es iterable:</p>
+<pre>
+  const mapa1 = new Map();
+  mapa1.set("casa", "house");
+  mapa1.set("rojo", "red");
+  mapa1.set("auto", "car");
+  const arreglo1 = Array.from(mapa1);
+  console.log(arreglo1);        // [["casa", "house"], ["rojo", "red"], ["auto", "car"]]
+  console.log(arreglo1.length); // 3
+</pre>
+<p>Un objeto de tipo Set es iterable:</p>
+<pre>
+  const conjunto1 = new Set();
+  conjunto1.add("C");
+  conjunto1.add("Pascal");
+  conjunto1.add("PHP");
+  conjunto1.add("Python");
+  const arreglo1 = Array.from(conjunto1);
+  console.log(arreglo1);        // ["C", "Pascal", "PHP", "Python"]
+  console.log(arreglo1.length); // 4
+</pre>
+<p>El método 'from' tiene opcionalmente un segundo parámetro al cual podemos pasar una función que reciba cada elemento del arreglo y retorne el dato a almacenar:</p>
+<pre>
+  const arreglo1 = [10, 20, 30];
+  const arreglo2 = Array.from(arreglo1, (elemento) => elemento * 2);
+  console.log(arreglo2); // [20, 40, 60]
+</pre>
+
+<h2>Método estático 'of'</h2>
+<p>El método estático 'of' retorna la referencia de un objeto de tipo Array a partir de una lista de valores que le pasamos a dicho método:</p>
+<pre>
+  const arreglo1 = Array.of(10, 20, 30, 40, 50, 60);
+  console.log(arreglo1); // [10, 20, 30, 40, 50, 60]
+</pre>
+
+<h2>Métodos 'keys', 'values' y 'entries'</h2>
+<p>El objeto Array implementan los métodos que permiten iterar sobre sus claves y valores, siendo sus claves sus indices y sus valores los datos almacenados en esos indices:</p>
+<pre>
+  const lenguajes = ["domingo", "lunes", "martes", "miércoles",
+                      "jueves", "viernes", "sábado"];
+  for (let indice of lenguajes.keys())
+    console.log(indice); // 0 1 2 3 4 5 6
+  for (let valor of lenguajes.values())
+    console.log(valor); // "domingo" "lunes" "martes" "miércoles" 
+                        // "jueves" "viernes" "sábado"
+  for (let componente of lenguajes.entries())
+    console.log(componente);  // [0, "domingo"] [1, "lunes"] [2, "martes"] 
+                              // [3, "miércoles"] [4, "jueves"] 
+                              // [5, "viernes"] [6, "sábado"] [7, "domingo"]
+  for (let [indice,valor] of lenguajes.entries())
+    console.log(indice,valor);
+</pre>
+
+<h2>Método 'fill'</h2>
+<p>El método 'fill' permite cambiar el contenido de todas o algunas componentes de un arreglo existente. En ningún caso permite redimensionarlo.</p>
+<pre>
+  const arreglo1 = [9, 9, 9, 9, 9, 9, 9];
+
+  // fijamos el valor 3 a todas las componentes del arreglo
+  arreglo1.fill(3);
+  console.log(arreglo1); // [3, 3, 3, 3, 3, 3, 3]
+
+  // fijamos el valor 5 a todas las componentes
+  arreglo1.fill(5);
+  console.log(arreglo1); // [5, 5, 5, 5, 5, 5, 5]
+
+  // fijamos el valor 0 desde la componente 3 del arreglo hasta el final
+  arreglo1.fill(0, 3);
+  console.log(arreglo1); // [3, 3, 3, 0, 0, 0, 0]  
+
+  // fijamos el valor 100 desde la componente 3 hasta la componente 5 sin incluirla
+  arreglo1.fill(100, 3, 5);
+  console.log(arreglo1); // [5, 5, 5, 100, 100, 5, 5]
+
+  // fijamos el valor 100 en las dos últimas componentes
+  arreglo1.fill(100, -2);
+  console.log(arreglo1); // [5, 5, 5, 5, 5, 100, 100]
+
+  // fijamos el valor 100 en la antepenúltima y penúltima posición
+  arreglo1.fill(100, -3, -1);
+  console.log(arreglo1); // [5, 5, 5, 5, 100, 100, 5]
+</pre>
+
+<h2>Método 'copyWithin'</h2>
+<p>El método 'copyWithin' permite copiar algunas componentes de un arreglo en otra parte del mismo arreglo. En ningún caso permite redimensionarlo.</p>
+<p>El método 'copyWithin' es muy eficiente cuando debemos copiar un bloque de un arreglo a otra parte dentro del mismo arreglo.</p>
+<pre>
+  let arreglo1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  // Copiar a partir de la posición cero del arreglo los elementos comprendidos entre las posiciones 5 y 8
+  arreglo1.copyWithin(0, 5, 8);
+  console.log(arreglo1); // [6, 7, 8, 4, 5, 6, 7, 8, 9]
+
+  arreglo1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  // Copiar a partir de la posición cero del arreglo los elementos comprendidos desde la posición 5 hasta el final
+  arreglo1.copyWithin(0, 5);
+  console.log(arreglo1); // [6, 7, 8, 9, 5, 6, 7, 8, 9]    
+
+  arreglo1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  // Copiar a partir de la posición cero los dos últimos elementos del arreglo
+  arreglo1.copyWithin(0, -2);
+  console.log(arreglo1); // [8, 9, 3, 4, 5, 6, 7, 8, 9]
+</pre>
+
+<h2>Búsquedas de valores e índices en un arreglo: indexOf, lastIndexOf e includes</h2>
+<p>Disponemos de una serie de métodos para recuperar el índice donde se encuentra un elemento en un arreglo. También mediante el método 'include' podemos identificar si un determinado valor está contenido en el Array. El siguiente ejemplo muestra distintas variantes de los métodos:</p>
+<pre>
+  let arreglo1 = [10, 20, 30, 40, 50, 60, 10, 20, 30];
+
+  // Indice donde se almacena el valor 30
+  console.log(arreglo1.indexOf(30)); // 2
+
+  // Indice donde se almacena un valor inexistente
+  console.log(arreglo1.indexOf(100)); // -1
+
+  // Indice donde se almacena el valor 20 buscándo desde el final
+  console.log(arreglo1.lastIndexOf(20)); // 7
+
+  // Indice donde se almacena el valor 10 comenzando la búsqueda en la posición 5
+  console.log(arreglo1.indexOf(10, 5)); // 6
+
+  // Existe el valor 50 en el arreglo?
+  console.log(arreglo1.includes(50)); // true
+
+  // Existe el valor 100 en el arreglo?
+  console.log(arreglo1.includes(100)); // false
+
+  // Existe el valor 100 en el arreglo a partir de la posición 2?
+  console.log(arreglo1.includes(100, 2)); //false
+</pre>
+
+<h2>Métodos 'find' y 'findIndex'</h2>
+<p>Estos dos métodos nos permiten enviar una función anónima donde definimos el algoritmo de la búsqueda:</p>
+<pre>
+  const personas = [
+      {
+        nombre: "pedro", edad: 34
+      },
+      {
+        nombre: "ana", edad: 54
+      },
+      {
+        nombre: "carlos", edad: 12
+      },
+      {
+        nombre: "maría", edad: 22
+      },
+      {
+        nombre: "oscar", edad: 72
+      }
+    ];
+
+    let per = personas.find((persona, indice) => persona.nombre == "maría");
+    if (per != undefined)
+      console.log(per);
+    else
+      console.log("No se encuentra maría en el vector de objetos");
+
+    let indice = personas.findIndex((persona, indice) => persona.nombre == "maría");
+    if (indice != -1)
+      console.log("Se encuentra en la posción "+indice+" del arreglo.");
+    else
+      console.log("No se encuentra maría en el vector de objetos");
+</pre>
+<p>El método find retorna el valor 'undefined' si no retorna true el algoritmo dispuesto en la función anónima. En el caso que se encuentra el valor buscado luego retorna el valor de la posición donde se lo ubicó.</p>
+<p>Finalmente el método findIndex si la función anónima retorna true luego el método retorna la posición donde se encontró el valor a buscar.</p>
+<p>Estamos utilizando funciones flecha, pero nada nos impide de utilizar la sintaxis de funciones anónimas tradicionales:</p>
+<pre>
+  let per = personas.find(function (persona, indice) { return persona.nombre == "maría" });
+  if (per != undefined)
+    console.log(per);
+  else
+    console.log("No se encuentra maría en el vector de objetos");
+  let indice = personas.findIndex(function (persona, indice) { return persona.nombre == "maría" });
+  if (indice != -1)
+    console.log("Se encuentra en la posción " + indice + " del arreglo.");
+  else
+    console.log("No se encuentra maría en el vector de objetos");
+</pre>
+
+<h2>Métodos every y some</h2>
+<p>Al método 'every' debemos pasar una función anónima que procesa cada elemento del arreglo. Si todos los elementos cumplen la condición impuesta dentro de la función, luego el método 'every' retorna true.
+  En cambio con el método 'some' con que un elemento cumpla la condición impuesta luego el método retorna true.</p>
+<pre>
+  const personas = [
+      {
+        nombre: "pedro", edad: 34
+      },
+      {
+        nombre: "ana", edad: 54
+      },
+      {
+        nombre: "carlos", edad: 12
+      },
+      {
+        nombre: "maría", edad: 22
+      },
+      {
+        nombre: "oscar", edad: 72
+      }
+    ];
+    // Todas las personas tienen una edad menor a 100?
+    console.log(personas.every((elemento, indice, arreglo) => elemento.edad < 100)); // true
+
+    // Todas las personas son mayor de edad?
+    console.log(personas.every((elemento, indice, arreglo) => elemento.edad >= 18)); // false
+
+    // Todas las personas tienen un nombre con 6 o menos caracteres?
+    console.log(personas.every((elemento, indice, arreglo) => elemento.nombre.length <= 6)); // true
+
+    // Alguna persona tiene 100 años de edad?
+    console.log(personas.some((elemento, indice, arreglo) => elemento.edad == 100)); // false
+
+    // Alguna persona es menor de edad?
+    console.log(personas.some((elemento, indice, arreglo) => elemento.edad <= 18)); // true
+</pre>
+
+<h2>Método filter</h2>
+<p>El método 'filter' retorna un arreglo con todos los elementos del arreglo original que cumplen una condición que definimos en la función anónima que le pasamos.
+  Tener en cuenta que la función anónima debe retornar true si queremos que el elemento se almacene en el arreglo generado.</p>
+<pre>
+  const personas = [
+    {
+      nombre: "pedro", edad: 34
+    },
+    {
+      nombre: "ana", edad: 54
+    },
+    {
+      nombre: "carlos", edad: 12
+    },
+    {
+      nombre: "maría", edad: 22
+    },
+    {
+      nombre: "oscar", edad: 72
+    }
+  ];
+
+  // Recuperar todas las personas mayores de edad
+  const personasmayores = personas.filter((elemento, indice, arreglo) => elemento.edad >= 18);
+  console.log(personasmayores); // [{nombre: "pedro",edad: 34},{nombre: "ana",edad: 54},
+                                //  {nombre: "maría",edad: 22},{nombre: "oscar",edad: 72}]
+</pre>
+
+<h2>Método map</h2>
+<p>El método 'map' similar al método 'filter' retorna un arreglo cuyos elementos resultan de las operaciones que se efectúan dentro de la función anónima que le pasamos como parámetro:</p>
+<pre>
+  const arreglo1 = [1, 2, 3, 4, 5];
+  for(let valor of arreglo1)
+    document.write(`${valor}`)
+
+  // Generar un nuevo arreglo con los elementos del arreglo1 elevalos al cuadrado
+  const arreglo2 = arreglo1.map((elemento, indice, arreglo) => elemento ** 2);
+  for(let valor of arreglo2)
+    document.write(`${valor}`)
+
+  // Generar un nuevo arreglo con los elementos del arreglo2 multiplicados por el indice
+  const arreglo3 = arreglo2.map((elemento, indice, arreglo) => elemento * indice);
+  for(let valor of arreglo3 )
+    document.write(`${valor}`)
+</pre>
+<p>El arreglo generado siempre es del mismo tamaño que el arreglo original.</p>
+
+<h2>Métodos reduce y reduceRight</h2>
+<p>El método <strong>'reduce'</strong> recibe como primer parámetro una función cuyo primer parámetro es un valor que se arrastra entre cada proceso de un elemento del arreglo, el segundo parámetro de reduce es el valor inicial con el que inicia el acumulador (si no pasamos el segundo parámetro se inicia con el primer elemento del arreglo):</p>
+<pre>
+  const arreglo1 = [1, 2, 73, 3, 4, 120, 5, 18];
+  // Acumular todos los elementos que tienen un solo dígito
+  const cantidad = arreglo1.reduce((acumulador, elemento, indice, arreglo) => {
+    if (elemento < 10)
+      acumulador += elemento;
+    return acumulador;
+  }, 0);
+  console.log(cantidad); // 15
+</pre>
+<p>El método <strong>'reduceRight'</strong> es simila a 'reduce' con la diferencia que visita cada elemento del arreglo partiendo del final.</p>
+<pre>
+  const arreglo1 = [1, 2, 73, 3, 4, 120, 5, 18];
+  // Generar un nuevo arreglo con los elementos invertidos
+  const arreglo2 = arreglo1.reduceRight((acumulador, elemento, indice, arreglo) => {
+    acumulador.push(elemento);
+    return acumulador;
+  }, []);
+  console.log(arreglo2); // [18, 5, 120, 4, 3, 73, 2, 1]
+</pre>
+
+
+
+
+
+</body>
+</html>
+
+

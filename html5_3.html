@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Formularios HTML5</title>  
+  <meta charset="UTF-8">
+  <style>
+    h1 {
+        text-transform: uppercase; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;text-align: center; font-size: 3rem;
+    }
+    h2 {
+        text-transform: uppercase; font-family: 'Courier New', Courier, monospace;text-align: left; color: forestgreen; font-variant: small-caps; text-shadow: blue;
+    }
+    body{
+      background-color:rgb(170, 248, 244);
+    }
+    form{
+      background-color:lemonchiffon;
+    }
+    p{
+      font-size: 1.4rem;
+    }
+</style>
+</head>
+<body>
+  <h1>nuevos elementos y propiedades para formularios en html5</h1>
+  <h2>autofocus</h2>
+  <p>Solicitar la carga del nombre de usuario, una clave y la edad. Hacer que cuando aparezca el formulario en pantalla automáticamente tome foco el control donde se debe ingresar la edad.</p>
+  <form action="#">
+      Usuario: <input type="text" id="usuario">
+      <br>
+      Clave: <input type="password" id="clave">
+      <br>
+      Edad: <input type="text" id="edad" autofocus>
+      <br><br>
+      <input type="submit" value="Confirmar">
+  </form>
+  
+  <hr>
+  <h2>placeholder</h2>
+  <p>Confeccionar un formulario que solicite la carga de la patente de un automóvil, tener en cuenta que toda patente esta formada por 2 letras, 3 números y finalmente 2 letras.</p>
+  <form action="#">
+    Patente:<input type="text" id="patente" placeholder="AB123CD" autofocus>
+    <br><br>
+    <input type="submit" value="Confirmar">
+</form>
+
+<hr>
+  <h2>required</h2>
+  <p>Confeccionar una página que solicite la carga del nombre de usuario y una clave. No permitir enviar los datos al servidor si alguno de los controles está vacío, emplear para esto la propiedad required.</p>
+  <form action="#">
+    Usuario:
+    <input type="text" id="usuario" required>
+    <br>
+    Clave:
+    <input type="password" id="clave" required>
+    <br>
+    <br>
+    <input type="submit">
+</form>
+
+  <hr>
+  <h2>pattern</h2>
+  <p>Confeccionar un formulario que nos solicite: <br>
+      -la carga obligatoria de un número binario de ocho dígitos. <br>
+      -Un número entero decimal que contenga 5 dígitos. <br>
+      -Un número entero decimal que contenga entre 1 y 5 dígitos. <br>
+      -La carga de una patente de un auto. Toda patente cuenta con tres caracteres seguido de tres números.<br>
+  </p>
+  <form action="#">
+    Ingrese un número binario de ocho dígitos:
+    <input type="text" id="numero" required pattern="[01]{8}">
+    <br>
+    Ingrese un número entero que contenga 5 dígitos:
+    <input type="text" id="numero" required pattern="[0-9]{5}">
+    <br>
+    Ingrese un número entero decimal que contenga entre 1 y 5 dígitos:
+    <input type="text" id="numero" required pattern="[0-9]{1,5}">
+    <br>
+    Ingrese su patente:
+    <input type="text" id="patente" required pattern="[A-Za-z]{3}[0-9]{3}">
+    <br><br> 
+    <input type="submit">
+</form>
+
+<hr>
+<h2>nuevos inputs</h2>
+<h3>input type="email"</h3>
+<h3>input type="range"</h3>
+<h3>input type="date"/"datetime-local"/"month"/"time","week"</h3>
+<h3>input type="color"</h3>
+<h3>input type="number"</h3>
+<h3>input type="url"</h3>
+<h3>input - datalist</h3>
+<p>Confeccionar un formulario para ingresar lo siguiente: <br>
+    -Ingresar por teclado un email verificando su correcta sintaxis.<br>
+    -Solicitar la carga de una temperatura entre 0 y 100, utilizar una barra de selección. Mostrar en un elemento span el valor seleccionado en el range.<br>
+    -Solicitar la carga de diferentes fechas con diferentes formatos de inputs.<br>
+    -Solicitar la selección de un color utilizando el control de tipo "color".<br>
+  -Ingresar por teclado un valor numérico comprendido entre 1 y 10.<br>
+    -Ingresar por teclado las direcciones de dos sitios web en forma obligatoria.<br>
+    -Desarrollar un formulario que solicite la carga del nombre de navegador que utiliza el visitante. Disponer un control de tipo text para el ingreso de dicho dato y mostrar mediante un datalist los navegadores más comunes.<br>
+</p>
+<form action="#">
+  Mail:
+  <input type="email" id="emailusuario" required><br>
+  Escoja una temperatura:
+  <input type="range" id="temperatura" min="0" max="100">
+      <span id="temp">0</span><br><br>
+  Ingrese fecha (date) en formato dd/mm/aaaa:
+  <input type="date" id="fecha1" name="fecha1"><br>
+  Ingrese fecha (datetime-local) con hora:
+  <input type="datetime-local" id="fecha2" name="fecha2"><br>
+  Ingrese fecha(month) en mes y año:
+  <input type="month" id="mes1" name="mes1"><br>
+  Ingrese hora (time):
+  <input type="time" id="hora" name="hora"><br>
+  Ingrese semana del año (week):
+  <input type="week" id="semana" name="semana"><br><br>
+  Escoje un color:
+  <input type="color" id="color1" name="color1" value="#ff0000"><br>
+  Ingrese un numero entre 1 y 10:
+  <input type="number" id="valor" name="valor" min="1" max="10"><br>
+  Ingrese la direccion web del sitio 1:
+  <input type="url" id="direccion1" name="direccion1" size="30" required><br>
+  Ingrese la direccion web del sitio 2:
+  <input type="url" id="direccion2" name="direccion2" size="30" required><br>
+  Ingrese el nombre de navegador que utiliza:
+  <input type="text" id="navegador" list="listanavegadores">
+    <datalist id="listanavegadores">
+      <option label="Chrome" value="Chrome">
+      <option label="Firefox" value="Firefox">
+      <option label="Internet Explorer" value="Internet Explorer">
+      <option label="Microsoft Edge" value="Microsoft Edge">
+      <option label="Safari" value="Safari">
+    </datalist>
+  <br><br>
+  <input type="submit" value="Confirmar">
+</form>
+
+<hr>
+<h2>FORM (novalidate)</h2>
+<p>Se usa para desactivar todas las validaciones que estan configuradas en el front, todo esto para que lo valide el back. Para desactivar las validaciones en el cliente solo tenemos que agregar la propiedad novalidate a la marca form.
+  Seguramente no encontraremos ningún sitio que tenga esta propiedad activa en un sitio en producción ya que solo tiene como objetivo permitir la depuración de datos en el servidor cuando recibe datos no validados.</p>
+<p> <strong>Problema: </strong> Confeccionar una página que solicite la carga del nombre de usuario y una clave. No permitir enviar los datos al servidor si alguno de los controles está vacío, emplear para esto la propiedad required. Agregar la propiedad novalidate y comprobar que la información se envía al servidor independientemente que carguemos o no datos en los controles input.</p>
+<form action="#" novalidate>
+  Usuario:
+  <input type="text" id="usuario" required>
+  <br>
+  Clave:
+  <input type="password" id="clave" required>
+  <br>
+  <br>
+  <input type="submit">
+</form>
+</body>
+</html>
+
+<script>
+  addEventListener('load',inicio,false);
+
+  function inicio()
+  {
+    document.getElementById('temperatura').addEventListener('change',cambioTemperatura,false);
+  }
+
+  function cambioTemperatura()
+  {    
+    document.getElementById('temp').innerHTML=document.getElementById('temperatura').value;
+  }
+</script>

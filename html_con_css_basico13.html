@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Problema</title>
+  <meta charset="UTF-8">
+  <link rel="StyleSheet" href="css_basico13.css" type="text/css">
+</head>
+<body>
+    <h1 class="titulo">introduccion a flexbox</h1>
+    <p class="contenido">
+        Flexbox nos facilita la maquetación del sitio web y todos sus componentes. También facilita la adaptación de la página a distintos tamaños de pantalla
+        Un Flexbox o caja flexible consiste en un elemento contenedor y en su interior una serie de items:
+        Para definir un elemento como contenedor de cajas flexibles debemos definir la propiedad display con el valor "flex", con esto ya tenemos un caja flexible.</p>
+  <div id="contenedor1">
+    <div>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</div>
+    <div>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."</div>
+    <div>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</div>
+  </div>
+
+  <br><hr>
+  <h2 class="subtitulo">Flexbox - (flex-direction aplicada al contenedor)</h2>
+  <p class="contenido">
+    La primera propiedad que podemos configurar cuando implementamos una caja flexible se llama flex-direction. Por defecto esta propiedad se inicializa con el valor "row".
+    Los valores que podemos asignarle a la propiedad "flex-direction" son:</p>
+    <pre>
+        - row
+        - column
+        - row-reverse
+        - column-reverse
+    </pre>
+    <p class="contenido">
+    Cuando la propiedad flow-direction almacena el valor "row" los items se ubican uno al lado del otro es decir en forma horizontal y se respetan el orden de los items (valor por defecto):
+    <br>
+    Si almacenamos el valor "column" en la propiedad flex-direction luego los item se disponen uno debajo del otro:
+    <br>
+    Tenemos la posibilidad que los items se muestren al revés, es decir el último sea primero, el ante anteúltimo sea segundo y así sucesivamente:
+    <br>
+    Si queremos que la caja flexible sea vertical es necesario asignar a la propiedad flex-direction el valor "column". Cuando es horizontal no es necesario asignar el valor "row" ya que es el valor por defecto que se inicia la propiedad.
+    </p>
+    <div id="contenedor2">
+        <div id="item1">Caja 1Caja 1Caja 1Caja 1Caja 1Caja 1Caja 1Caja 1Caja 1Caja 1Caja 1Caja 1Caja 1Caja 1Caja 1Caja 1Caja 1Caja 1Caja 1Caja 1</div>
+        <div id="item2">Caja 2</div>
+        <div id="item3">Caja 3</div>
+    </div>
+
+    <br><hr>
+    <h2 class="subtitulo">Flexbox - (justify-content aplicada al contenedor)</h2>
+    <p class="contenido">La segunda propiedad que podemos cambiar a un contenedor de cajas flexibles se llama justify-content.
+        La propiedad justify-content controla como se distribuyen los items a lo largo del contenedor.        
+        Por defecto la propiedad justify-content almacena el valor "flex-start".        
+        Los valores que podemos asignarle a la propiedad "justify-content" son:</p>
+        <pre>
+            - flex-start
+            - flex-end
+            - center
+            - space-between
+            - space-around
+            <br>
+            <strong>flex-start:</strong>  los item aparecen pegados al inicio del contenedor.
+            <strong>flex-end:</strong>  aparecen pegados al final.
+            <strong>center:</strong>  se agrupan todos en el centro.
+            <strong>space-between:</strong>  se distribuyen los items ocupando todo el espacio disponible, con espacios iguales entre ellos,
+               pero sin dejar espacio al inicio y al final.
+            <strong>space-around:</strong>   se distribuyen los items ocupando todo el espacio disponible, con espacios iguales entre ellos, 
+               pero dejando espacio al inicio y al final.
+        </pre>
+        <div id="contenedor3">
+            <div id="item1">Caja 1</div>
+            <div id="item2">Caja 2</div>
+            <div id="item3">Caja 3</div>
+          </div>
+
+    <br><hr>
+    <h2 class="subtitulo">Flexbox - (align-items aplicada al contenedor)</h2>
+    <p class="contenido">La tercer propiedad que afecta al contenedor se llama "align-items". Es similar a la propiedad que vimos anteriormente "justify-content", pero la alineación es con respecto al eje transversal.
+        El valor por defecto que almacena la propiedad "align-items" es "stretch" (stretch significa estirar, es decir el item ocupa en el eje secundario todo el espacio posible que permite el contenedor)
+        Los valores que podemos asignarle a la propiedad "align-items" son:</p>
+    <pre>
+        <strong>- stretch: </strong>Los items ocupan toda la altura o anchura dependiendo del valor de la propiedad "flex-direction". <br>
+        <strong>- flex-start: </strong>Los items se ubican en la parte superior o izquierda del contenedor dependiendo del valor de la propiedad "flex-direction". <br>
+        <strong>- flex-end: </strong>Los items se ubican en la parte inferior o derecha del contenedor dependiendo del valor de la propiedad "flex-direction". <br>
+        <strong>- center: </strong>Los item aparecen centrados con respecto al eje transversal. <br>
+        <strong>- baseline: </strong>Los item se alinean respecto al eje transversal del contenedor teniendo en cuenta las líneas base de cada item, esta se define en base a los texto de los ítems. <br> 
+    </pre>
+    <div id="contenedor4">
+        <div id="hola_mundo">Hola Mundo</div>
+      </div>
+
+      <br><hr>
+      <h2 class="subtitulo">Flexbox - (flex-wrap aplicada al contenedor)</h2>
+      <p class="contenido">El valor por defecto que almacena la propiedad "flex-wrap" es "nowrap". Esto hace que todos los items se ubiquen siempre en el eje principal y en una misma línea independientemente a la cantidad de items que dispongamos.
+        Podemos hacer que el contenedor muestre items en varias líneas cuando no entran en una fila disponiendo en la propiedad "flex-wrap" el valor "wrap".
+        La propiedad "flex-wrap" puede almacenar alguno de estos tres valores:</p>
+      <pre>
+          <strong>- nowrap</strong><br>
+          <strong>- wrap</strong><br>
+          <strong>- wrap-reverse</strong><br>          
+      </pre>
+      <div id="contenedor5">
+        <div class="item">Caja 1</div>
+        <div class="item">Caja 2</div>
+        <div class="item">Caja 3</div>
+        <div class="item">Caja 4</div>
+        <div class="item">Caja 5</div>
+        <div class="item">Caja 6</div>
+        <div class="item">Caja 7</div>             
+      </div>
+
+
+      <br><hr>
+      <h2 class="subtitulo">Flexbox - (align-content aplicada al contenedor)</h2>
+      <p class="contenido">La propiedad "align-content" solo es aplicable cuando disponemos un Flexbox con varias líneas (es decir que hemos cargado el valor "wrap" en la propiedad "flex-wrap")
+        Por defecto la propiedad "align-content" almacena el valor "stretch". Los valores posibles de la propiedad "align-content" son:
+      </p>
+      <pre>
+          <strong>- stretch</strong><br>
+          <strong>- flex-start</strong><br>
+          <strong>- flex-end</strong><br>          
+          <strong>- center</strong><br>
+          <strong>- space-between</strong><br>
+          <strong>- space-around</strong><br>     
+      </pre>
+      <div id="contenedor6">
+        <div class="item">Caja 1</div>
+        <div class="item">Caja 2</div>
+        <div class="item">Caja 3</div>
+        <div class="item">Caja 4</div>
+        <div class="item">Caja 5</div>
+        <div class="item">Caja 6</div>
+        <div class="item">Caja 7</div>             
+      </div>
+
+      <br><hr>
+      <h2 class="subtitulo">Flexbox - (flex-flow aplicada al contenedor)</h2>
+      <p class="contenido">La propiedad flex-flow es el formato resumido para inicializar las propiedades "flex-direction" y "flex-wrap".
+        La sintaxis para definir esta propiedad es:
+      </p>
+      <pre>
+          <strong>flex-flow: "valor del flex-direction" "valor del flex-wrap"</strong><br>
+      </pre>
+      <div id="contenedor7">
+        <div class="item">Caja 1</div>
+        <div class="item">Caja 2</div>
+        <div class="item">Caja 3</div>
+        <div class="item">Caja 4</div>
+        <div class="item">Caja 5</div>
+        <div class="item">Caja 6</div>
+        <div class="item">Caja 7</div>             
+      </div>
+
+      <br><hr>
+      <h2 class="subtitulo">Flexbox - (flex-grow aplicada a los items)</h2>
+      <p class="contenido">La propiedad flex-grow es la primera que veremos que se aplica a los elementos que están dentro del contenedor, es decir a los items.
+        Esta propiedad almacena un valor entero y controla que tanto crecerá el item rellenando el espacio no utilizado por los otros items.        
+        El valor por defecto de la propiedad flex-grow es cero (no tiene una unidad de medida ya que indica un factor de crecimiento)        
+        Veamos un ejemplo para entender esta propiedad. Si tenemos tres items probemos de definir el factor de crecimiento con el valor 1 para el primer item y dejemos con cero los otros dos flex-grox:
+      </p>
+      <div id="contenedor8">
+        <div id="item11">Caja 1</div>
+        <div id="item22">Caja 2</div>
+        <div id="item33">Caja 3</div>
+      </div>
+
+      <br><hr>
+      <h2 class="subtitulo">Flexbox - (flex-shrink aplicada a los items)</h2>
+      <p class="contenido">La segunda propiedad aplicada a los items de una caja flexible se llama "flex-shrink" y almacena un valor entero no negativo. Este valor representa un factor de encogimiento o contracción del item.
+        Cuando no hay más espacio para repartir en el Flexbox los items comienzan a contraerse para entrar en el contenedor. El valor por defecto almacenando en la propiedad "flex-shrink" es el 1, esto quiere decir que cuando empezamos a reducir el ancho del contenedor los items se encogen en forma proporcional.
+        Si queremos que uno o más items no se encojan debemos asignarle a la propiedad "flex-shrink" el valor cero.
+      </p>
+      <div id="contenedor9">
+        <div id="item111">Caja 1<br>Esto es una prueba de la propiedad flex-shrink</div>
+        <div id="item222">Caja 2<br>Esto es una prueba de la propiedad flex-shrink</div>
+        <div id="item333">Caja 3<br>Esto es una prueba de la propiedad flex-shrink</div>
+      </div>
+
+      <br><hr>
+      <h2 class="subtitulo">Flexbox - (flex-basis aplicada a los items)</h2>
+      <p class="contenido">La propiedad flex-basis define el ancho con respecto al eje principal (si el contenedor es horizontal luego flex-basic representa el width, en cambio si el contenedor está en forma vertical la propiedad flex-basis representa el height)
+        El tamaño base que definimos en la propiedad flex-basis puede no llegar a cumplirse dependiendo de las otras propiedades vistas que se aplican a los items. Esta propiedad es fundamental para definir los tamaños de los items. Podemos emplear las diferentes unidades de medida que conocemos píxeles, rem, em, % etc.
+        El valor por defecto que almacena la propiedad "flex-basis" es "auto", es decir que se calcula su medida en forma automática.
+      </p>
+      <div id="contenedor10">
+        <div id="item1111">Caja 1</div>
+        <div id="item2222">Caja 2</div>
+        <div id="item3333">Caja 3</div>
+      </div>
+
+      <br><hr>
+      <h2 class="subtitulo">Flexbox - (flex aplicada a los items)</h2>
+      <p class="contenido">La propiedad flex es el formato resumido de las propiedades "flex-grow", "flex-shrink" y "flex-basis". El orden de valores en caso que indiquemos los tres debe ser: <br>
+          <strong> flex: valor del flex-grow  valor del flex-shrink  valor del flex-basis;</strong> <br>
+            Ejemplos: <br>        
+          <strong> flex: 1 0 60%;</strong><br>
+        Estamos cargando un 1 en la propiedad flex-grow, un 0 en la propiedad flex-shrink y un 60% en flex-basis. <br>
+        Hay posibilidades de inicializar la propiedad flex con menos de tres valores y que los otros queden con valores por defecto:
+        <br>
+        <strong>flex: 1 2;   /* flex-basis queda con su valor por defecto */</strong><br>
+        <strong>flex: 1 20%; /* flex-shrink queda con su valor por defecto */</strong><br>
+        <strong>flex: none;  /* se almacenan los valores 0 0 auto*/</strong><br>
+        <strong>flex: auto; /* Especificamos los valores por defecto de cada propiedad */</strong><br>
+      </p>
+      <div id="contenedor11">
+        <div id="item11111">Caja 1</div>
+        <div id="item22222">Caja 2</div>
+        <div id="item33333">Caja 3</div>
+      </div>
+
+      <br><hr>
+      <h2 class="subtitulo">Flexbox - (order aplicada a los items)</h2>
+      <p class="contenido">La propiedad "order" de los items nos permiten indicar en que orden deben aparecer los items en el contenedor.
+        Por defecto la propiedad "order" almacena el valor 0. Los items aparecen dentro del contenedor en el mismo orden que los escribimos en el archivo html.
+        Podemos cambiar el flujo de los items dentro del contenedor indicando en la propiedad order valores enteros a partir de 0. <br><br>
+        Problema: Definir un Flexbox con tres items. Mediante la propiedad "order" cambiar hacer que aparezcan en forma inversa a como se los dispuso en el archivo HTML.
+      </p>
+      <div id="contenedor12">
+        <div id="item111111">Caja 1</div>
+        <div id="item222222">Caja 2</div>
+        <div id="item333333">Caja 3</div>
+      </div>
+
+      <br><hr>
+      <h2 class="subtitulo">Flexbox - (align-self aplicada a los items)</h2>
+      <p class="contenido">La propiedad align-self de un item nos permite especificar la alineación dentro del contenedor flexible respecto al eje transversal.
+        La propiedad "align-self" almacena por defecto el valor "auto". Los valores que podemos asignarle a la propiedad "align-self" son:
+        <strong><pre>
+            - auto
+            - flex-start
+            - flex-end
+            - center
+            - stretch
+            - baseline
+        </pre></strong><br>
+        Problema: Definir un Flexbox con 6 items. Especificar un valor distinto para cada uno de los items en la propiedad "align-self".
+      </p>
+      <div id="contenedor13">
+        <div id="item1111111">Caja 1</div>
+        <div id="item2222222">Caja 2</div>
+        <div id="item3333333">Caja 3</div>
+        <div id="item4444444">Caja 4</div>
+        <div id="item5555555">Caja 5</div>
+        <div id="item6666666">Caja 6</div>
+        <div id="item1111111">Caja 7</div>
+        <div id="item2222222">Caja 8</div>
+        <div id="item3333333">Caja 9</div>
+        <div id="item4444444">Caja 10</div>
+        <div id="item5555555">Caja 11</div>
+        <div id="item6666666">Caja 12</div>
+      </div>
+</body>
+</html>
